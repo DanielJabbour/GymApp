@@ -7,9 +7,15 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

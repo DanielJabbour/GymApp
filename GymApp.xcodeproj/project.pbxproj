@@ -13,6 +13,8 @@
 		2528284420B0982800101FC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2528284320B0982800101FC3 /* Assets.xcassets */; };
 		2528284720B0982800101FC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2528284520B0982800101FC3 /* LaunchScreen.storyboard */; };
 		2528284F20B09A0B00101FC3 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528284E20B09A0B00101FC3 /* WelcomePageViewController.swift */; };
+		25FEDFB220B0E6450028B0BF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEDFB120B0E6450028B0BF /* SignUpViewController.swift */; };
+		25FEDFB420B0EF9F0028B0BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25FEDFB320B0EF9F0028B0BF /* GoogleService-Info.plist */; };
 		52C8953FF5938C17C2AF834F /* Pods_GymApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEE227AC49F44F162F4149E /* Pods_GymApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +27,8 @@
 		2528284620B0982800101FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2528284820B0982800101FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2528284E20B09A0B00101FC3 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
+		25FEDFB120B0E6450028B0BF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		25FEDFB320B0EF9F0028B0BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2FEE227AC49F44F162F4149E /* Pods_GymApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GymApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E0A11F98B10F1B62016482B /* Pods-GymApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GymApp/Pods-GymApp.release.xcconfig"; sourceTree = "<group>"; };
 		A4665AC318BDB4EB123EF813 /* Pods-GymApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GymApp/Pods-GymApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -71,10 +75,12 @@
 		2528283B20B0982600101FC3 /* GymApp */ = {
 			isa = PBXGroup;
 			children = (
+				25FEDFB320B0EF9F0028B0BF /* GoogleService-Info.plist */,
 				2528283C20B0982600101FC3 /* AppDelegate.swift */,
 				2528283E20B0982600101FC3 /* ViewController.swift */,
 				2528284E20B09A0B00101FC3 /* WelcomePageViewController.swift */,
 				2528284020B0982700101FC3 /* Main.storyboard */,
+				25FEDFB120B0E6450028B0BF /* SignUpViewController.swift */,
 				2528284320B0982800101FC3 /* Assets.xcassets */,
 				2528284520B0982800101FC3 /* LaunchScreen.storyboard */,
 				2528284820B0982800101FC3 /* Info.plist */,
@@ -152,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2528284720B0982800101FC3 /* LaunchScreen.storyboard in Resources */,
+				25FEDFB420B0EF9F0028B0BF /* GoogleService-Info.plist in Resources */,
 				2528284420B0982800101FC3 /* Assets.xcassets in Resources */,
 				2528284220B0982700101FC3 /* Main.storyboard in Resources */,
 			);
@@ -209,6 +216,7 @@
 			files = (
 				2528283F20B0982700101FC3 /* ViewController.swift in Sources */,
 				2528284F20B09A0B00101FC3 /* WelcomePageViewController.swift in Sources */,
+				25FEDFB220B0E6450028B0BF /* SignUpViewController.swift in Sources */,
 				2528283D20B0982600101FC3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
