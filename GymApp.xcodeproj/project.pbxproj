@@ -20,6 +20,7 @@
 		25FEDFC920B1279E0028B0BF /* foodIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FEDFC820B1279E0028B0BF /* foodIcon.png */; };
 		25FEDFCB20B127CD0028B0BF /* dataIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FEDFCA20B127CD0028B0BF /* dataIcon.png */; };
 		25FEDFCD20B128BB0028B0BF /* gymIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FEDFCC20B128BB0028B0BF /* gymIcon.png */; };
+		25FEDFD120B12D7F0028B0BF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEDFD020B12D7F0028B0BF /* SettingsViewController.swift */; };
 		52C8953FF5938C17C2AF834F /* Pods_GymApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEE227AC49F44F162F4149E /* Pods_GymApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		25FEDFC820B1279E0028B0BF /* foodIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodIcon.png; sourceTree = "<group>"; };
 		25FEDFCA20B127CD0028B0BF /* dataIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dataIcon.png; sourceTree = "<group>"; };
 		25FEDFCC20B128BB0028B0BF /* gymIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gymIcon.png; sourceTree = "<group>"; };
+		25FEDFD020B12D7F0028B0BF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2FEE227AC49F44F162F4149E /* Pods_GymApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GymApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E0A11F98B10F1B62016482B /* Pods-GymApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GymApp/Pods-GymApp.release.xcconfig"; sourceTree = "<group>"; };
 		A4665AC318BDB4EB123EF813 /* Pods-GymApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GymApp/Pods-GymApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +69,8 @@
 		2528283020B0982600101FC3 = {
 			isa = PBXGroup;
 			children = (
+				25FEDFCF20B12AF80028B0BF /* MainScreens */,
+				25FEDFCE20B12A270028B0BF /* LoginScreens */,
 				25FEDFB920B1224E0028B0BF /* Images */,
 				2528283B20B0982600101FC3 /* GymApp */,
 				2528283A20B0982600101FC3 /* Products */,
@@ -88,10 +92,7 @@
 			children = (
 				25FEDFB320B0EF9F0028B0BF /* GoogleService-Info.plist */,
 				2528283C20B0982600101FC3 /* AppDelegate.swift */,
-				2528283E20B0982600101FC3 /* ViewController.swift */,
-				2528284E20B09A0B00101FC3 /* WelcomePageViewController.swift */,
 				2528284020B0982700101FC3 /* Main.storyboard */,
-				25FEDFB120B0E6450028B0BF /* SignUpViewController.swift */,
 				2528284320B0982800101FC3 /* Assets.xcassets */,
 				2528284520B0982800101FC3 /* LaunchScreen.storyboard */,
 				2528284820B0982800101FC3 /* Info.plist */,
@@ -109,6 +110,24 @@
 				25FEDFC220B126A60028B0BF /* settingsIcon.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		25FEDFCE20B12A270028B0BF /* LoginScreens */ = {
+			isa = PBXGroup;
+			children = (
+				2528283E20B0982600101FC3 /* ViewController.swift */,
+				25FEDFB120B0E6450028B0BF /* SignUpViewController.swift */,
+			);
+			path = LoginScreens;
+			sourceTree = "<group>";
+		};
+		25FEDFCF20B12AF80028B0BF /* MainScreens */ = {
+			isa = PBXGroup;
+			children = (
+				2528284E20B09A0B00101FC3 /* WelcomePageViewController.swift */,
+				25FEDFD020B12D7F0028B0BF /* SettingsViewController.swift */,
+			);
+			path = MainScreens;
 			sourceTree = "<group>";
 		};
 		B7006AAB3646FF185FCBCC67 /* Pods */ = {
@@ -245,6 +264,7 @@
 				2528283F20B0982700101FC3 /* ViewController.swift in Sources */,
 				2528284F20B09A0B00101FC3 /* WelcomePageViewController.swift in Sources */,
 				25FEDFB220B0E6450028B0BF /* SignUpViewController.swift in Sources */,
+				25FEDFD120B12D7F0028B0BF /* SettingsViewController.swift in Sources */,
 				2528283D20B0982600101FC3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
