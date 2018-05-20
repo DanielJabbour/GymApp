@@ -8,5 +8,6 @@ target 'GymApp' do
   # Pods for GymApp
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 
 end
