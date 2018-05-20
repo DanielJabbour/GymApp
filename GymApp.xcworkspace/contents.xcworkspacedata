@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/DanielJabbour/Desktop/Projects/GymApp/GymApp/MainScreens/GymViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:GymApp.xcodeproj">
    </FileRef>
    <FileRef

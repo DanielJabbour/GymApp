@@ -133,52 +133,45 @@
             </objects>
             <point key="canvasLocation" x="228" y="772.26386806596713"/>
         </scene>
-        <!--Gym View Controller-->
-        <scene sceneID="VBa-oS-XN1">
+        <!--Table View Controller-->
+        <scene sceneID="hAO-xH-9Cd">
             <objects>
-                <viewController storyboardIdentifier="Gym" id="rV0-D5-wPl" customClass="GymViewController" customModule="GymApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ehy-bx-efO">
+                <tableViewController id="FfT-kb-vv3" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fQQ-b3-H3C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xzd-JA-sT5">
-                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Home" image="homeIcon.png" id="kgO-kW-tik">
-                                        <connections>
-                                            <segue destination="8iH-X3-j2e" kind="show" id="0Y5-cd-zOT"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rZQ-Bo-WTb"/>
-                                    <barButtonItem title="Gym" image="gymIcon.png" id="52A-2O-Mxz"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="JBf-ge-JDY"/>
-                                    <barButtonItem title="Food" image="foodIcon.png" id="Pqq-ro-ENV"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="RHT-B5-5Nv"/>
-                                    <barButtonItem title="Data" image="dataIcon.png" id="bbh-pk-8j1"/>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Cqw-be-cLR"/>
-                                    <barButtonItem title="Settings" image="settingsIcon.png" id="QLc-Ac-JOz">
-                                        <connections>
-                                            <segue destination="26E-AM-RhK" kind="show" id="exL-ZW-VAb"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gym" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQX-n6-ew5">
-                                <rect key="frame" x="166" y="67" width="36" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Erb-9w-UOu"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4ef-zC-psG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="vGx-V1-1fo" customClass="WorkoutCellTableViewCell" customModule="GymApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vGx-V1-1fo" id="wI6-hp-y6L">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jc2-ec-SaE">
+                                            <rect key="frame" x="16" y="34" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="titleLabel" destination="Jc2-ec-SaE" id="4z1-d9-s6N"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FfT-kb-vv3" id="PRm-5E-tg3"/>
+                            <outlet property="delegate" destination="FfT-kb-vv3" id="r57-3v-fRb"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Day-Rt-cbq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1062" y="772"/>
+            <point key="canvasLocation" x="1061" y="776"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="fa7-Nk-o8b">
@@ -205,11 +198,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="78K-L6-fUW"/>
-                                    <barButtonItem title="Gym" image="gymIcon.png" id="gvP-sy-Bp6">
-                                        <connections>
-                                            <segue destination="rV0-D5-wPl" kind="show" id="2Ho-4Z-QTn"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="Gym" image="gymIcon.png" id="gvP-sy-Bp6"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xRX-1n-zId"/>
                                     <barButtonItem title="Food" image="foodIcon.png" id="HQW-4g-sfz"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="icF-vK-OUR"/>
@@ -235,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSS-wd-KxR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2641" y="772"/>
+            <point key="canvasLocation" x="4519.1999999999998" y="771.36431784107947"/>
         </scene>
         <!--Welcome Page View Controller-->
         <scene sceneID="l1K-hP-eHs">
@@ -258,11 +247,7 @@
                                 <items>
                                     <barButtonItem title="Home" image="homeIcon.png" width="42" id="qwa-xu-qJa"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="67w-VN-04D"/>
-                                    <barButtonItem title="Gym" image="gymIcon.png" id="r6e-5q-gvn">
-                                        <connections>
-                                            <segue destination="rV0-D5-wPl" kind="show" id="q6p-W7-izR"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="Gym" image="gymIcon.png" id="r6e-5q-gvn"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bWM-7P-Uax"/>
                                     <barButtonItem title="Food" image="foodIcon.png" id="dgw-Yj-ShP"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="kmG-7O-8Bd"/>
@@ -293,9 +278,7 @@
         <image name="settingsIcon.png" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0Y5-cd-zOT"/>
-        <segue reference="exL-ZW-VAb"/>
-        <segue reference="2Ho-4Z-QTn"/>
+        <segue reference="Uhb-Tv-mQC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
