@@ -15,6 +15,11 @@
 		2528284F20B09A0B00101FC3 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528284E20B09A0B00101FC3 /* WelcomePageViewController.swift */; };
 		25FEDFB220B0E6450028B0BF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEDFB120B0E6450028B0BF /* SignUpViewController.swift */; };
 		25FEDFB420B0EF9F0028B0BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25FEDFB320B0EF9F0028B0BF /* GoogleService-Info.plist */; };
+		25FEDFC320B126A60028B0BF /* settingsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FEDFC220B126A60028B0BF /* settingsIcon.png */; };
+		25FEDFC720B1273C0028B0BF /* homeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FEDFC620B1273C0028B0BF /* homeIcon.png */; };
+		25FEDFC920B1279E0028B0BF /* foodIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FEDFC820B1279E0028B0BF /* foodIcon.png */; };
+		25FEDFCB20B127CD0028B0BF /* dataIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FEDFCA20B127CD0028B0BF /* dataIcon.png */; };
+		25FEDFCD20B128BB0028B0BF /* gymIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FEDFCC20B128BB0028B0BF /* gymIcon.png */; };
 		52C8953FF5938C17C2AF834F /* Pods_GymApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEE227AC49F44F162F4149E /* Pods_GymApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +34,11 @@
 		2528284E20B09A0B00101FC3 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
 		25FEDFB120B0E6450028B0BF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		25FEDFB320B0EF9F0028B0BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		25FEDFC220B126A60028B0BF /* settingsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsIcon.png; sourceTree = "<group>"; };
+		25FEDFC620B1273C0028B0BF /* homeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeIcon.png; sourceTree = "<group>"; };
+		25FEDFC820B1279E0028B0BF /* foodIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodIcon.png; sourceTree = "<group>"; };
+		25FEDFCA20B127CD0028B0BF /* dataIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dataIcon.png; sourceTree = "<group>"; };
+		25FEDFCC20B128BB0028B0BF /* gymIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gymIcon.png; sourceTree = "<group>"; };
 		2FEE227AC49F44F162F4149E /* Pods_GymApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GymApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E0A11F98B10F1B62016482B /* Pods-GymApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GymApp/Pods-GymApp.release.xcconfig"; sourceTree = "<group>"; };
 		A4665AC318BDB4EB123EF813 /* Pods-GymApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GymApp/Pods-GymApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -57,6 +67,7 @@
 		2528283020B0982600101FC3 = {
 			isa = PBXGroup;
 			children = (
+				25FEDFB920B1224E0028B0BF /* Images */,
 				2528283B20B0982600101FC3 /* GymApp */,
 				2528283A20B0982600101FC3 /* Products */,
 				B7006AAB3646FF185FCBCC67 /* Pods */,
@@ -86,6 +97,18 @@
 				2528284820B0982800101FC3 /* Info.plist */,
 			);
 			path = GymApp;
+			sourceTree = "<group>";
+		};
+		25FEDFB920B1224E0028B0BF /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				25FEDFC620B1273C0028B0BF /* homeIcon.png */,
+				25FEDFC820B1279E0028B0BF /* foodIcon.png */,
+				25FEDFCC20B128BB0028B0BF /* gymIcon.png */,
+				25FEDFCA20B127CD0028B0BF /* dataIcon.png */,
+				25FEDFC220B126A60028B0BF /* settingsIcon.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		B7006AAB3646FF185FCBCC67 /* Pods */ = {
@@ -158,9 +181,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2528284720B0982800101FC3 /* LaunchScreen.storyboard in Resources */,
+				25FEDFC320B126A60028B0BF /* settingsIcon.png in Resources */,
+				25FEDFCB20B127CD0028B0BF /* dataIcon.png in Resources */,
+				25FEDFC920B1279E0028B0BF /* foodIcon.png in Resources */,
 				25FEDFB420B0EF9F0028B0BF /* GoogleService-Info.plist in Resources */,
 				2528284420B0982800101FC3 /* Assets.xcassets in Resources */,
+				25FEDFCD20B128BB0028B0BF /* gymIcon.png in Resources */,
 				2528284220B0982700101FC3 /* Main.storyboard in Resources */,
+				25FEDFC720B1273C0028B0BF /* homeIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

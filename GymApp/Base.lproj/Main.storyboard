@@ -18,14 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6m-0x-Elm">
-                                <rect key="frame" x="168" y="265" width="38" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="geU-tO-dZt"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HNl-RK-CU9">
                                 <rect key="frame" x="100" y="160" width="175" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -53,6 +45,14 @@
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <segue destination="nI2-GK-nSd" kind="show" id="CwQ-rb-VDm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6m-0x-Elm">
+                                <rect key="frame" x="168" y="280" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="geU-tO-dZt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -127,13 +127,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Main" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwe-o5-tE2">
-                                <rect key="frame" x="166" y="51" width="37" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Home Screen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwe-o5-tE2">
+                                <rect key="frame" x="135" y="48" width="104" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gUq-1e-t4Y">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Home" image="homeIcon.png" width="42" id="qwa-xu-qJa"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="67w-VN-04D"/>
+                                    <barButtonItem title="Gym" image="gymIcon.png" id="r6e-5q-gvn"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="bWM-7P-Uax"/>
+                                    <barButtonItem title="Food" image="foodIcon.png" id="dgw-Yj-ShP"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="kmG-7O-8Bd"/>
+                                    <barButtonItem title="Data" image="dataIcon.png" id="cd0-ur-3WA"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2i5-OL-UqJ"/>
+                                    <barButtonItem title="Settings" image="settingsIcon.png" id="pdy-UR-VJh"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kVo-kc-PUW"/>
@@ -144,4 +159,12 @@
             <point key="canvasLocation" x="1063" y="34"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dataIcon.png" width="36" height="36"/>
+        <image name="foodIcon.png" width="36" height="36"/>
+        <image name="gymIcon.png" width="36" height="36"/>
+        <image name="homeIcon.png" width="36" height="36"/>
+        <image name="settingsIcon.png" width="36" height="36"/>
+    </resources>
+    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
