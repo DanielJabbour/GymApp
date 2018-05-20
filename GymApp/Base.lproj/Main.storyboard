@@ -81,29 +81,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iY8-Nj-P0q">
-                                <rect key="frame" x="58" y="123" width="260" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zjM-2u-PzZ">
-                                <rect key="frame" x="58" y="186" width="260" height="30"/>
+                                <rect key="frame" x="58" y="251" width="260" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OFf-r7-sSG">
-                                <rect key="frame" x="58" y="247" width="260" height="30"/>
+                                <rect key="frame" x="58" y="318" width="260" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l82-B0-JgE">
-                                <rect key="frame" x="160" y="318" width="55" height="30"/>
+                                <rect key="frame" x="160" y="385" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -119,6 +112,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iY8-Nj-P0q">
+                                <rect key="frame" x="58" y="183" width="260" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="pGS-TG-6TC"/>
@@ -132,6 +132,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLh-IH-sgj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="228" y="772.26386806596713"/>
+        </scene>
+        <!--Gym View Controller-->
+        <scene sceneID="VBa-oS-XN1">
+            <objects>
+                <viewController storyboardIdentifier="Gym" id="rV0-D5-wPl" customClass="GymViewController" customModule="GymApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ehy-bx-efO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xzd-JA-sT5">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Home" image="homeIcon.png" id="kgO-kW-tik">
+                                        <connections>
+                                            <segue destination="8iH-X3-j2e" kind="show" id="0Y5-cd-zOT"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rZQ-Bo-WTb"/>
+                                    <barButtonItem title="Gym" image="gymIcon.png" id="52A-2O-Mxz"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="JBf-ge-JDY"/>
+                                    <barButtonItem title="Food" image="foodIcon.png" id="Pqq-ro-ENV"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="RHT-B5-5Nv"/>
+                                    <barButtonItem title="Data" image="dataIcon.png" id="bbh-pk-8j1"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Cqw-be-cLR"/>
+                                    <barButtonItem title="Settings" image="settingsIcon.png" id="QLc-Ac-JOz">
+                                        <connections>
+                                            <segue destination="26E-AM-RhK" kind="show" id="exL-ZW-VAb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gym" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQX-n6-ew5">
+                                <rect key="frame" x="166" y="67" width="36" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Erb-9w-UOu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ef-zC-psG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1062" y="772"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="fa7-Nk-o8b">
@@ -148,8 +195,31 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v5Z-hB-Xcx">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Home" image="homeIcon.png" id="UBy-CY-Lgd">
+                                        <connections>
+                                            <segue destination="8iH-X3-j2e" kind="show" id="wr1-7s-MHD"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="78K-L6-fUW"/>
+                                    <barButtonItem title="Gym" image="gymIcon.png" id="gvP-sy-Bp6">
+                                        <connections>
+                                            <segue destination="rV0-D5-wPl" kind="show" id="2Ho-4Z-QTn"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="xRX-1n-zId"/>
+                                    <barButtonItem title="Food" image="foodIcon.png" id="HQW-4g-sfz"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="icF-vK-OUR"/>
+                                    <barButtonItem title="Data" image="dataIcon.png" id="n9d-aR-ZWn"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="d9k-ZB-wg3"/>
+                                    <barButtonItem title="Settings" image="settingsIcon.png" id="Frk-I3-SEE"/>
+                                </items>
+                            </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLo-Op-dgL">
-                                <rect key="frame" x="157" y="550" width="60" height="30"/>
+                                <rect key="frame" x="157" y="138" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Out">
                                     <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -165,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSS-wd-KxR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2127" y="772"/>
+            <point key="canvasLocation" x="2641" y="772"/>
         </scene>
         <!--Welcome Page View Controller-->
         <scene sceneID="l1K-hP-eHs">
@@ -188,7 +258,11 @@
                                 <items>
                                     <barButtonItem title="Home" image="homeIcon.png" width="42" id="qwa-xu-qJa"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="67w-VN-04D"/>
-                                    <barButtonItem title="Gym" image="gymIcon.png" id="r6e-5q-gvn"/>
+                                    <barButtonItem title="Gym" image="gymIcon.png" id="r6e-5q-gvn">
+                                        <connections>
+                                            <segue destination="rV0-D5-wPl" kind="show" id="q6p-W7-izR"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bWM-7P-Uax"/>
                                     <barButtonItem title="Food" image="foodIcon.png" id="dgw-Yj-ShP"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="kmG-7O-8Bd"/>
@@ -218,5 +292,10 @@
         <image name="homeIcon.png" width="36" height="36"/>
         <image name="settingsIcon.png" width="36" height="36"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="0Y5-cd-zOT"/>
+        <segue reference="exL-ZW-VAb"/>
+        <segue reference="2Ho-4Z-QTn"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

@@ -21,6 +21,7 @@
 		25FEDFCB20B127CD0028B0BF /* dataIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FEDFCA20B127CD0028B0BF /* dataIcon.png */; };
 		25FEDFCD20B128BB0028B0BF /* gymIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FEDFCC20B128BB0028B0BF /* gymIcon.png */; };
 		25FEDFD120B12D7F0028B0BF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEDFD020B12D7F0028B0BF /* SettingsViewController.swift */; };
+		25FEDFD320B1D1A00028B0BF /* GymViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEDFD220B1D1A00028B0BF /* GymViewController.swift */; };
 		52C8953FF5938C17C2AF834F /* Pods_GymApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEE227AC49F44F162F4149E /* Pods_GymApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		25FEDFCA20B127CD0028B0BF /* dataIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dataIcon.png; sourceTree = "<group>"; };
 		25FEDFCC20B128BB0028B0BF /* gymIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gymIcon.png; sourceTree = "<group>"; };
 		25FEDFD020B12D7F0028B0BF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		25FEDFD220B1D1A00028B0BF /* GymViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GymViewController.swift; path = /Users/DanielJabbour/Desktop/Projects/GymApp/GymApp/MainScreens/GymViewController.swift; sourceTree = "<absolute>"; };
 		2FEE227AC49F44F162F4149E /* Pods_GymApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GymApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E0A11F98B10F1B62016482B /* Pods-GymApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GymApp/Pods-GymApp.release.xcconfig"; sourceTree = "<group>"; };
 		A4665AC318BDB4EB123EF813 /* Pods-GymApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GymApp/Pods-GymApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				2528284E20B09A0B00101FC3 /* WelcomePageViewController.swift */,
+				25FEDFD220B1D1A00028B0BF /* GymViewController.swift */,
 				25FEDFD020B12D7F0028B0BF /* SettingsViewController.swift */,
 			);
 			path = MainScreens;
@@ -241,12 +244,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-GymApp/Pods-GymApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +270,7 @@
 				2528284F20B09A0B00101FC3 /* WelcomePageViewController.swift in Sources */,
 				25FEDFB220B0E6450028B0BF /* SignUpViewController.swift in Sources */,
 				25FEDFD120B12D7F0028B0BF /* SettingsViewController.swift in Sources */,
+				25FEDFD320B1D1A00028B0BF /* GymViewController.swift in Sources */,
 				2528283D20B0982600101FC3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
