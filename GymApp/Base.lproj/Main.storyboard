@@ -133,10 +133,10 @@
             </objects>
             <point key="canvasLocation" x="228" y="772.26386806596713"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Gym Table View Controller-->
         <scene sceneID="hAO-xH-9Cd">
             <objects>
-                <tableViewController id="FfT-kb-vv3" sceneMemberID="viewController">
+                <tableViewController id="FfT-kb-vv3" customClass="GymTableViewController" customModule="GymApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fQQ-b3-H3C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
