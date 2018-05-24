@@ -16,9 +16,9 @@ class workout {
     var sets: Int
     
     //Constructor
-    init(title: String, reps: Int, sets: Int){
+    init?(title: String, reps: Int, sets: Int){
         
-        //Add error handling for false values
+        //Need to add error handling for false values
         
         self.title = title
         self.reps = reps

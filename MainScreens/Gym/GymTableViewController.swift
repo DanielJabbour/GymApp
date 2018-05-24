@@ -10,22 +10,31 @@ import UIKit
 
 class GymTableViewController: UITableViewController {
 
-    var workouts = [Workouts]()
+    //Initialize an empty array of workout objects
+    var workouts = [workout]()
     
-    private func loadWorkouts(){
-        let exercise1 = "Bench Press"
-        let exercise2 = "Dumbell Press"
-        let exercise3 = "Cable Flys"
+    private func loadSampleWorkout() {
+        guard let workout1 = workout(title: "Bench Press", reps: 10, sets: 3) else {
+            fatalError("Unable to represent workout")
+        }
+        
+        guard let workout2 = workout(title: "Dumbell Press", reps: 10, sets: 3) else {
+            fatalError("Unable to represent workout")
+        }
+        
+        guard let workout3 = workout(title: "Pec flys", reps: 10, sets: 3) else {
+            fatalError("Unable to represent workout")
+        }
+        
+        workouts += [workout1,workout2,workout3]
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        loadSampleWorkout()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,8 +45,10 @@ class GymTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        // returns the length of workouts array
+        return workouts.count
+        
+        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,15 +56,28 @@ class GymTableViewController: UITableViewController {
         return 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        let cellIdentifier = "workoutTableViewCell"
+        
+        //Attempt to downcast type of cell to the custom cell subclass. Returns optional which is then unwrapped by guard
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? WorkoutCellTableViewCell else {
+            fatalError("The dequeued cell is not an instance of workoutTableViewCell.")
 
-        // Configure the cell...
+        }
+        
+        //Fetches appropriate workout from workouts array
+        let workout = workouts[indexPath.row]
 
+        //Configuring cell content from user input
+        cell.titleOutlet.text = workout.title
+        cell.setsOutlet.text = String(workout.sets)
+        cell.repsOutlet.text = String(workout.reps)
+        
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.

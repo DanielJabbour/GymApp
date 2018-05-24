@@ -10,7 +10,10 @@ import UIKit
 
 class WorkoutCellTableViewCell: UITableViewCell {
 
-    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet weak var titleOutlet: UILabel!
+    @IBOutlet weak var setsOutlet: UILabel!
+    @IBOutlet weak var repsOutlet: UILabel!
+    
     
 
     override func awakeFromNib() {
