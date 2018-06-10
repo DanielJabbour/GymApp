@@ -1,6 +1,8 @@
-# GymApp
-(title pending)
+# gym_app
 
-This project is an iOS fitness application designed around providing workout analytics to users with a simple and intuitive UI.
+A new Flutter project.
 
-This project is currently in development, with a beta release planned for June 1st 2018.
+## Getting Started
+
+For help getting started with Flutter, view our online
+[documentation](https://flutter.io/).
