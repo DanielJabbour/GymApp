@@ -3,13 +3,14 @@
 
  export default class LoginForm extends Component {
      render() {
+         //View render describing login form view
          return (
              <View style={styles.container}>
              
              <StatusBar 
                 barStyle="light-content"
             />
-
+            
                 <TextInput
                     placeholder="Email"
                     placeholderTextColor="rgba(255,255,255,0.25)"
@@ -37,6 +38,7 @@
                 <TouchableOpacity style={styles.buttonContainer}>
                     <Text style={styles.buttonText}>Sign Up</Text>
                 </TouchableOpacity>
+
             </View>
          );
      }

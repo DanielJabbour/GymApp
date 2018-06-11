@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Image, Text, KeyboardAvoidingView} from 'react-native';
-import LoginForm from './LoginForm';
+import LoginForm from './LoginForm'; //Importing login form view
 
 export default class Login extends Component {
   render() {
     return (
+      //Keyboard avoiding view for adjusting view when users bring up phone keyboard
+      //View render structure corresponding to stylesheet
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <View style={styles.container}>
           <View style={styles.logoContainer}>
@@ -24,6 +26,7 @@ export default class Login extends Component {
   }
 }
 
+//Stylesheet definition
 const styles = StyleSheet.create({
   container: {
     flex: 1,
