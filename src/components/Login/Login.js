@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Image, Text} from 'react-native';
+import LoginForm from './LoginForm';
 
 export default class Login extends Component {
   render() {
@@ -14,8 +15,8 @@ export default class Login extends Component {
         </View>
 
         <View style={styles.formContainer}>
+          <LoginForm/>
         </View>
-
       </View>
     );
   }
