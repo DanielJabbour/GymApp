@@ -1,14 +1,27 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Image, Text, KeyboardAvoidingView} from 'react-native';
-import LoginForm from './LoginForm'; //Importing login form view
+import {StyleSheet, View, Image, Text, KeyboardAvoidingView, StatusBar, Button, TextInput} from 'react-native';
+//import firebase from 'react-native-firebase'
+//import LoginForm from './LoginForm'; //Importing login form view
 
 export default class Login extends Component {
+
+  state = { email: '', password: '', errorMessage: null }
+
+  handleLogin = () => {
+    // TODO: Firebase stuff...
+    console.log('handleLogin')
+  }
+
   render() {
     return (
       //Keyboard avoiding view for adjusting view when users bring up phone keyboard
       //View render structure corresponding to stylesheet
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <View style={styles.container}>
+        <StatusBar 
+                barStyle="light-content"
+            />
+
           <View style={styles.logoContainer}>
             {/*<Image
               style = {styles.logo}
@@ -18,7 +31,37 @@ export default class Login extends Component {
           </View>
 
           <View style={styles.formContainer}>
-            <LoginForm/>
+            <TextInput
+                    placeholder="Email"
+                    placeholderTextColor="rgba(255,255,255,0.25)"
+                    returnKeyType="next"
+                    onSubmitEditing={()=> this.passwordInput.focus()}
+                    keyboardType="email-address"
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    style={styles.input}
+                />
+
+                <TextInput 
+                    placeholder="Password"
+                    placeholderTextColor="rgba(255,255,255,0.25)"
+                    returnKeyType="go"
+                    secureTextEntry
+                    style={styles.input}
+                    ref={(input) => this.passwordInput = input}
+                />
+
+                <Button
+                title="Sign In"
+                style={styles.buttonText}
+                onPress={()=> this.props.navigation.navigate('Main')}
+                />
+
+                <Button 
+                title="Sign Up" 
+                style={styles.buttonText}
+                onPress={() => this.props.navigation.navigate('SignUp')}
+                />
           </View>
         </View>
       </KeyboardAvoidingView>
@@ -46,5 +89,27 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: 160,
     textAlign: 'center',
-  }
+    },
+    input: {
+      color: 'white',
+      height: 40,
+      marginBottom: 20,
+      paddingHorizontal: 5,
+      borderBottomWidth: 2,
+      borderBottomColor: '#FFF'
+  },
+
+  buttonContainer: {
+      paddingVertical: 15
+  },
+
+  buttonText: {
+      textAlign: 'center',
+      color: '#FFF',
+      fontWeight: '700'
+  },
+  formContainer: {
+    padding: 40,
+    paddingBottom: 200
+ }
 });

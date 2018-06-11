@@ -1,6 +1,7 @@
 dependencies: \
   /Users/djabbour/Desktop/P/GymApp/GymApp/ios/GymApp/AppDelegate.m \
   /Users/djabbour/Desktop/P/GymApp/GymApp/ios/GymApp/AppDelegate.h \
+  /Users/djabbour/Desktop/P/GymApp/GymApp/ios/Pods/Firebase/CoreOnly/Sources/module.modulemap \
   /Users/djabbour/Desktop/P/GymApp/GymApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBundleURLProvider.h \
   /Users/djabbour/Desktop/P/GymApp/GymApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTRootView.h \
   /Users/djabbour/Desktop/P/GymApp/GymApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
@@ -9,4 +10,16 @@ dependencies: \
   /Users/djabbour/Desktop/P/GymApp/GymApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
   /Users/djabbour/Desktop/P/GymApp/GymApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
   /Users/djabbour/Desktop/P/GymApp/GymApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
-  /Users/djabbour/Desktop/P/GymApp/GymApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h
+  /Users/djabbour/Desktop/P/GymApp/GymApp/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
+  /Users/djabbour/Desktop/P/GymApp/GymApp/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap \
+  /Users/djabbour/Desktop/P/GymApp/GymApp/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsSwiftNameSupport.h \
+  /Users/djabbour/Desktop/P/GymApp/GymApp/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h \
+  /Users/djabbour/Desktop/P/GymApp/GymApp/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h \
+  /Users/djabbour/Desktop/P/GymApp/GymApp/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h \
+  /Users/djabbour/Desktop/P/GymApp/GymApp/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h \
+  /Users/djabbour/Desktop/P/GymApp/GymApp/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h \
+  /Users/djabbour/Desktop/P/GymApp/GymApp/ios/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h \
+  /Users/djabbour/Desktop/P/GymApp/GymApp/ios/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap \
+  /Users/djabbour/Desktop/P/GymApp/GymApp/ios/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h \
+  /Users/djabbour/Desktop/P/GymApp/GymApp/ios/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h \
+  /Users/djabbour/Desktop/P/GymApp/GymApp/ios/Pods/Firebase/CoreOnly/Sources/Firebase.h

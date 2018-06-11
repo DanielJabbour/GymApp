@@ -49,6 +49,10 @@
 		<data>
 		qhk6hXDyQp/YYzEpKIxg0bW3tlk=
 		</data>
+		<key>GoogleService-Info.plist</key>
+		<data>
+		Mn7jWXHDjMdT7igHujFSvwJmaxE=
+		</data>
 		<key>Info.plist</key>
 		<data>
 		Jehys33H2FKz0diaOiFnWbhF8jo=
@@ -63,11 +67,11 @@
 		</data>
 		<key>PlugIns/GymAppTests.xctest.dSYM/Contents/Resources/DWARF/GymAppTests</key>
 		<data>
-		jALV+U9q0CDXMmljlkupTByLv0I=
+		DrhrLA4Cps7y9Z/n280+FjaUBEY=
 		</data>
 		<key>PlugIns/GymAppTests.xctest/GymAppTests</key>
 		<data>
-		GTwFNeGs9cA9YqiX/+DwCfPsOQ0=
+		/fevrYFv6j5BflEwOxU0BIMWjIg=
 		</data>
 		<key>PlugIns/GymAppTests.xctest/Info.plist</key>
 		<data>
@@ -192,6 +196,17 @@
 			L4ikvo5qrwsx21+syxZrwgRwrNbc3av4ZtEyZl/yF78=
 			</data>
 		</dict>
+		<key>GoogleService-Info.plist</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			Mn7jWXHDjMdT7igHujFSvwJmaxE=
+			</data>
+			<key>hash2</key>
+			<data>
+			6O795HzzGrFI9+dbS5PItr8oXosnASan2SqtqLpaw/4=
+			</data>
+		</dict>
 		<key>PlugIns/GymAppTests.xctest.dSYM/Contents/Info.plist</key>
 		<dict>
 			<key>hash</key>
@@ -207,22 +222,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jALV+U9q0CDXMmljlkupTByLv0I=
+			DrhrLA4Cps7y9Z/n280+FjaUBEY=
 			</data>
 			<key>hash2</key>
 			<data>
-			+KYvPrmd1D8WpZVhkRMiLDB8sGY5EMk/fa2R0tutjEU=
+			8Mcq9BpnxOXLYwnhKimYEcTcN6s/DN7yO83rt3tVhaI=
 			</data>
 		</dict>
 		<key>PlugIns/GymAppTests.xctest/GymAppTests</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GTwFNeGs9cA9YqiX/+DwCfPsOQ0=
+			/fevrYFv6j5BflEwOxU0BIMWjIg=
 			</data>
 			<key>hash2</key>
 			<data>
-			mdOGpewCXAMen+ZI6/AJl/020SM8M6n+ScBoHYzFWm4=
+			akTBgdGiRb04xaT6emeqTVljYaydWqTpJJ2LlWNcbsY=
 			</data>
 		</dict>
 		<key>PlugIns/GymAppTests.xctest/Info.plist</key>
