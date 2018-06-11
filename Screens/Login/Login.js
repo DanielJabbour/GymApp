@@ -43,6 +43,8 @@ export default class Login extends Component {
                     autoCapitalize="none"
                     autoCorrect={false}
                     style={styles.input}
+                    onChangeText={email => this.setState({ email })}
+                    value={this.state.email}
                 />
 
                 <TextInput 
@@ -51,13 +53,14 @@ export default class Login extends Component {
                     returnKeyType="go"
                     secureTextEntry
                     style={styles.input}
-                    ref={(input) => this.passwordInput = input}
+                    onChangeText={password => this.setState({ password })}
+                    value={this.state.password}
                 />
 
                 <Button
                 title="Sign In"
                 style={styles.buttonText}
-                onPress={()=> this.props.navigation.navigate('Main')}
+                onPress={()=> this.handleLogin()}
                 />
 
                 <Button 
