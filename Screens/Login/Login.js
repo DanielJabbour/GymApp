@@ -13,7 +13,6 @@ export default class Login extends Component {
       .signInWithEmailAndPassword(email, password)
       .then(() => this.props.navigation.navigate('Main'))
       .catch(error => this.setState({errorMessage: error.message}))
-    
   }
 
   render() {
@@ -22,9 +21,9 @@ export default class Login extends Component {
       //View render structure corresponding to stylesheet
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <View style={styles.container}>
-        <StatusBar 
-                barStyle="light-content"
-            />
+          <StatusBar 
+                  barStyle="light-content"
+              />
 
           <View style={styles.logoContainer}>
             {/*<Image
@@ -94,7 +93,8 @@ const styles = StyleSheet.create({
     width: 160,
     textAlign: 'center',
     },
-    input: {
+
+  input: {
       color: 'white',
       height: 40,
       marginBottom: 20,
