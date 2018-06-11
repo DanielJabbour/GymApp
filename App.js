@@ -1,17 +1,35 @@
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import Login from './Screens/Login/Login'; //Importing login page into app
+import { SwitchNavigator } from 'react-navigation';
 
-type Props = {};
+//Importing screens
+import Login from './Screens/Login/Login';
+import SignUp from './Screens/SignUp/SignUp';
+import Main from './Screens/Main/Main';
 
-export default class App extends Component<Props> {
-  render() {
-    return (
-      <Login/>
-    );
+const App = SwitchNavigator(
+  {
+    SignUp,
+    Login,
+    Main
+  },
+  {
+    initialRouteName: 'Login'
   }
-}
+)
+
+export default App
+
+// type Props = {};
+
+// export default class App extends Component<Props> {
+//   render() {
+//     return (
+//       <Login/>
+//     );
+//   }
+// }
 
 const styles = StyleSheet.create({
   container: {
