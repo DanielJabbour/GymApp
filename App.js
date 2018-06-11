@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import Login from './src/components/Login/Login'; //Importing login page into app
+import Login from './Screens/Login/Login'; //Importing login page into app
 
 type Props = {};
 
