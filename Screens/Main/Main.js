@@ -20,10 +20,11 @@ export default class Main extends React.Component {
             </View>
             )
     }
-}
+}  
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: '#2c3e50',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'

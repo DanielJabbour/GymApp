@@ -22,7 +22,7 @@ export default class Login extends Component {
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
         <View style={styles.container}>
           <StatusBar 
-                  barStyle="light-content"
+            barStyle="light-content"
               />
 
           <View style={styles.logoContainer}>
@@ -35,39 +35,39 @@ export default class Login extends Component {
 
           <View style={styles.formContainer}>
             <TextInput
-                    placeholder="Email"
-                    placeholderTextColor="rgba(255,255,255,0.25)"
-                    returnKeyType="next"
-                    onSubmitEditing={()=> this.passwordInput.focus()}
-                    keyboardType="email-address"
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    style={styles.input}
-                    onChangeText={email => this.setState({ email })}
-                    value={this.state.email}
-                />
+                placeholder="Email"
+                placeholderTextColor="rgba(255,255,255,0.25)"
+                returnKeyType="next"
+                onSubmitEditing={()=> this.passwordInput.focus()}
+                keyboardType="email-address"
+                autoCapitalize="none"
+                autoCorrect={false}
+                style={styles.input}
+                onChangeText={email => this.setState({ email })}
+                value={this.state.email}
+              />
 
-                <TextInput 
-                    placeholder="Password"
-                    placeholderTextColor="rgba(255,255,255,0.25)"
-                    returnKeyType="go"
-                    secureTextEntry
-                    style={styles.input}
-                    onChangeText={password => this.setState({ password })}
-                    value={this.state.password}
-                />
+            <TextInput 
+                placeholder="Password"
+                placeholderTextColor="rgba(255,255,255,0.25)"
+                returnKeyType="go"
+                secureTextEntry
+                style={styles.input}
+                onChangeText={password => this.setState({ password })}
+                value={this.state.password}
+            />
 
-                <Button
+            <Button
                 title="Sign In"
                 style={styles.buttonText}
                 onPress={()=> this.handleLogin()}
-                />
+            />
 
-                <Button 
+            <Button 
                 title="Sign Up" 
                 style={styles.buttonText}
                 onPress={() => this.props.navigation.navigate('SignUp')}
-                />
+            />
           </View>
         </View>
       </KeyboardAvoidingView>
