@@ -8,11 +8,27 @@ import Login from './Screens/Login/Login';
 import SignUp from './Screens/SignUp/SignUp';
 import Main from './Screens/Main/Main';
 
+// export default class App extends Component {
+//   render() {
+//     SwitchNavigator(
+//       {
+//             SignUp,
+//             Login,
+//             Main,
+//           },
+        
+//           {
+//             initialRouteName: 'Main'
+//           }
+//     )
+//   }
+// }
+
 const App = SwitchNavigator(
   {
     SignUp,
     Login,
-    Main
+    Main,
   },
 
   {

@@ -1,32 +1,33 @@
 import React from 'react';
-import { StyleSheet, Platform, Image, Text, View } from 'react-native';
-import firebase from 'react-native-firebase';
+import {
+    createBottomTabNavigator,
+    createStackNavigator,
+  } from 'react-navigation';
+import { Button, Text, View } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-export default class Main extends React.Component {
-  state = { currentUser: null }
 
-  componentDidMount() {
-      const { currentUser } = firebase.auth()
-      this.setState({ currentUser })
-  }
-
+class HomeScreen extends React.Component {
     render() {
-        const { currentUser } = this.state
-        return (
-            <View style={styles.container}>
-                <Text>
-                Hi {currentUser && currentUser.email}!
-                </Text>
-            </View>
-            )
+      return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>Home!</Text>
+        </View>
+      );
     }
-}  
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#2c3e50',
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
   }
-})
+  
+  class SettingsScreen extends React.Component {
+    render() {
+      return (
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+          <Text>Settings!</Text>
+        </View>
+      );
+    }
+  }
+  
+  export default createBottomTabNavigator({
+    Home: HomeScreen,
+    Settings: SettingsScreen,
+  });
