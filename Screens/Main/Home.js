@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBottomTabNavigator, createStackNavigator,} from 'react-navigation';
-import { Button, Text, View, StyleSheet } from 'react-native';
+import { Button, Text, View, StyleSheet, StatusBar } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import SettingsScreen from './Settings';
@@ -11,7 +11,10 @@ class HomeScreen extends React.Component {
     render() {
       return (
         <View style={styles.container}>
-          <Text>Home!</Text>
+			<StatusBar 
+                barStyle="light-content"
+            />
+        	<Text>Home!</Text>
         </View>
       );
     }
@@ -29,13 +32,17 @@ class HomeScreen extends React.Component {
         tabBarIcon: ({ focused, tintColor }) => {
           const { routeName } = navigation.state;
           let iconName;
+
           if (routeName === 'Home') {
             iconName = `ios-home${focused ? '' : '-outline'}`;
-          } else if (routeName === 'Gym') {
+          }
+          else if (routeName === 'Gym') {
             iconName = `ios-pulse${focused ? '' : '-outline'}`;
-          } else if (routeName === 'Data') {
+          }
+          else if (routeName === 'Data') {
             iconName = `ios-options${focused ? '' : '-outline'}`;
-          } else if (routeName === 'Settings') {
+          }
+          else if (routeName === 'Settings') {
             iconName = `ios-settings${focused ? '' : '-outline'}`;
           }
 

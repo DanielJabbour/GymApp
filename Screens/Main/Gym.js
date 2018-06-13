@@ -1,11 +1,15 @@
 import React from 'react';
-import { Button, Text, View, StyleSheet } from 'react-native';
+import { Button, Text, View, StyleSheet, StatusBar } from 'react-native';
 
 export default class GymScreen extends React.Component {
     render() {
       return (
         <View style={styles.container}>
-          <Text>Gym!</Text>
+            <StatusBar 
+                barStyle="light-content"
+            />
+
+            <Text>Gym!</Text>
         </View>
       );
     }

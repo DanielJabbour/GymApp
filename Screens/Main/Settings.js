@@ -1,11 +1,15 @@
 import React from 'react';
-import { Button, Text, View, StyleSheet } from 'react-native';
+import { Button, Text, View, StyleSheet, StatusBar } from 'react-native';
 
 export default class SettingsScreen extends React.Component {
     render() {
       return (
         <View style={styles.container}>
-          <Text>Settings!</Text>
+            <StatusBar 
+                barStyle="light-content"
+            />
+
+            <Text>Settings!</Text>
         </View>
       );
     }
