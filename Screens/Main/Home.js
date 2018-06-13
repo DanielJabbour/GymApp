@@ -26,9 +26,9 @@ class HomeScreen extends React.Component {
           const { routeName } = navigation.state;
           let iconName;
           if (routeName === 'Home') {
-            iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+            iconName = `ios-home${focused ? '' : '-outline'}`;
           } else if (routeName === 'Settings') {
-            iconName = `ios-options${focused ? '' : '-outline'}`;
+            iconName = `ios-settings${focused ? '' : '-outline'}`;
           }
 
           return <Ionicons name={iconName} size={25} color={tintColor} />;
