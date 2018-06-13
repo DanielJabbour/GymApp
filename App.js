@@ -13,6 +13,7 @@ const App = SwitchNavigator(
     SignUp,
     Login,
     Home,
+    
   },
 
   {

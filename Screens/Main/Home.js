@@ -4,6 +4,8 @@ import { Button, Text, View, StyleSheet } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import SettingsScreen from './Settings';
+import DataScreen from './Data';
+import GymScreen from './Gym';
 
 class HomeScreen extends React.Component {
     render() {
@@ -18,6 +20,8 @@ class HomeScreen extends React.Component {
   export default createBottomTabNavigator(
     {
     Home: HomeScreen,
+    Gym: GymScreen,
+    Data: DataScreen,
     Settings: SettingsScreen,
     },
     {
@@ -27,6 +31,10 @@ class HomeScreen extends React.Component {
           let iconName;
           if (routeName === 'Home') {
             iconName = `ios-home${focused ? '' : '-outline'}`;
+          } else if (routeName === 'Gym') {
+            iconName = `ios-pulse${focused ? '' : '-outline'}`;
+          } else if (routeName === 'Data') {
+            iconName = `ios-options${focused ? '' : '-outline'}`;
           } else if (routeName === 'Settings') {
             iconName = `ios-settings${focused ? '' : '-outline'}`;
           }
@@ -35,7 +43,7 @@ class HomeScreen extends React.Component {
         },
       }),
       tabBarOptions: {
-        activeTintColor: 'tomato',
+        activeTintColor: '#2980b9',
         inactiveTintColor: 'gray',
       },
     }
