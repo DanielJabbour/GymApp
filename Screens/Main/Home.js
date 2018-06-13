@@ -15,10 +15,31 @@ class HomeScreen extends React.Component {
     }
   }
   
-  export default createBottomTabNavigator({
+  export default createBottomTabNavigator(
+    {
     Home: HomeScreen,
     Settings: SettingsScreen,
-  });
+    },
+    {
+      navigationOptions: ({ navigation }) => ({
+        tabBarIcon: ({ focused, tintColor }) => {
+          const { routeName } = navigation.state;
+          let iconName;
+          if (routeName === 'Home') {
+            iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+          } else if (routeName === 'Settings') {
+            iconName = `ios-options${focused ? '' : '-outline'}`;
+          }
+
+          return <Ionicons name={iconName} size={25} color={tintColor} />;
+        },
+      }),
+      tabBarOptions: {
+        activeTintColor: 'tomato',
+        inactiveTintColor: 'gray',
+      },
+    }
+  );
 
   const styles = StyleSheet.create({
     container: {
