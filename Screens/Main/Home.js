@@ -5,7 +5,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import SettingsScreen from './Settings';
 
-
 class HomeScreen extends React.Component {
     render() {
       return (

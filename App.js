@@ -6,7 +6,32 @@ import { SwitchNavigator } from 'react-navigation';
 //Importing screens
 import Login from './Screens/Login/Login';
 import SignUp from './Screens/SignUp/SignUp';
-import Main from './Screens/Main/Main';
+import Home from './Screens/Main/Home';
+
+const App = SwitchNavigator(
+  {
+    SignUp,
+    Login,
+    Home,
+  },
+
+  {
+    initialRouteName: 'Login'
+  }
+)
+
+export default App
+
+//Spare code that may come in use
+// type Props = {};
+
+// export default class App extends Component<Props> {
+//   render() {
+//     return (
+//       <Login/>
+//     );
+//   }
+// }
 
 // export default class App extends Component {
 //   render() {
@@ -21,30 +46,6 @@ import Main from './Screens/Main/Main';
 //             initialRouteName: 'Main'
 //           }
 //     )
-//   }
-// }
-
-const App = SwitchNavigator(
-  {
-    SignUp,
-    Login,
-    Main,
-  },
-
-  {
-    initialRouteName: 'Main'
-  }
-)
-
-export default App
-
-// type Props = {};
-
-// export default class App extends Component<Props> {
-//   render() {
-//     return (
-//       <Login/>
-//     );
 //   }
 // }
 
