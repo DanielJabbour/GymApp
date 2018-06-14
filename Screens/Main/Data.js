@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Text, View, StyleSheet, StatusBar } from 'react-native';
+import { Text, View, StyleSheet, StatusBar } from 'react-native';
 
 export default class DataScreen extends React.Component {
     render() {

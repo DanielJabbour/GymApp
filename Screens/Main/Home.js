@@ -1,7 +1,10 @@
 import React from 'react';
-import { createBottomTabNavigator, createStackNavigator,} from 'react-navigation';
-import { Button, Text, View, StyleSheet, StatusBar } from 'react-native';
+import { createBottomTabNavigator } from 'react-navigation';
+import { Text, View, StyleSheet, StatusBar } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { YellowBox } from 'react-native';
+
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
 import SettingsScreen from './Settings';
 import DataScreen from './Data';
