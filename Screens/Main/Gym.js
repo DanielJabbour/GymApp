@@ -12,13 +12,9 @@ import TricepsScreen from './GymScreens/Triceps';
 
 class GymScreen extends React.Component {
 
-	_onPressButton() {
-		//Actions
-	  }
-
     render() {
       return (
-
+		  
 		<ScrollView >
 
 			<StatusBar 
@@ -80,36 +76,41 @@ const RootStack = createStackNavigator(
 	{
 		Gym: GymScreen,
 		Chest: ChestScreen,
-		Ticeps: TricepsScreen,
+		Triceps: TricepsScreen,
 		Shoulders: ShouldersScreen,
 		Biceps: BicepScreen,
 		Back: BackScreen,
 		Abs: AbsScreen,
+		Legs: LegsScreen,
 
 	},
 	{
 		initialRouteName: 'Gym',
-	}
+	},
 );
+
 
 export default class Gym extends React.Component {
 	render() {
-		return <RootStack />;
+		return <RootStack style={{backgroundColor: '#2c3e50'}} ref={nav => {this.navigator = nav;}}/>;
 	}
 }
 
+//Figure out how to change navigation header style
+
 const styles = StyleSheet.create({
     container: {
-		backgroundColor: '#2c3e50',
+		backgroundColor: '#FFF',
 		paddingTop: 60,
-		alignItems: 'center'
+		alignItems: 'center',
+		flex: 1,
 		
 	  },
 	  button: {
 		marginBottom: 60,
 		width: 260,
 		alignItems: 'center',
-		backgroundColor: '#2196F3'
+		backgroundColor: '#636e72'
 	  },
 	  buttonText: {
 		padding: 40,

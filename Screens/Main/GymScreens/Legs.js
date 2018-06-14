@@ -14,7 +14,9 @@ export default class LegsScreen extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-		backgroundColor: '#2c3e50',
+		backgroundColor: '#FFF',
+		alignItems: 'center',
+		flex: 1,
     }
 
   });
