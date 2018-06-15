@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Animated } from 'react-native';
 
 export default class ChestScreen extends React.Component {
 	render() {
@@ -11,7 +11,7 @@ export default class ChestScreen extends React.Component {
 	}
   }
 
-
+ 
 const styles = StyleSheet.create({
     container: {
 		backgroundColor: '#FFF',
