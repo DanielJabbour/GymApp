@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M7X-dz-rXk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UEt-IG-bn7">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -136,6 +136,7 @@
         <!--Muscle Table View Controller-->
         <scene sceneID="sCg-Pe-y9V">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F1d-VR-h11" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="M7X-dz-rXk" customClass="MuscleTableViewController" customModule="GymApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UNN-qX-CIN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -168,10 +169,32 @@
                             <outlet property="delegate" destination="M7X-dz-rXk" id="fe2-yf-jUg"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Home" image="homeIcon.png" id="G45-B0-Qwk">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="gNW-ut-mYI"/>
+                        <barButtonItem title="Gym" image="gymIcon.png" id="bLr-pN-YsG">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="UJ1-5A-MOG"/>
+                        <barButtonItem title="Food" image="foodIcon.png" id="7rJ-RY-b5T">
+                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="b45-Hh-rco"/>
+                        <barButtonItem title="Data" image="dataIcon.png" id="e6f-cl-aFC">
+                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="JW6-78-efx"/>
+                        <barButtonItem title="Settings" image="settingsIcon.png" id="MNs-fv-9Oa">
+                            <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="MBR-YQ-TzI"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="F1d-VR-h11" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1062" y="763"/>
+            <point key="canvasLocation" x="2928.8000000000002" y="771.36431784107947"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="fa7-Nk-o8b">
@@ -268,6 +291,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PbD-un-5DU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1063" y="34"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4Ld-qD-7sY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" toolbarHidden="NO" id="UEt-IG-bn7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KtY-O1-kjU">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZtD-Gl-gmb">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="M7X-dz-rXk" kind="relationship" relationship="rootViewController" id="M9U-21-F9S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6yb-3I-47C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1989.5999999999999" y="771.36431784107947"/>
         </scene>
     </scenes>
     <resources>

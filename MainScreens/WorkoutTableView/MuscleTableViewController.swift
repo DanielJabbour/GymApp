@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MuscleTableViewController: UITableViewController {
+class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var muscles = [Muscle]()
     
@@ -33,11 +33,11 @@ class MuscleTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     //Only 1 secion to display
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return muscles.count
     }
@@ -59,7 +59,7 @@ class MuscleTableViewController: UITableViewController {
         
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "MuscleTableViewCell"
         
         //Use of custom class Muscle hence need to downcast type of cell to custom cell subclass

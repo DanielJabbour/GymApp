@@ -72,6 +72,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		23BA2E4A20DEA3C400619070 /* WorkoutTableView */ = {
+			isa = PBXGroup;
+			children = (
+				23BA2E4020DDFC5900619070 /* MuscleTableViewCell.swift */,
+				23BA2E4420DDFF6F00619070 /* Muscle.swift */,
+				23BA2E4820DE02FF00619070 /* MuscleTableViewController.swift */,
+			);
+			path = WorkoutTableView;
+			sourceTree = "<group>";
+		};
 		2528283020B0982600101FC3 = {
 			isa = PBXGroup;
 			children = (
@@ -130,11 +140,9 @@
 		25FEDFCF20B12AF80028B0BF /* MainScreens */ = {
 			isa = PBXGroup;
 			children = (
+				23BA2E4A20DEA3C400619070 /* WorkoutTableView */,
 				2528284E20B09A0B00101FC3 /* WelcomePageViewController.swift */,
 				25FEDFD020B12D7F0028B0BF /* SettingsViewController.swift */,
-				23BA2E4020DDFC5900619070 /* MuscleTableViewCell.swift */,
-				23BA2E4420DDFF6F00619070 /* Muscle.swift */,
-				23BA2E4820DE02FF00619070 /* MuscleTableViewController.swift */,
 			);
 			path = MainScreens;
 			sourceTree = "<group>";
