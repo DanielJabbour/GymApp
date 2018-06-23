@@ -15,6 +15,7 @@ class MuscleTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Load sample workouts
         loadSampleWorkouts()
 
         // Uncomment the following line to preserve selection between presentations
@@ -31,14 +32,14 @@ class MuscleTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
+    //Only 1 secion to display
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return muscles.count
     }
     
     private func loadSampleWorkouts() {
@@ -58,15 +59,25 @@ class MuscleTableViewController: UITableViewController {
         
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cellIdentifier = "MuscleTableViewCell"
+        
+        //Use of custom class Muscle hence need to downcast type of cell to custom cell subclass
+        //as? MuscleTableView cell attempts to downcast to MuscleTableViewCell class returning an optional
+        //Guard let unwraps optional safely
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MuscleTableViewCell else {
+            fatalError("The dequed cell is not an instance of MuscleTableViewCell")
+        }
+        
+        //Fetch appropriate muscle group from array
+        let muscle = muscles[indexPath.row]
+        
+        //Configuring cell
+        cell.WorkoutName.text = muscle.group
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
