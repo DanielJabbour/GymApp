@@ -136,7 +136,6 @@
         <!--Your Muscle Groups-->
         <scene sceneID="sCg-Pe-y9V">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="F1d-VR-h11" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="M7X-dz-rXk" customClass="MuscleTableViewController" customModule="GymApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UNN-qX-CIN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -191,12 +190,17 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Your Muscle Groups" id="MBR-YQ-TzI">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xm5-Fa-9o1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xm5-Fa-9o1">
+                            <connections>
+                                <segue destination="hbx-Dd-U7F" kind="presentation" modalPresentationStyle="overCurrentContext" id="Qep-0w-gR8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F1d-VR-h11" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2153" y="772"/>
+            <point key="canvasLocation" x="1865" y="783"/>
         </scene>
         <!--Add Pop Up View Controller-->
         <scene sceneID="pFM-mh-E70">
@@ -245,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="daG-zC-xT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2146.4000000000001" y="1458.6206896551726"/>
+            <point key="canvasLocation" x="1865" y="1595"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="H1Z-rJ-njC">
@@ -274,7 +278,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wkm-hs-SOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3108" y="771"/>
+            <point key="canvasLocation" x="3044" y="800"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="fa7-Nk-o8b">
@@ -327,7 +331,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSS-wd-KxR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2153" y="34"/>
+            <point key="canvasLocation" x="2153" y="-51"/>
         </scene>
         <!--Welcome Page View Controller-->
         <scene sceneID="l1K-hP-eHs">
@@ -375,7 +379,6 @@
         <!--Navigation Controller-->
         <scene sceneID="4Ld-qD-7sY">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6yb-3I-47C" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="UEt-IG-bn7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KtY-O1-kjU">
@@ -391,8 +394,9 @@
                         <segue destination="M7X-dz-rXk" kind="relationship" relationship="rootViewController" id="M9U-21-F9S"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6yb-3I-47C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1222" y="772"/>
+            <point key="canvasLocation" x="1063" y="801"/>
         </scene>
     </scenes>
     <resources>
@@ -403,7 +407,7 @@
         <image name="settingsIcon.png" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uhb-Tv-mQC"/>
+        <segue reference="wr1-7s-MHD"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

@@ -32,7 +32,7 @@
 		23BA2E4020DDFC5900619070 /* MuscleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleTableViewCell.swift; sourceTree = "<group>"; };
 		23BA2E4420DDFF6F00619070 /* Muscle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Muscle.swift; sourceTree = "<group>"; };
 		23BA2E4820DE02FF00619070 /* MuscleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MuscleTableViewController.swift; sourceTree = "<group>"; };
-		23BA2E4B20E06F2200619070 /* addPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = addPopUpViewController.swift; path = MainScreens/addPopUpViewController.swift; sourceTree = SOURCE_ROOT; };
+		23BA2E4B20E06F2200619070 /* addPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = addPopUpViewController.swift; path = MainScreens/WorkoutTableView/addPopUpViewController.swift; sourceTree = SOURCE_ROOT; };
 		2528283920B0982600101FC3 /* GymApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2528283C20B0982600101FC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2528283E20B0982600101FC3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +80,7 @@
 				23BA2E4020DDFC5900619070 /* MuscleTableViewCell.swift */,
 				23BA2E4420DDFF6F00619070 /* Muscle.swift */,
 				23BA2E4820DE02FF00619070 /* MuscleTableViewController.swift */,
+				23BA2E4B20E06F2200619070 /* addPopUpViewController.swift */,
 			);
 			path = WorkoutTableView;
 			sourceTree = "<group>";
@@ -111,7 +112,6 @@
 				25FEDFB320B0EF9F0028B0BF /* GoogleService-Info.plist */,
 				2528283C20B0982600101FC3 /* AppDelegate.swift */,
 				2528284020B0982700101FC3 /* Main.storyboard */,
-				23BA2E4B20E06F2200619070 /* addPopUpViewController.swift */,
 				2528284320B0982800101FC3 /* Assets.xcassets */,
 				2528284520B0982800101FC3 /* LaunchScreen.storyboard */,
 				2528284820B0982800101FC3 /* Info.plist */,
