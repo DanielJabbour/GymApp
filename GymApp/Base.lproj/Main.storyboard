@@ -190,11 +190,7 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Your Muscle Groups" id="MBR-YQ-TzI">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xm5-Fa-9o1">
-                            <connections>
-                                <segue destination="hbx-Dd-U7F" kind="presentation" modalPresentationStyle="overCurrentContext" id="Qep-0w-gR8"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xm5-Fa-9o1"/>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>

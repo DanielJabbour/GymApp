@@ -15,6 +15,13 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Programatically configuring navigation components (title, left, right buttons)
+        
+        navigationItem.title = "Muscle groups"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddUserAlertController))
+        navigationItem.leftBarButtonItem = self.editButtonItem
+        
+        
         //Load sample workouts
         loadSampleWorkouts()
 
@@ -41,23 +48,6 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
         // #warning Incomplete implementation, return the number of rows
         return muscles.count
     }
-    
-    private func loadSampleWorkouts() {
-        
-        //init method is failable so use guards to check instantiation is correct
-        
-        guard let muscle1 = Muscle(group: "Chest") else {
-            fatalError("Unable to instantiate muscle1")
-        }
-        
-        guard let muscle2 = Muscle(group: "Biceps") else {
-            fatalError("Unable to instantiate muscle2")
-        }
-        
-        muscles += [muscle1, muscle2]
-        
-        
-    }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "MuscleTableViewCell"
@@ -78,6 +68,63 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
         return cell
     }
     
+    //Override to support rearranging the table view.
+    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        let movedObject = muscles[fromIndexPath.row]
+        muscles.remove(at: fromIndexPath.row)
+        muscles.insert(movedObject, at: to.row)
+    }
+    
+    // Override to support editing the table view.
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            self.muscles.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
+    private func loadSampleWorkouts() {
+        
+        //init method is failable so use guards to check instantiation is correct
+        
+        guard let muscle1 = Muscle(group: "Chest") else {
+            fatalError("Unable to instantiate muscle1")
+        }
+        
+        guard let muscle2 = Muscle(group: "Biceps") else {
+            fatalError("Unable to instantiate muscle2")
+        }
+        
+        muscles += [muscle1, muscle2]
+        
+    }
+    
+    @objc public func showAddUserAlertController() {
+        let alertController = UIAlertController(title: "Add Muscle Group", message: "Add a muscle group", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alertController.addTextField { (textField : UITextField!) -> Void in
+            textField.autocapitalizationType = .words
+            textField.placeholder = "Enter Muscle Group"
+        }
+        
+//        let addAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default, handler: { alert -> Void in
+//
+//        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: {
+            (action : UIAlertAction!) -> Void in })
+        
+//        alertController.addAction(addAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+            
+        }
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -86,25 +133,7 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
         return true
     }
     */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
+ 
 
     /*
     // Override to support conditional rearranging of the table view.
@@ -124,4 +153,4 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     */
 
-}
+
