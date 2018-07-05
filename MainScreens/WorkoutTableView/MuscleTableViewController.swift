@@ -103,25 +103,6 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @objc public func showAddUserAlertController() {
-//        let alertController = UIAlertController(title: "Add Muscle Group", message: "Add a muscle group", preferredStyle: UIAlertControllerStyle.alert)
-//
-//        alertController.addTextField { (textField : UITextField!) -> Void in
-//            textField.autocapitalizationType = .words
-//            textField.placeholder = "Enter Muscle Group"
-//        }
-        
-//        let addAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default, handler: { alert -> Void in
-//
-//        })
-        
-//        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: {
-//            (action : UIAlertAction!) -> Void in })
-        
-//        alertController.addAction(addAction)
-//        alertController.addAction(cancelAction)
-//
-//        present(alertController, animated: true, completion: nil)
-        
         
         //1. Create the alert controller.
         let alert = UIAlertController(title: "Some Title", message: "Enter a text", preferredStyle: .alert)
