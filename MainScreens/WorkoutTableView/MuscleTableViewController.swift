@@ -103,26 +103,45 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @objc public func showAddUserAlertController() {
-        let alertController = UIAlertController(title: "Add Muscle Group", message: "Add a muscle group", preferredStyle: UIAlertControllerStyle.alert)
-        
-        alertController.addTextField { (textField : UITextField!) -> Void in
-            textField.autocapitalizationType = .words
-            textField.placeholder = "Enter Muscle Group"
-        }
+//        let alertController = UIAlertController(title: "Add Muscle Group", message: "Add a muscle group", preferredStyle: UIAlertControllerStyle.alert)
+//
+//        alertController.addTextField { (textField : UITextField!) -> Void in
+//            textField.autocapitalizationType = .words
+//            textField.placeholder = "Enter Muscle Group"
+//        }
         
 //        let addAction = UIAlertAction(title: "Add", style: UIAlertActionStyle.default, handler: { alert -> Void in
 //
 //        })
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: {
-            (action : UIAlertAction!) -> Void in })
+//        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: {
+//            (action : UIAlertAction!) -> Void in })
         
 //        alertController.addAction(addAction)
-        alertController.addAction(cancelAction)
+//        alertController.addAction(cancelAction)
+//
+//        present(alertController, animated: true, completion: nil)
         
-        present(alertController, animated: true, completion: nil)
-            
+        
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "Some Title", message: "Enter a text", preferredStyle: .alert)
+        
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextField { (textField) in
+            textField.text = "Some default text"
         }
+        
+        // 3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            self.muscles.append(Muscle(group: (textField?.text)!)!)
+        }))
+        
+        // 4. Present the alert.
+        self.present(alert, animated: true, completion: nil)
+        }
+    
+    
     }
     
 
