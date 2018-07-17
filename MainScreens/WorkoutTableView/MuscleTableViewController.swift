@@ -11,6 +11,7 @@ import UIKit
 class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var muscles = [Muscle]()
+    var textField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,9 +19,6 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
         //Programatically configuring navigation components (title, left, right buttons)
         
         navigationItem.title = "Muscle groups"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddUserAlertController))
-        navigationItem.leftBarButtonItem = self.editButtonItem
-        
         
         //Load sample workouts
         loadSampleWorkouts()
@@ -102,28 +100,8 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
         
     }
     
-    @objc public func showAddUserAlertController() {
-        
-        //1. Create the alert controller.
-        let alert = UIAlertController(title: "Some Title", message: "Enter a text", preferredStyle: .alert)
-        
-        //2. Add the text field. You can configure it however you need.
-        alert.addTextField { (textField) in
-            textField.text = "Some default text"
-        }
-        
-        // 3. Grab the value from the text field, and print it when the user clicks OK.
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-            self.muscles.append(Muscle(group: (textField?.text)!)!)
-        }))
-        
-        // 4. Present the alert.
-        self.present(alert, animated: true, completion: nil)
-        }
     
-    
-    }
+}
     
 
     /*
