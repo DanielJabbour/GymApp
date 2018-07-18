@@ -12,6 +12,9 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     var muscles = [Muscle]()
     var textField: UITextField!
+    @IBAction func addButtonAction(_ sender: Any) {
+        addItem()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +101,21 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
         
         muscles += [muscle1, muscle2]
         
+    }
+    
+    private func addItem() {
+        let alert = UIAlertController(title: "Add group", message: "Enter a new group", preferredStyle: .alert)
+        
+        alert.addTextField{ (textField) in
+            textField.text = ""
+        }
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0]
+            print ("Text field: \(textField!.text ?? "defaultVal")")
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     

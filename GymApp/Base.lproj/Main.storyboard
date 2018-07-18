@@ -190,7 +190,11 @@
                         </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Your Muscle Groups" id="MBR-YQ-TzI">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xm5-Fa-9o1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="xm5-Fa-9o1">
+                            <connections>
+                                <action selector="addButtonAction:" destination="M7X-dz-rXk" id="RHv-W7-AkY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
