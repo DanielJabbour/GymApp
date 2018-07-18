@@ -11,7 +11,8 @@ import UIKit
 class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var muscles = [Muscle]()
-    var textField: UITextField!
+//    var textField: UITextField!
+    
     @IBAction func addButtonAction(_ sender: Any) {
         addItem()
     }
@@ -104,6 +105,9 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     private func addItem() {
+        
+        print("OK")
+        
         let alert = UIAlertController(title: "Add group", message: "Enter a new group", preferredStyle: .alert)
         
         alert.addTextField{ (textField) in
