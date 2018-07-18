@@ -25,7 +25,7 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
         
         //Load sample workouts
         loadSampleWorkouts()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -115,8 +115,14 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
         
         //Grab and log user entered value
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-            let textField = alert?.textFields![0]
-            print ("Text field: \(textField!.text ?? "defaultVal")")
+            let textField = alert?.textFields![0].text
+            
+            guard let newMuscle = Muscle(group: textField!) else {
+                fatalError("Unable to instantiate muscle")
+            }
+            
+            self.muscles += [newMuscle]
+            print ("Text field: \(textField!)")
         }))
         
         //Present alert
