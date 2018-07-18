@@ -11,7 +11,6 @@ import UIKit
 class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var muscles = [Muscle]()
-//    var textField: UITextField!
     
     @IBAction func addButtonAction(_ sender: Any) {
         addItem()
@@ -106,19 +105,21 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     private func addItem() {
         
-        print("OK")
+        //Create alert controller
+        let alert = UIAlertController(title: "Add a Muscle Group", message: "Enter a new muscle group", preferredStyle: .alert)
         
-        let alert = UIAlertController(title: "Add group", message: "Enter a new group", preferredStyle: .alert)
-        
+        //Add text input field
         alert.addTextField{ (textField) in
             textField.text = ""
         }
         
+        //Grab and log user entered value
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0]
             print ("Text field: \(textField!.text ?? "defaultVal")")
         }))
         
+        //Present alert
         self.present(alert, animated: true, completion: nil)
     }
     
