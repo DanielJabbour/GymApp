@@ -8,12 +8,13 @@
 
 import UIKit
 
-class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MuscleTableViewController: UITableViewController {
     
     var muscles = [Muscle]()
     
     @IBAction func addButtonAction(_ sender: Any) {
         addItem()
+        self.reloadInputViews()
     }
     
     override func viewDidLoad() {
@@ -41,16 +42,16 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
     // MARK: - Table view data source
 
     //Only 1 secion to display
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return muscles.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "MuscleTableViewCell"
         
         //Use of custom class Muscle hence need to downcast type of cell to custom cell subclass
@@ -68,24 +69,24 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
 
         return cell
     }
-    
-    //Override to support rearranging the table view.
-    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let movedObject = muscles[fromIndexPath.row]
-        muscles.remove(at: fromIndexPath.row)
-        muscles.insert(movedObject, at: to.row)
-    }
-    
-    // Override to support editing the table view.
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            self.muscles.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
+//
+//    //Override to support rearranging the table view.
+//    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+//        let movedObject = muscles[fromIndexPath.row]
+//        muscles.remove(at: fromIndexPath.row)
+//        muscles.insert(movedObject, at: to.row)
+//    }
+//
+//    // Override to support editing the table view.
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            // Delete the row from the data source
+//            self.muscles.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        } else if editingStyle == .insert {
+//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
+//    }
     
     private func loadSampleWorkouts() {
         
@@ -100,7 +101,6 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         muscles += [muscle1, muscle2]
-        
     }
     
     private func addItem() {
@@ -123,6 +123,9 @@ class MuscleTableViewController: UIViewController, UITableViewDelegate, UITableV
             
             self.muscles += [newMuscle]
             print ("Text field: \(textField!)")
+            print (self.muscles)
+            self.tableView.reloadData()
+
         }))
         
         //Present alert
