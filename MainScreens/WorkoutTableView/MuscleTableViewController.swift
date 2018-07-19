@@ -24,9 +24,6 @@ class MuscleTableViewController: UITableViewController {
         
         navigationItem.title = "Muscle groups"
         
-        //Load sample workouts
-        loadSampleWorkouts()
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -87,21 +84,6 @@ class MuscleTableViewController: UITableViewController {
 //            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
 //        }
 //    }
-    
-    private func loadSampleWorkouts() {
-        
-        //init method is failable so use guards to check instantiation is correct
-        
-        guard let muscle1 = Muscle(group: "Chest") else {
-            fatalError("Unable to instantiate muscle1")
-        }
-        
-        guard let muscle2 = Muscle(group: "Biceps") else {
-            fatalError("Unable to instantiate muscle2")
-        }
-        
-        muscles += [muscle1, muscle2]
-    }
     
     private func addItem() {
         
