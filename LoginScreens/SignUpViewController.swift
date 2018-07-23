@@ -54,6 +54,8 @@ class SignUpViewController: UIViewController {
                     print("You have successfully signed up")
                     
                     //Post data to firebase here
+                    //TO DO - Figure out how to handle multiple users without overwriting current user fields
+                    self.ref?.child("UserLoginInfo").child("Email").setValue(self.emailRegTextField.text!)
                     self.ref?.child("UserLoginInfo").child("Name").setValue(self.nameTextField.text!)
                     
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")

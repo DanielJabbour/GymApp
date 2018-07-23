@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class MuscleTableViewController: UITableViewController {
     
     var muscles = [Muscle]()
-    
+    var ref:DatabaseReference?
+
     @IBAction func addButtonAction(_ sender: Any) {
         addItem()
         self.reloadInputViews()
@@ -97,7 +100,10 @@ class MuscleTableViewController: UITableViewController {
         
         //Grab and log user entered value
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-            let textField = alert?.textFields![0].text
+            var textField = alert?.textFields![0].text
+            
+            //Post entered muscle to firebase, why are we getting null?
+            self.ref!.child("MuscleGroupList").child("Group").setValue(textField!)
             
             guard let newMuscle = Muscle(group: textField!) else {
                 fatalError("Unable to instantiate muscle")
