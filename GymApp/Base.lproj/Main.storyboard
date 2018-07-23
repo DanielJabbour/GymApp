@@ -172,7 +172,7 @@
                         <barButtonItem title="Home" image="homeIcon.png" id="G45-B0-Qwk">
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="8iH-X3-j2e" kind="show" id="vtU-ml-Atl"/>
+                                <segue destination="8iH-X3-j2e" kind="showDetail" animates="NO" id="vtU-ml-Atl"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="gNW-ut-mYI"/>
@@ -191,7 +191,7 @@
                         <barButtonItem title="Settings" image="settingsIcon.png" id="MNs-fv-9Oa">
                             <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="26E-AM-RhK" kind="show" id="XAl-pi-vDl"/>
+                                <segue destination="26E-AM-RhK" kind="showDetail" animates="NO" id="XAl-pi-vDl"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -258,13 +258,13 @@
                                 <items>
                                     <barButtonItem title="Home" image="homeIcon.png" id="UBy-CY-Lgd">
                                         <connections>
-                                            <segue destination="8iH-X3-j2e" kind="show" id="wr1-7s-MHD"/>
+                                            <segue destination="8iH-X3-j2e" kind="showDetail" animates="NO" id="wr1-7s-MHD"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="78K-L6-fUW"/>
                                     <barButtonItem title="Gym" image="gymIcon.png" id="gvP-sy-Bp6">
                                         <connections>
-                                            <segue destination="M7X-dz-rXk" kind="show" id="yYm-yM-awq"/>
+                                            <segue destination="UEt-IG-bn7" kind="showDetail" animates="NO" id="Yjd-D9-6sY"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xRX-1n-zId"/>
@@ -317,7 +317,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="67w-VN-04D"/>
                                     <barButtonItem title="Gym" image="gymIcon.png" id="r6e-5q-gvn">
                                         <connections>
-                                            <segue destination="UEt-IG-bn7" kind="show" id="3gp-fE-gvB"/>
+                                            <segue destination="UEt-IG-bn7" kind="showDetail" animates="NO" id="3gp-fE-gvB"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bWM-7P-Uax"/>
@@ -327,7 +327,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="2i5-OL-UqJ"/>
                                     <barButtonItem title="Settings" image="settingsIcon.png" id="pdy-UR-VJh">
                                         <connections>
-                                            <segue destination="26E-AM-RhK" kind="show" id="Uhb-Tv-mQC"/>
+                                            <segue destination="26E-AM-RhK" kind="showDetail" animates="NO" id="Uhb-Tv-mQC"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -372,9 +372,9 @@
         <image name="settingsIcon.png" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vtU-ml-Atl"/>
-        <segue reference="XAl-pi-vDl"/>
-        <segue reference="M9U-21-F9S"/>
+        <segue reference="Yjd-D9-6sY"/>
+        <segue reference="wr1-7s-MHD"/>
+        <segue reference="Uhb-Tv-mQC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>
