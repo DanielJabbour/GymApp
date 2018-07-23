@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class SignUpViewController: UIViewController {
 
@@ -16,7 +17,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet var emailRegTextField: UITextField!
     @IBOutlet var passwordRegTextField: UITextField!
     @IBOutlet var passwordConfirmTextField: UITextField!
+    @IBOutlet var nameTextField: UITextField!
     
+    var ref:DatabaseReference?
+        
     //Signup action button
     @IBAction func createAccountAction(_ sender: Any) {
         
@@ -49,6 +53,9 @@ class SignUpViewController: UIViewController {
                 if error == nil {
                     print("You have successfully signed up")
                     
+                    //Post data to firebase here
+                    self.ref?.child("UserLoginInfo").child("Name").setValue(self.nameTextField.text!)
+                    
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
                     self.present(vc!, animated: true, completion: nil)
                     
@@ -70,7 +77,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        ref = Database.database().reference()
     }
 
     override func didReceiveMemoryWarning() {
