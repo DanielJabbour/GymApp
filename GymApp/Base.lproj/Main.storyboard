@@ -131,7 +131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LLh-IH-sgj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="118" y="686"/>
+            <point key="canvasLocation" x="118" y="798"/>
         </scene>
         <!--Your Muscle Groups-->
         <scene sceneID="sCg-Pe-y9V">
