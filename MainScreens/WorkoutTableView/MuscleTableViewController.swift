@@ -13,7 +13,7 @@ import FirebaseDatabase
 class MuscleTableViewController: UITableViewController {
     
     var muscles = [Muscle]()
-    var ref:DatabaseReference?
+    var ref: DatabaseReference!
 
     @IBAction func addButtonAction(_ sender: Any) {
         addItem()
@@ -98,17 +98,18 @@ class MuscleTableViewController: UITableViewController {
             textField.text = ""
         }
         
+        ref = Database.database().reference()
+        
         //Grab and log user entered value
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-            var textField = alert?.textFields![0].text
+            let textField = alert?.textFields![0].text
             
-            //Post entered muscle to firebase, why are we getting null?
-            self.ref!.child("MuscleGroupList").child("Group").setValue(textField!)
-            
+            //Post entered muscle to firebase, why are we getting null from force unwrap?
             guard let newMuscle = Muscle(group: textField!) else {
                 fatalError("Unable to instantiate muscle")
             }
             
+            self.ref?.child("MuscleGroupList").child("Group").setValue(textField)
             self.muscles += [newMuscle]
             print ("Text field: \(textField!)")
             print (self.muscles)
