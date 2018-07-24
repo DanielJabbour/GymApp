@@ -27,6 +27,8 @@ class MuscleTableViewController: UITableViewController {
         
         navigationItem.title = "Muscle groups"
         
+        loadData()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -88,31 +90,59 @@ class MuscleTableViewController: UITableViewController {
 //        }
 //    }
     
+    private func loadData() {
+        //Create a reference to the database
+        ref = Database.database().reference()
+        
+        ref.observeSingleEvent(of: .value, with: { DataSnapshot in
+            if !DataSnapshot.exists() { return }
+            //print (snapshot)
+
+            let readMuscleGroup = DataSnapshot.childSnapshot(forPath: "MuscleGroupList").valueInExportFormat() as! Dictionary<String, Any>
+            let muscleGroup = String(describing: readMuscleGroup["Group"] as! String)
+            
+            guard let newMuscle = Muscle(group: muscleGroup) else {
+                fatalError("Unable to instantiate muscle")
+            }
+            
+            self.muscles += [newMuscle]
+            self.tableView.reloadData()
+
+        })
+        
+        
+
+    }
+    
     private func addItem() {
         
         //Create alert controller
         let alert = UIAlertController(title: "Add a Muscle Group", message: "Enter a new muscle group", preferredStyle: .alert)
+        
+        //Create reference to database
+        ref = Database.database().reference()
+
         
         //Add text input field
         alert.addTextField{ (textField) in
             textField.text = ""
         }
         
-        ref = Database.database().reference()
         
         //Grab and log user entered value
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0].text
             
-            //Post entered muscle to firebase, why are we getting null from force unwrap?
             guard let newMuscle = Muscle(group: textField!) else {
                 fatalError("Unable to instantiate muscle")
             }
             
+            //Push entry to database under MuscleGroupListGroup
             self.ref?.child("MuscleGroupList").child("Group").setValue(textField)
+            
+            
             self.muscles += [newMuscle]
-            print ("Text field: \(textField!)")
-            print (self.muscles)
+            
             self.tableView.reloadData()
 
         }))
