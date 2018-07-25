@@ -15,6 +15,7 @@ class ViewController: UIViewController {
 
     var ref: DatabaseReference?
     var userCount = 0;
+    var userDictionary = [String: Any]()
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -38,6 +39,7 @@ class ViewController: UIViewController {
         //Database reference
         ref = Database.database().reference()
         
+        //Get count of users -1 to use in search loop
         ref?.child("Users").observe(.value) { DataSnapshot in
             print(DataSnapshot.childrenCount)
             self.userCount = Int(DataSnapshot.childrenCount) - 1
@@ -85,14 +87,15 @@ class ViewController: UIViewController {
                             
                             let currentUserEmail = userDict["Email"] as! String
                             print(currentUserEmail)
+                            
+                            //Match current user to appropriate database entry to pull user data
+                            if (currentUserEmail == userEmail) {
+                                self.userDictionary = userDict
+                                print(self.userDictionary)
+                            }
                         }
                     }
                     
-                    //Pull user data from Firebase
-//                    self.ref?.child("Users").child("userNum?").observe(.value) { DataSnapshot in
-//                        //Query
-//
-//                    }
                     
                     //Go to the HomeViewController if the login is sucessful
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
