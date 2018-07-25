@@ -14,6 +14,7 @@ import FirebaseDatabase
 class ViewController: UIViewController {
 
     var ref: DatabaseReference?
+    var userCount = 0;
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -23,12 +24,25 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         ref = Database.database().reference()
+        getUserCount()
         
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func getUserCount() {
+        
+        //Database reference
+        ref = Database.database().reference()
+        
+        ref?.child("Users").observe(.value) { DataSnapshot in
+            print(DataSnapshot.childrenCount)
+            self.userCount = Int(DataSnapshot.childrenCount) - 1
+        }
+        
     }
     
     @IBAction func loginAction(_ sender: Any) {
@@ -53,20 +67,25 @@ class ViewController: UIViewController {
                     
                     //Print into the console if successfully logged in
                     print("You have successfully logged in")
+                    print (self.userCount)
                     
                     //Search for user in Database using email
-                    var userEmail = self.emailTextField.text!
-                    self.ref?.child("Users").observe(.value) { DataSnapshot in
-                        
-                        let usersDict = DataSnapshot.value as! Dictionary<String, Any>
-                        print(usersDict["User2"])
-                        
-                        let userDict = usersDict["User2"] as! Dictionary<String, Any>
-                        print (userDict["Email"])
-                        
-                        let currentUserEmail = userDict["Email"] as! String
-                        print(currentUserEmail)
-                        
+                    let userEmail = self.emailTextField.text!
+                    print(userEmail)
+                    
+                    //Loop through users, compare if user email is equal to read email
+                    for index in 0...self.userCount {
+                        self.ref?.child("Users").observe(.value) { DataSnapshot in
+                            
+                            let usersDict = DataSnapshot.value as! Dictionary<String, Any>
+                            //print(usersDict["User2"])
+                            
+                            let userDict = usersDict["User\(index)"] as! Dictionary<String, Any>
+                            //print (userDict["Email"])
+                            
+                            let currentUserEmail = userDict["Email"] as! String
+                            print(currentUserEmail)
+                        }
                     }
                     
                     //Pull user data from Firebase
