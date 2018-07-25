@@ -17,7 +17,6 @@ class MuscleTableViewController: UITableViewController {
 
     @IBAction func addButtonAction(_ sender: Any) {
         addItem()
-        self.reloadInputViews()
     }
     
     override func viewDidLoad() {
@@ -142,7 +141,6 @@ class MuscleTableViewController: UITableViewController {
             
             
             self.muscles += [newMuscle]
-            
             self.tableView.reloadData()
 
         }))
