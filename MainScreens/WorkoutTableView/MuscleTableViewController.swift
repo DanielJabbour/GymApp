@@ -143,7 +143,7 @@ class MuscleTableViewController: UITableViewController {
             
             self.muscles += [newMuscle]
             
-            //self.tableView.reloadData()
+            self.tableView.reloadData()
 
         }))
         
