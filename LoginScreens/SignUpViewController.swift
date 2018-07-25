@@ -37,7 +37,6 @@ class SignUpViewController: UIViewController {
     }
     
     private func getUserCount() {
-        //Get user count to test
         
         //Database reference
         ref = Database.database().reference()

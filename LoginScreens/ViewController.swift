@@ -9,12 +9,27 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class ViewController: UIViewController {
 
+    var ref: DatabaseReference?
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        
+        ref = Database.database().reference()
+        
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     @IBAction func loginAction(_ sender: Any) {
         
@@ -39,6 +54,27 @@ class ViewController: UIViewController {
                     //Print into the console if successfully logged in
                     print("You have successfully logged in")
                     
+                    //Search for user in Database using email
+                    var userEmail = self.emailTextField.text!
+                    self.ref?.child("Users").observe(.value) { DataSnapshot in
+                        
+                        let usersDict = DataSnapshot.value as! Dictionary<String, Any>
+                        print(usersDict["User2"])
+                        
+                        let userDict = usersDict["User2"] as! Dictionary<String, Any>
+                        print (userDict["Email"])
+                        
+                        let currentUserEmail = userDict["Email"] as! String
+                        print(currentUserEmail)
+                        
+                    }
+                    
+                    //Pull user data from Firebase
+//                    self.ref?.child("Users").child("userNum?").observe(.value) { DataSnapshot in
+//                        //Query
+//
+//                    }
+                    
                     //Go to the HomeViewController if the login is sucessful
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
                     self.present(vc!, animated: true, completion: nil)
@@ -55,17 +91,6 @@ class ViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 

@@ -26,7 +26,10 @@ class MuscleTableViewController: UITableViewController {
         
         navigationItem.title = "Muscle groups"
         
-        //loadData()
+        //Create a reference to the database
+        ref = Database.database().reference()
+        
+        loadData()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -70,6 +73,7 @@ class MuscleTableViewController: UITableViewController {
 
         return cell
     }
+    
 //
 //    //Override to support rearranging the table view.
 //    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -89,29 +93,25 @@ class MuscleTableViewController: UITableViewController {
 //        }
 //    }
     
-//    private func loadData() {
-//        //Create a reference to the database
-//        ref = Database.database().reference()
-//
-//        ref.observeSingleEvent(of: .value, with: { DataSnapshot in
-//            if !DataSnapshot.exists() { return }
-//            //print (snapshot)
-//
-//            let readMuscleGroup = DataSnapshot.childSnapshot(forPath: "MuscleGroupList").valueInExportFormat() as! Dictionary<String, Any>
-//            let muscleGroup = String(describing: readMuscleGroup["Group"] as! String)
-//
-//            guard let newMuscle = Muscle(group: muscleGroup) else {
-//                fatalError("Unable to instantiate muscle")
-//            }
-//
-//            self.muscles += [newMuscle]
-//            self.tableView.reloadData()
-//
-//        })
-//
-//
-//
-//    }
+    private func loadData() {
+
+        ref.observeSingleEvent(of: .value, with: { DataSnapshot in
+            if !DataSnapshot.exists() { return }
+            //print (snapshot)
+
+            let readMuscleGroup = DataSnapshot.childSnapshot(forPath: "MuscleGroupList").valueInExportFormat() as! Dictionary<String, Any>
+            let muscleGroup = String(describing: readMuscleGroup["Group"] as! String)
+
+            guard let newMuscle = Muscle(group: muscleGroup) else {
+                fatalError("Unable to instantiate muscle")
+            }
+
+            self.muscles += [newMuscle]
+            self.tableView.reloadData()
+
+        })
+
+    }
     
     private func addItem() {
         
@@ -120,7 +120,6 @@ class MuscleTableViewController: UITableViewController {
         
         //Create reference to database
         ref = Database.database().reference()
-
         
         //Add text input field
         alert.addTextField{ (textField) in
@@ -136,9 +135,8 @@ class MuscleTableViewController: UITableViewController {
                 fatalError("Unable to instantiate muscle")
             }
             
-            //Push entry to database under MuscleGroupListGroup
-            self.ref?.child("MuscleGroupList").child("Group").setValue(textField)
-            
+            //Push entry to database under appropriate user
+            self.ref?.child("Users").child("Group").setValue(textField)
             
             self.muscles += [newMuscle]
             self.tableView.reloadData()
@@ -148,7 +146,6 @@ class MuscleTableViewController: UITableViewController {
         //Present alert
         self.present(alert, animated: true, completion: nil)
     }
-    
     
 }
     
@@ -160,7 +157,6 @@ class MuscleTableViewController: UITableViewController {
         return true
     }
     */
- 
 
     /*
     // Override to support conditional rearranging of the table view.
