@@ -27,7 +27,7 @@ class MuscleTableViewController: UITableViewController {
         
         navigationItem.title = "Muscle groups"
         
-        loadData()
+        //loadData()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -90,29 +90,29 @@ class MuscleTableViewController: UITableViewController {
 //        }
 //    }
     
-    private func loadData() {
-        //Create a reference to the database
-        ref = Database.database().reference()
-        
-        ref.observeSingleEvent(of: .value, with: { DataSnapshot in
-            if !DataSnapshot.exists() { return }
-            //print (snapshot)
-
-            let readMuscleGroup = DataSnapshot.childSnapshot(forPath: "MuscleGroupList").valueInExportFormat() as! Dictionary<String, Any>
-            let muscleGroup = String(describing: readMuscleGroup["Group"] as! String)
-            
-            guard let newMuscle = Muscle(group: muscleGroup) else {
-                fatalError("Unable to instantiate muscle")
-            }
-            
-            self.muscles += [newMuscle]
-            self.tableView.reloadData()
-
-        })
-        
-        
-
-    }
+//    private func loadData() {
+//        //Create a reference to the database
+//        ref = Database.database().reference()
+//
+//        ref.observeSingleEvent(of: .value, with: { DataSnapshot in
+//            if !DataSnapshot.exists() { return }
+//            //print (snapshot)
+//
+//            let readMuscleGroup = DataSnapshot.childSnapshot(forPath: "MuscleGroupList").valueInExportFormat() as! Dictionary<String, Any>
+//            let muscleGroup = String(describing: readMuscleGroup["Group"] as! String)
+//
+//            guard let newMuscle = Muscle(group: muscleGroup) else {
+//                fatalError("Unable to instantiate muscle")
+//            }
+//
+//            self.muscles += [newMuscle]
+//            self.tableView.reloadData()
+//
+//        })
+//
+//
+//
+//    }
     
     private func addItem() {
         
@@ -143,7 +143,7 @@ class MuscleTableViewController: UITableViewController {
             
             self.muscles += [newMuscle]
             
-            self.tableView.reloadData()
+            //self.tableView.reloadData()
 
         }))
         

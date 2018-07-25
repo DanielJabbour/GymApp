@@ -19,8 +19,36 @@ class SignUpViewController: UIViewController {
     @IBOutlet var passwordConfirmTextField: UITextField!
     @IBOutlet var nameTextField: UITextField!
     
+    //Obtain user number in database
+    var userNum = 0;
+    
     var ref:DatabaseReference?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        ref = Database.database().reference()
+        getUserCount()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    private func getUserCount() {
+        //Get user count to test
         
+        //Database reference
+        ref = Database.database().reference()
+        
+        ref?.child("Users").observe(.value) { DataSnapshot in
+            print(DataSnapshot.childrenCount)
+            self.userNum = Int(DataSnapshot.childrenCount)
+        }
+        
+    }
+    
     //Signup action button
     @IBAction func createAccountAction(_ sender: Any) {
         
@@ -53,10 +81,9 @@ class SignUpViewController: UIViewController {
                 if error == nil {
                     print("You have successfully signed up")
                     
-                    //Post data to firebase here
-                    //TO DO - Figure out how to handle multiple users without overwriting current user fields
-                    self.ref?.child("UserLoginInfo").child("Email").setValue(self.emailRegTextField.text!)
-                    self.ref?.child("UserLoginInfo").child("Name").setValue(self.nameTextField.text!)
+                    //Post data to Firebase here
+                    self.ref?.child("Users").child("User\(self.userNum)").child("Email").setValue(self.emailRegTextField.text!)
+                    self.ref?.child("Users").child("User\(self.userNum)").child("Name").setValue(self.nameTextField.text!)
                     
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
                     self.present(vc!, animated: true, completion: nil)
@@ -73,20 +100,7 @@ class SignUpViewController: UIViewController {
             }
         }
         
-        
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        ref = Database.database().reference()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     /*
     // MARK: - Navigation
