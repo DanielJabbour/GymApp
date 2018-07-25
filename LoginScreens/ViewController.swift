@@ -24,7 +24,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        //Database reference
         ref = Database.database().reference()
+        
+        //Get user count from database for search
         getUserCount()
         
     }
@@ -77,6 +80,8 @@ class ViewController: UIViewController {
                     
                     //Loop through users, compare if user email is equal to read email
                     for index in 0...self.userCount {
+                        print("TEST")
+                        
                         self.ref?.child("Users").observe(.value) { DataSnapshot in
                             
                             let usersDict = DataSnapshot.value as! Dictionary<String, Any>
@@ -91,11 +96,17 @@ class ViewController: UIViewController {
                             //Match current user to appropriate database entry to pull user data
                             if (currentUserEmail == userEmail) {
                                 self.userDictionary = userDict
+                                print("val")
                                 print(self.userDictionary)
                             }
                         }
+                        print("TESTS TWO")
                     }
                     
+                    sleep(4)
+                    
+                    print("OK")
+                    print(self.userDictionary)
                     
                     //Go to the HomeViewController if the login is sucessful
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
