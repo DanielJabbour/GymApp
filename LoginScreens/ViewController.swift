@@ -34,7 +34,6 @@ class ViewController: UIViewController {
         searchUsers{ success in
             if success {
                 print("success")
-                print(self.test)
             }
             else {
                 print("fail")
@@ -105,7 +104,10 @@ class ViewController: UIViewController {
     private func searchUsers(completion: @escaping (Bool) -> ()) {
         ref?.child("Users").observeSingleEvent(of: .value, with: { (DataSnapshot) in
             
-            self.test = Int(DataSnapshot.childrenCount)
+            var dataSnap = DataSnapshot.value as? [String:Any]
+            var userData = dataSnap!["User2"] as! [String:String]
+            var userEmail = userData["Email"] as! String
+            
             completion(true)
         })
     }
