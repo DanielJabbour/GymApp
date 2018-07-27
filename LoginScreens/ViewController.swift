@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     var ref: DatabaseReference?
     var userCount = 0;
     var userDictionary = [String: String]()
-    var test = 0;
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -30,15 +29,6 @@ class ViewController: UIViewController {
         
         //Get user count from database for search
         getUserCount()
-
-        searchUsers{ success in
-            if success {
-                print("success")
-            }
-            else {
-                print("fail")
-            }
-        }
         
     }
 
@@ -54,7 +44,7 @@ class ViewController: UIViewController {
         
         //Get count of users -1 to use in search loop
         ref?.child("Users").observe(.value) { DataSnapshot in
-            print(DataSnapshot.childrenCount)
+            //print(DataSnapshot.childrenCount)
             self.userCount = Int(DataSnapshot.childrenCount) - 1
         }
         
@@ -83,6 +73,16 @@ class ViewController: UIViewController {
                     //Print into the console if successfully logged in
                     print("You have successfully logged in")
                     
+                    self.searchUsers{ success in
+                        if success {
+                            print("success")
+                            print(self.userDictionary)
+                        }
+                        else {
+                            print("fail")
+                        }
+                    }
+                    
                     //Go to the HomeViewController if the login is sucessful
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
                     self.present(vc!, animated: true, completion: nil)
@@ -104,9 +104,20 @@ class ViewController: UIViewController {
     private func searchUsers(completion: @escaping (Bool) -> ()) {
         ref?.child("Users").observeSingleEvent(of: .value, with: { (DataSnapshot) in
             
-            var dataSnap = DataSnapshot.value as? [String:Any]
-            var userData = dataSnap!["User2"] as! [String:String]
-            var userEmail = userData["Email"] as! String
+            let dataSnap = DataSnapshot.value as? [String:Any]
+            var userEmail = self.emailTextField.text;
+            
+            for index in 0...self.userCount {
+                var userData = dataSnap!["User\(index)"] as! [String:String]
+                var currentUserEmail = userData["Email"] as! String
+                
+                if (currentUserEmail == userEmail) {
+                    print("found user")
+                    self.userDictionary = userData
+                    break;
+                }
+                
+            }
             
             completion(true)
         })
