@@ -14,14 +14,10 @@ class MuscleTableViewController: UITableViewController {
     
     var muscles = [Muscle]()
     var ref: DatabaseReference!
-    var vc = ViewController()
-    //var userDictionary = [String: Any]()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(vc.userDictionary)
         
         //Programatically configuring navigation components (title, left, right buttons)
         navigationItem.title = "Muscle groups"
@@ -30,7 +26,7 @@ class MuscleTableViewController: UITableViewController {
         ref = Database.database().reference()
         
         //Load initial user data
-        //loadData()
+        loadData()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -98,25 +94,29 @@ class MuscleTableViewController: UITableViewController {
         addItem()
     }
     
-//    private func loadData() {
-//
-//        ref.observeSingleEvent(of: .value, with: { DataSnapshot in
-//            if !DataSnapshot.exists() { return }
-//            //print (snapshot)
-//
-//            let readMuscleGroup = DataSnapshot.childSnapshot(forPath: "MuscleGroupList").valueInExportFormat() as! Dictionary<String, Any>
-//            let muscleGroup = String(describing: readMuscleGroup["Group"] as! String)
-//
-//            guard let newMuscle = Muscle(group: muscleGroup) else {
-//                fatalError("Unable to instantiate muscle")
-//            }
-//
-//            self.muscles += [newMuscle]
-//            self.tableView.reloadData()
-//
-//        })
-//
-//    }
+    private func loadData() {
+
+        ref.child("MuscleGroup").observeSingleEvent(of: .value, with: { DataSnapshot in
+            if !DataSnapshot.exists() {
+                print("No data")
+                return
+            }
+
+            else {
+                let readMuscleGroup = DataSnapshot.childSnapshot(forPath: "MuscleGroup").valueInExportFormat() as! Dictionary<String, Any>
+                let muscleGroup = String(describing: readMuscleGroup["Group"] as! String)
+                
+                guard let newMuscle = Muscle(group: muscleGroup) else {
+                    fatalError("Unable to instantiate muscle")
+                }
+                
+                self.muscles += [newMuscle]
+                self.tableView.reloadData()
+            }
+            
+        })
+
+    }
     
     private func addItem() {
         

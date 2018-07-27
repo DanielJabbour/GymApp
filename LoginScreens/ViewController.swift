@@ -105,18 +105,17 @@ class ViewController: UIViewController {
         ref?.child("Users").observeSingleEvent(of: .value, with: { (DataSnapshot) in
             
             let dataSnap = DataSnapshot.value as? [String:Any]
-            var userEmail = self.emailTextField.text;
+            let userEmail = self.emailTextField.text;
             
             for index in 0...self.userCount {
                 var userData = dataSnap!["User\(index)"] as! [String:String]
-                var currentUserEmail = userData["Email"] as! String
+                let currentUserEmail = userData["Email"]
                 
                 if (currentUserEmail == userEmail) {
-                    print("found user")
+                    print("Found User")
                     self.userDictionary = userData
                     break;
                 }
-                
             }
             
             completion(true)
