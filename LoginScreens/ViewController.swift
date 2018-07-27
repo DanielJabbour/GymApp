@@ -15,7 +15,8 @@ class ViewController: UIViewController {
 
     var ref: DatabaseReference?
     var userCount = 0;
-    var userDictionary = [String: Any]()
+    var userDictionary = [String: String]()
+    var test = 0;
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -29,6 +30,16 @@ class ViewController: UIViewController {
         
         //Get user count from database for search
         getUserCount()
+
+        searchUsers{ success in
+            if success {
+                print("success")
+                print(self.test)
+            }
+            else {
+                print("fail")
+            }
+        }
         
     }
 
@@ -72,41 +83,6 @@ class ViewController: UIViewController {
                     
                     //Print into the console if successfully logged in
                     print("You have successfully logged in")
-                    print (self.userCount)
-                    
-                    //Search for user in Database using email
-                    let userEmail = self.emailTextField.text!
-                    print(userEmail)
-                    
-                    //Loop through users, compare if user email is equal to read email
-                    for index in 0...self.userCount {
-                        print("TEST")
-                        
-                        self.ref?.child("Users").observe(.value) { DataSnapshot in
-                            
-                            let usersDict = DataSnapshot.value as! Dictionary<String, Any>
-                            //print(usersDict["User2"])
-                            
-                            let userDict = usersDict["User\(index)"] as! Dictionary<String, Any>
-                            //print (userDict["Email"])
-                            
-                            let currentUserEmail = userDict["Email"] as! String
-                            print(currentUserEmail)
-                            
-                            //Match current user to appropriate database entry to pull user data
-                            if (currentUserEmail == userEmail) {
-                                self.userDictionary = userDict
-                                print("val")
-                                print(self.userDictionary)
-                            }
-                        }
-                        print("TESTS TWO")
-                    }
-                    
-                    sleep(4)
-                    
-                    print("OK")
-                    print(self.userDictionary)
                     
                     //Go to the HomeViewController if the login is sucessful
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
@@ -125,7 +101,14 @@ class ViewController: UIViewController {
             }
         }
     }
-
-
+    
+    private func searchUsers(completion: @escaping (Bool) -> ()) {
+        ref?.child("Users").observeSingleEvent(of: .value, with: { (DataSnapshot) in
+            
+            self.test = Int(DataSnapshot.childrenCount)
+            completion(true)
+        })
+    }
+    
 }
 
