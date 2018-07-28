@@ -16,6 +16,8 @@ class MuscleTableViewController: UITableViewController {
     var ref: DatabaseReference!
     var userCount = 0;
     var userDictionary = [String: String]()
+    var userID = ""
+    let email = UserDefaults.standard.object(forKey: "UserEmail") as! String
     
 
     override func viewDidLoad() {
@@ -27,7 +29,13 @@ class MuscleTableViewController: UITableViewController {
         //Create a reference to the database
         ref = Database.database().reference()
         
+        //Get count of users in database
+        getUserCount()
+        
         //Load initial user data
+        matchUser()
+        
+        //Load Muscle Groups
         loadData()
         
         // Uncomment the following line to preserve selection between presentations
@@ -36,16 +44,16 @@ class MuscleTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        self.searchUsers{ success in
-            if success {
-                print("success")
-                print(self.userDictionary)
-                
-            }
-            else {
-                print("fail")
-            }
-        }
+//        self.searchUsers{ success in
+//            if success {
+//                print("success")
+//                print(self.userDictionary)
+//
+//            }
+//            else {
+//                print("fail")
+//            }
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -107,30 +115,6 @@ class MuscleTableViewController: UITableViewController {
         addItem()
     }
     
-    private func loadData() {
-
-        ref.child("MuscleGroup").observeSingleEvent(of: .value, with: { DataSnapshot in
-            if !DataSnapshot.exists() {
-                print("No data")
-                return
-            }
-
-            else {
-                let readMuscleGroup = DataSnapshot.childSnapshot(forPath: "MuscleGroup").value as! Dictionary<String, Any>
-                let muscleGroup = String(describing: readMuscleGroup["Group"] as! String)
-                
-                guard let newMuscle = Muscle(group: muscleGroup) else {
-                    fatalError("Unable to instantiate muscle")
-                }
-                
-                self.muscles += [newMuscle]
-                self.tableView.reloadData()
-            }
-            
-        })
-
-    }
-    
     private func addItem() {
         
         //Create alert controller
@@ -154,7 +138,7 @@ class MuscleTableViewController: UITableViewController {
             }
             
             //Push entry to database under appropriate user
-            self.ref?.child("Users").child("Group").setValue(textField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroups").setValue(textField)
             
             self.muscles += [newMuscle]
             self.tableView.reloadData()
@@ -165,11 +149,12 @@ class MuscleTableViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    private func searchUsers(completion: @escaping (Bool) -> ()) {
-        ref?.child("Users").observeSingleEvent(of: .value, with: { (DataSnapshot) in
-            
+    private func matchUser() {
+        print(self.email)
+        ref?.child("Users").observeSingleEvent(of: .value, with: { DataSnapshot in
             let dataSnap = DataSnapshot.value as? [String:Any]
-            let userEmail = self.emailTextField.text;
+            let userEmail = self.email
+            print(userEmail)
             
             for index in 0...self.userCount {
                 var userData = dataSnap!["User\(index)"] as! [String:String]
@@ -178,12 +163,57 @@ class MuscleTableViewController: UITableViewController {
                 if (currentUserEmail == userEmail) {
                     print("Found User")
                     self.userDictionary = userData
+                    print(self.userDictionary)
+                    self.userID = "User\(index)"
                     break;
                 }
             }
             
-            completion(true)
         })
+        
+    }
+    
+    private func loadData() {
+        ref?.child("Users").observeSingleEvent(of: .value, with: { DataSnapshot in
+            let workoutData = DataSnapshot.value
+            print(workoutData)
+        })
+    }
+    
+    
+//
+//    private func searchUsers(completion: @escaping (Bool) -> ()) {
+//        ref?.child("Users").observeSingleEvent(of: .value, with: { (DataSnapshot) in
+//
+//            let dataSnap = DataSnapshot.value as? [String:Any]
+//            let userEmail = self.vc.userEmail
+//
+//            for index in 0...self.userCount {
+//                var userData = dataSnap!["User\(index)"] as! [String:String]
+//                let currentUserEmail = userData["Email"]
+//
+//                if (currentUserEmail == userEmail) {
+//                    print("Found User")
+//                    self.userDictionary = userData
+//                    break;
+//                }
+//            }
+//
+//            completion(true)
+//        })
+//    }
+    
+    private func getUserCount() {
+        
+        //Database reference
+        ref = Database.database().reference()
+        
+        //Get count of users -1 to use in search loop
+        ref?.child("Users").observe(.value) { DataSnapshot in
+            //print(DataSnapshot.childrenCount)
+            self.userCount = Int(DataSnapshot.childrenCount) - 1
+        }
+        
     }
     
 }

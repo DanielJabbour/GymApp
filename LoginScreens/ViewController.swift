@@ -15,11 +15,13 @@ class ViewController: UIViewController {
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    
+    var userEmail = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +52,9 @@ class ViewController: UIViewController {
                     //Print into the console if successfully logged in
                     print("You have successfully logged in")
                     
+                    self.userEmail = self.emailTextField.text!
+                    
+                    UserDefaults.standard.set(self.userEmail, forKey: "UserEmail")
                     
                     //Go to the HomeViewController if the login is sucessful
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
