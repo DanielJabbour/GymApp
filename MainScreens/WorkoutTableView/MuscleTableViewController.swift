@@ -14,6 +14,8 @@ class MuscleTableViewController: UITableViewController {
     
     var muscles = [Muscle]()
     var ref: DatabaseReference!
+    var userCount = 0;
+    var userDictionary = [String: String]()
     
 
     override func viewDidLoad() {
@@ -33,6 +35,17 @@ class MuscleTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        self.searchUsers{ success in
+            if success {
+                print("success")
+                print(self.userDictionary)
+                
+            }
+            else {
+                print("fail")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -103,7 +116,7 @@ class MuscleTableViewController: UITableViewController {
             }
 
             else {
-                let readMuscleGroup = DataSnapshot.childSnapshot(forPath: "MuscleGroup").valueInExportFormat() as! Dictionary<String, Any>
+                let readMuscleGroup = DataSnapshot.childSnapshot(forPath: "MuscleGroup").value as! Dictionary<String, Any>
                 let muscleGroup = String(describing: readMuscleGroup["Group"] as! String)
                 
                 guard let newMuscle = Muscle(group: muscleGroup) else {
@@ -150,6 +163,27 @@ class MuscleTableViewController: UITableViewController {
         
         //Present alert
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func searchUsers(completion: @escaping (Bool) -> ()) {
+        ref?.child("Users").observeSingleEvent(of: .value, with: { (DataSnapshot) in
+            
+            let dataSnap = DataSnapshot.value as? [String:Any]
+            let userEmail = self.emailTextField.text;
+            
+            for index in 0...self.userCount {
+                var userData = dataSnap!["User\(index)"] as! [String:String]
+                let currentUserEmail = userData["Email"]
+                
+                if (currentUserEmail == userEmail) {
+                    print("Found User")
+                    self.userDictionary = userData
+                    break;
+                }
+            }
+            
+            completion(true)
+        })
     }
     
 }

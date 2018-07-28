@@ -12,10 +12,6 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class ViewController: UIViewController {
-
-    var ref: DatabaseReference?
-    var userCount = 0;
-    var userDictionary = [String: String]()
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
@@ -24,30 +20,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        //Database reference
-        ref = Database.database().reference()
-        
-        //Get user count from database for search
-        getUserCount()
-        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    private func getUserCount() {
-        
-        //Database reference
-        ref = Database.database().reference()
-        
-        //Get count of users -1 to use in search loop
-        ref?.child("Users").observe(.value) { DataSnapshot in
-            //print(DataSnapshot.childrenCount)
-            self.userCount = Int(DataSnapshot.childrenCount) - 1
-        }
-        
     }
     
     @IBAction func loginAction(_ sender: Any) {
@@ -73,15 +50,6 @@ class ViewController: UIViewController {
                     //Print into the console if successfully logged in
                     print("You have successfully logged in")
                     
-                    self.searchUsers{ success in
-                        if success {
-                            print("success")
-                            print(self.userDictionary)
-                        }
-                        else {
-                            print("fail")
-                        }
-                    }
                     
                     //Go to the HomeViewController if the login is sucessful
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
@@ -99,27 +67,6 @@ class ViewController: UIViewController {
                 }
             }
         }
-    }
-    
-    private func searchUsers(completion: @escaping (Bool) -> ()) {
-        ref?.child("Users").observeSingleEvent(of: .value, with: { (DataSnapshot) in
-            
-            let dataSnap = DataSnapshot.value as? [String:Any]
-            let userEmail = self.emailTextField.text;
-            
-            for index in 0...self.userCount {
-                var userData = dataSnap!["User\(index)"] as! [String:String]
-                let currentUserEmail = userData["Email"]
-                
-                if (currentUserEmail == userEmail) {
-                    print("Found User")
-                    self.userDictionary = userData
-                    break;
-                }
-            }
-            
-            completion(true)
-        })
     }
     
 }
