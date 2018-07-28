@@ -163,7 +163,7 @@ class MuscleTableViewController: UITableViewController {
                 if (currentUserEmail == userEmail) {
                     print("Found User")
                     self.userDictionary = userData
-                    print(self.userDictionary)
+                    //print(self.userDictionary)
                     self.userID = "User\(index)"
                     break;
                 }
@@ -175,8 +175,17 @@ class MuscleTableViewController: UITableViewController {
     
     private func loadData() {
         ref?.child("Users").observeSingleEvent(of: .value, with: { DataSnapshot in
-            let workoutData = DataSnapshot.value
-            print(workoutData)
+            let userData = DataSnapshot.value as? [String:Any]
+            let User = userData![self.userID] as? [String:Any]
+            print(User!["MuscleGroups"] as! String)
+            let muscleGroup = User!["MuscleGroups"] as! String
+            
+            guard let newMuscle = Muscle(group: muscleGroup) else {
+                fatalError("Unable to instantiate muscle")
+            }
+            
+            self.muscles += [newMuscle]
+            self.tableView.reloadData()
         })
     }
     
