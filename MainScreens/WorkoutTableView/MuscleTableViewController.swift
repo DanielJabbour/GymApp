@@ -44,16 +44,6 @@ class MuscleTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-//        self.searchUsers{ success in
-//            if success {
-//                print("success")
-//                print(self.userDictionary)
-//
-//            }
-//            else {
-//                print("fail")
-//            }
-//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -176,49 +166,29 @@ class MuscleTableViewController: UITableViewController {
     private func loadData() {
         ref?.child("Users").observeSingleEvent(of: .value, with: { DataSnapshot in
             
-            if !DataSnapshot.exists(){ //fix this
+            let userData = DataSnapshot.value as? [String:Any]
+            let User = userData![self.userID] as? [String:Any]
+            
+            //Check if user has any pre set muscle groups. If there is no child node MuscleGroups, return
+            guard User!["MuscleGroups"] != nil else {
                 return
             }
             
-            else {
-                let userData = DataSnapshot.value as? [String:Any]
-                let User = userData![self.userID] as? [String:Any]
-                print(User!["MuscleGroups"] as! String)
-                let muscleGroup = User!["MuscleGroups"] as! String
+            print(User!["MuscleGroups"] as! String)
+            let muscleGroupList = User!["MuscleGroups"] as! [String:Any]
+            
+            //TO DO: Implement algorithm to load all muscle groups from muscle group list
+            let muscleGroup = "Chest"
                 
-                guard let newMuscle = Muscle(group: muscleGroup) else {
-                    fatalError("Unable to instantiate muscle")
-                }
-                
-                self.muscles += [newMuscle]
-                self.tableView.reloadData()
+            guard let newMuscle = Muscle(group: muscleGroup) else {
+                fatalError("Unable to instantiate muscle")
             }
+                
+            self.muscles += [newMuscle]
+            self.tableView.reloadData()
             
         })
     }
-    
-    
-//
-//    private func searchUsers(completion: @escaping (Bool) -> ()) {
-//        ref?.child("Users").observeSingleEvent(of: .value, with: { (DataSnapshot) in
-//
-//            let dataSnap = DataSnapshot.value as? [String:Any]
-//            let userEmail = self.vc.userEmail
-//
-//            for index in 0...self.userCount {
-//                var userData = dataSnap!["User\(index)"] as! [String:String]
-//                let currentUserEmail = userData["Email"]
-//
-//                if (currentUserEmail == userEmail) {
-//                    print("Found User")
-//                    self.userDictionary = userData
-//                    break;
-//                }
-//            }
-//
-//            completion(true)
-//        })
-//    }
     
     private func getUserCount() {
         
