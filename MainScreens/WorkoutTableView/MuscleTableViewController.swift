@@ -138,7 +138,7 @@ class MuscleTableViewController: UITableViewController {
             }
             
             //Push entry to database under appropriate user
-            self.ref?.child("Users").child(self.userID).child("MuscleGroups").setValue(textField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child("MuscleGroup").setValue(textField)
             
             self.muscles += [newMuscle]
             self.tableView.reloadData()
@@ -175,17 +175,25 @@ class MuscleTableViewController: UITableViewController {
     
     private func loadData() {
         ref?.child("Users").observeSingleEvent(of: .value, with: { DataSnapshot in
-            let userData = DataSnapshot.value as? [String:Any]
-            let User = userData![self.userID] as? [String:Any]
-            print(User!["MuscleGroups"] as! String)
-            let muscleGroup = User!["MuscleGroups"] as! String
             
-            guard let newMuscle = Muscle(group: muscleGroup) else {
-                fatalError("Unable to instantiate muscle")
+            if !DataSnapshot.exists(){ //fix this
+                return
             }
             
-            self.muscles += [newMuscle]
-            self.tableView.reloadData()
+            else {
+                let userData = DataSnapshot.value as? [String:Any]
+                let User = userData![self.userID] as? [String:Any]
+                print(User!["MuscleGroups"] as! String)
+                let muscleGroup = User!["MuscleGroups"] as! String
+                
+                guard let newMuscle = Muscle(group: muscleGroup) else {
+                    fatalError("Unable to instantiate muscle")
+                }
+                
+                self.muscles += [newMuscle]
+                self.tableView.reloadData()
+            }
+            
         })
     }
     
