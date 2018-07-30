@@ -184,13 +184,16 @@ class MuscleTableViewController: UITableViewController {
             print (muscleGroupList)
             
             //TO DO: Implement algorithm to load all muscle groups from muscle group list by searching and instantiating each group
-            let muscleGroup = "Chest"
+            for index in 0...self.muscleGroupCount-1 {
+                let currentMuscleGroup = muscleGroupList["MuscleGroup\(index)"] as! String
                 
-            guard let newMuscle = Muscle(group: muscleGroup) else {
-                fatalError("Unable to instantiate muscle")
+                guard let newMuscle = Muscle(group: currentMuscleGroup) else {
+                    fatalError("Unable to instantiate muscle")
+                }
+                
+                self.muscles += [newMuscle]
             }
-                
-            self.muscles += [newMuscle]
+            
             self.tableView.reloadData()
             
         })
