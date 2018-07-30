@@ -18,7 +18,6 @@ class MuscleTableViewController: UITableViewController {
     var userDictionary = [String: String]()
     var userID = ""
     let email = UserDefaults.standard.object(forKey: "UserEmail") as! String
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()

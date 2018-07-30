@@ -54,6 +54,7 @@ class ViewController: UIViewController {
                     
                     self.userEmail = self.emailTextField.text!
                     
+                    //Store user email in user defaults as we'll need it later for database reference purposes
                     UserDefaults.standard.set(self.userEmail, forKey: "UserEmail")
                     
                     //Go to the HomeViewController if the login is sucessful
