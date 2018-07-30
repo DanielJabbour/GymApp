@@ -15,7 +15,7 @@ class MuscleTableViewController: UITableViewController {
     var muscles = [Muscle]()
     var ref: DatabaseReference!
     var userCount = 0;
-    var userDictionary = [String: String]()
+    var muscleGroupCount = 0;
     var userID = ""
     let email = UserDefaults.standard.object(forKey: "UserEmail") as! String
 
@@ -122,12 +122,14 @@ class MuscleTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0].text
             
+            
             guard let newMuscle = Muscle(group: textField!) else {
                 fatalError("Unable to instantiate muscle")
             }
             
             //Push entry to database under appropriate user
-            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child("MuscleGroup").setValue(textField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child("MuscleGroup\(self.muscleGroupCount)").setValue(textField)
+            self.muscleGroupCount += 1
             
             self.muscles += [newMuscle]
             self.tableView.reloadData()
@@ -172,6 +174,10 @@ class MuscleTableViewController: UITableViewController {
             guard User!["MuscleGroups"] != nil else {
                 return
             }
+            
+            let userMuscleGroups = User!["MuscleGroups"] as! [String:String]
+            self.muscleGroupCount = userMuscleGroups.count
+            print(self.muscleGroupCount)
             
             print(User!["MuscleGroups"])
             let muscleGroupList = User!["MuscleGroups"] as! [String:Any]
