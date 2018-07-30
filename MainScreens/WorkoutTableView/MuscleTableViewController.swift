@@ -146,12 +146,12 @@ class MuscleTableViewController: UITableViewController {
             print(userEmail)
             
             for index in 0...self.userCount {
-                var userData = dataSnap!["User\(index)"] as! [String:String]
-                let currentUserEmail = userData["Email"]
+                var userData = dataSnap!["User\(index)"] as! [String:Any?]
+                let currentUserEmail = userData["Email"] as! String
                 
                 if (currentUserEmail == userEmail) {
                     print("Found User")
-                    self.userDictionary = userData
+                    //self.userDictionary = userData as! [String:Any]
                     //print(self.userDictionary)
                     self.userID = "User\(index)"
                     break;
@@ -173,10 +173,11 @@ class MuscleTableViewController: UITableViewController {
                 return
             }
             
-            print(User!["MuscleGroups"] as! String)
+            print(User!["MuscleGroups"])
             let muscleGroupList = User!["MuscleGroups"] as! [String:Any]
+            print (muscleGroupList)
             
-            //TO DO: Implement algorithm to load all muscle groups from muscle group list
+            //TO DO: Implement algorithm to load all muscle groups from muscle group list by searching and instantiating each group
             let muscleGroup = "Chest"
                 
             guard let newMuscle = Muscle(group: muscleGroup) else {
