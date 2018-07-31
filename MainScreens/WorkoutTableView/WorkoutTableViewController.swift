@@ -68,11 +68,6 @@ class WorkoutTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let workoutTableViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "WorkoutTableView")
-        self.navigationController?.pushViewController(workoutTableViewController, animated: false)
-    }
-    
     private func loadSampleData() {
         
         guard let newWorkout1 = Workout(name: "Bench", sets:3, reps:5, weight:200) else {
@@ -80,8 +75,7 @@ class WorkoutTableViewController: UITableViewController {
         }
         
         workouts += [newWorkout1]
-        self.tableView.reloadData()
-
+//        self.tableView.reloadData()
         
     }
 

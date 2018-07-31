@@ -184,7 +184,7 @@ class MuscleTableViewController: UITableViewController {
             self.muscleGroupCount = userMuscleGroups.count
             print(self.muscleGroupCount)
             
-            print(User!["MuscleGroups"])
+            print(User!["MuscleGroups"]!)
             let muscleGroupList = User!["MuscleGroups"] as! [String:Any]
             print (muscleGroupList)
             
