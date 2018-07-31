@@ -81,6 +81,13 @@ class MuscleTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let workoutTableViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "WorkoutTableView")
+        self.navigationController?.pushViewController(workoutTableViewController, animated: false)
+    }
+    
+    
+    
 //
 //    //Override to support rearranging the table view.
 //    func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -153,8 +160,6 @@ class MuscleTableViewController: UITableViewController {
                 
                 if (currentUserEmail == userEmail) {
                     print("Found User")
-                    //self.userDictionary = userData as! [String:Any]
-                    //print(self.userDictionary)
                     self.userID = "User\(index)"
                     break;
                 }

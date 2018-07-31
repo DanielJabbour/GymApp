@@ -225,10 +225,10 @@
             </objects>
             <point key="canvasLocation" x="2000.8" y="798.35082458770626"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Workout Table View Controller-->
         <scene sceneID="H1Z-rJ-njC">
             <objects>
-                <tableViewController id="ifg-q2-LnW" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="WorkoutTableView" id="ifg-q2-LnW" customClass="WorkoutTableViewController" customModule="GymApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LZw-qf-xNX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -252,7 +252,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wkm-hs-SOc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3044" y="800"/>
+            <point key="canvasLocation" x="3111" y="833"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="fa7-Nk-o8b">
