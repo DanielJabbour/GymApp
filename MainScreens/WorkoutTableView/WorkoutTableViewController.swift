@@ -7,14 +7,13 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
 
 class WorkoutTableViewController: UITableViewController {
 
     var workouts = [Workout]()
-    
-    @IBAction func workoutAddButton(_ sender: Any) {
-        //Add workouts here
-    }
+    var ref: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +21,6 @@ class WorkoutTableViewController: UITableViewController {
         //Load sample data
         loadSampleData()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,6 +62,8 @@ class WorkoutTableViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - Data manipulation methods
+    
     private func loadSampleData() {
         
         guard let newWorkout1 = Workout(name: "Bench", sets:3, reps:5, weight:200) else {
@@ -78,60 +74,63 @@ class WorkoutTableViewController: UITableViewController {
 //        self.tableView.reloadData()
         
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+    
+    @IBAction func workoutAddButton(_ sender: Any) {
+        addItem()
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    private func addItem() {
+        
+        //Create alert controller
+        let alert = UIAlertController(title: "Add a Workout", message: "Enter a new workout", preferredStyle: .alert)
+        
+        //Create reference to database
+        ref = Database.database().reference()
+        
+        //Add text input field
+        alert.addTextField{ (textField) in
+            textField.placeholder = "Workout Name"
+        }
+        
+        alert.addTextField{ (textField) in
+            textField.placeholder = "Sets"
+            textField.keyboardType = .numberPad
+        }
+        
+        alert.addTextField{ (textField) in
+            textField.placeholder = "Reps"
+            textField.keyboardType = .numberPad
+        }
+        
+        alert.addTextField{ (textField) in
+            textField.placeholder = "Weight"
+            textField.keyboardType = .numberPad
+        }
+        
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak alert] (_) in
+            //Add on action method here
+        }))
+        
+//        //Grab and log user entered value
+//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+//            let textField = alert?.textFields![0].text
+//
+//
+//            guard let newMuscle = Muscle(group: textField!) else {
+//                fatalError("Unable to instantiate muscle")
+//            }
+//
+//            //Push entry to database under appropriate user
+//            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child("MuscleGroup\(self.muscleGroupCount)").setValue(textField)
+//            self.muscleGroupCount += 1
+//
+//            self.muscles += [newMuscle]
+//            self.tableView.reloadData()
+//
+//        }))
+        
+        //Present alert
+        self.present(alert, animated: true, completion: nil)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
