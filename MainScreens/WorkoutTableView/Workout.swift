@@ -11,21 +11,23 @@ import UIKit
 
 class Workout {
     
-    var group: String
+    var name: String
     var sets: Int
-    var Repetitions: Int
+    var reps: Int
+    var weight: Int
     
     //Initializer method
-    init?(group: String, sets: Int, Repetitions: Int) {
+    init?(name: String, sets: Int, reps: Int, weight: Int) {
         
         //guard only allows further code to be executed if it's true
-        guard !group.isEmpty else {
+        guard !name.isEmpty else {
             return nil
         }
         
-        self.group = group
+        self.name = name
         self.sets = sets
-        self.Repetitions = Repetitions
+        self.reps = reps
+        self.weight = weight
         
     }
 }

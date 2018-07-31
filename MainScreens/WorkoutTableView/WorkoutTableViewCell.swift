@@ -13,6 +13,7 @@ class WorkoutTableViewCell: UITableViewCell {
     @IBOutlet weak var workoutNameLabel: UILabel!
     @IBOutlet weak var setsLabel: UILabel!
     @IBOutlet weak var repsLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

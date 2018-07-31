@@ -19,6 +19,9 @@ class WorkoutTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //Load sample data
+        loadSampleData()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -44,20 +47,23 @@ class WorkoutTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "MuscleTableViewCell"
+        let cellIdentifier = "WorkoutTableViewCell"
         
         //Use of custom class Muscle hence need to downcast type of cell to custom cell subclass
-        //as? MuscleTableView cell attempts to downcast to MuscleTableViewCell class returning an optional
+        //as? WorkoutTableView cell attempts to downcast to WorkoutTableViewCell class returning an optional
         //Guard let unwraps optional safely
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MuscleTableViewCell else {
-            fatalError("The dequed cell is not an instance of MuscleTableViewCell")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? WorkoutTableViewCell else {
+            fatalError("The dequed cell is not an instance of WorkoutTableViewCell")
         }
         
         //Fetch appropriate muscle group from array
-        let muscle = workouts[indexPath.row]
+        let workout = workouts[indexPath.row]
         
         //Configuring cell
-        cell.WorkoutName.text = muscle.group
+        cell.workoutNameLabel.text = workout.name
+        cell.setsLabel.text = String(workout.sets)
+        cell.repsLabel.text = String(workout.reps)
+        cell.weightLabel.text = String(workout.weight)
         
         return cell
     }
@@ -65,6 +71,18 @@ class WorkoutTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let workoutTableViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "WorkoutTableView")
         self.navigationController?.pushViewController(workoutTableViewController, animated: false)
+    }
+    
+    private func loadSampleData() {
+        
+        guard let newWorkout1 = Workout(name: "Bench", sets:3, reps:5, weight:200) else {
+            fatalError("Unable to instantiate workout")
+        }
+        
+        workouts += [newWorkout1]
+        self.tableView.reloadData()
+
+        
     }
 
     /*
