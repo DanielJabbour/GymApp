@@ -14,12 +14,16 @@ class WorkoutTableViewController: UITableViewController {
 
     var workouts = [Workout]()
     var ref: DatabaseReference!
+    var muscleGroup = "FAILED"
+    var userID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //Load sample data
         loadSampleData()
+        
+        print(self.muscleGroup)
         
     }
 
@@ -109,6 +113,31 @@ class WorkoutTableViewController: UITableViewController {
         
         alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak alert] (_) in
             //Add on action method here
+            
+            
+            let nameTextField = alert?.textFields![0].text
+            let setsTextField = alert?.textFields![1].text
+            let repsTextField = alert?.textFields![2].text
+            let weightTextField = alert?.textFields![3].text
+            
+            
+            guard let newWorkout = Workout(name: nameTextField!, sets: Int(setsTextField)!, reps: Int(repsTextField)!, weight: Int(weightTextField)!) else {
+                fatalError("Unable to instantiate workout")
+            }
+            
+            //Need current workout group
+            
+            //Push entry to database under appropriate user
+            //self.ref?.child("Users").child(self.userID).child("MuscleGroups").child("MuscleGroup\(self.muscleGroupCount)").setValue(textField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(self.muscleGroup).child("Workouts").child("Workout\(0)").child("Sets").setValue("nil")
+            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(self.muscleGroup).child("Workouts").child("Workout\(0)").child("Reps").setValue("nil")
+            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(self.muscleGroup).child("Workouts").child("Workout\(0)").child("Weight").setValue("nil")
+            
+            self.muscleGroupCount += 1
+            
+            self.workouts += [newWorkout]
+            self.tableView.reloadData()
+            
         }))
         
 //        //Grab and log user entered value

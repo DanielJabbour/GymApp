@@ -83,7 +83,13 @@ class MuscleTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let workoutTableViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "WorkoutTableView")
+        //Passing data to workout controller
+        let workoutTableViewController = storyboard?.instantiateViewController(withIdentifier: "WorkoutTableView") as! WorkoutTableViewController
+        let selected = muscles[indexPath.row]
+        
+        workoutTableViewController.muscleGroup = selected.group
+        workoutTableViewController.userID = self.userID
+        
         self.navigationController?.pushViewController(workoutTableViewController, animated: false)
     }
     
@@ -118,7 +124,11 @@ class MuscleTableViewController: UITableViewController {
             }
             
             //Push entry to database under appropriate user
-            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child("MuscleGroup\(self.muscleGroupCount)").setValue(textField)
+            //self.ref?.child("Users").child(self.userID).child("MuscleGroups").child("MuscleGroup\(self.muscleGroupCount)").setValue(textField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(textField!).child("Workouts").child("Workout\(0)").child("Sets").setValue("nil")
+            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(textField!).child("Workouts").child("Workout\(0)").child("Reps").setValue("nil")
+            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(textField!).child("Workouts").child("Workout\(0)").child("Weight").setValue("nil")
+            
             self.muscleGroupCount += 1
             
             self.muscles += [newMuscle]
@@ -163,7 +173,7 @@ class MuscleTableViewController: UITableViewController {
                 return
             }
             
-            let userMuscleGroups = User!["MuscleGroups"] as! [String:String]
+            let userMuscleGroups = User!["MuscleGroups"] as! [String:Any]
             self.muscleGroupCount = userMuscleGroups.count
             print(self.muscleGroupCount)
             
@@ -172,8 +182,10 @@ class MuscleTableViewController: UITableViewController {
             print (muscleGroupList)
             
             //TO DO: Implement algorithm to load all muscle groups from muscle group list by searching and instantiating each group
-            for index in 0...self.muscleGroupCount-1 {
-                let currentMuscleGroup = muscleGroupList["MuscleGroup\(index)"] as! String
+            for (key, value) in muscleGroupList {
+                
+                print(key)
+                let currentMuscleGroup = key
                 
                 guard let newMuscle = Muscle(group: currentMuscleGroup) else {
                     fatalError("Unable to instantiate muscle")
