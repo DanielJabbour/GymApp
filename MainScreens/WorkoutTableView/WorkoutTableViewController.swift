@@ -10,6 +10,12 @@ import UIKit
 
 class WorkoutTableViewController: UITableViewController {
 
+    var workouts = [Workout]()
+    
+    @IBAction func workoutAddButton(_ sender: Any) {
+        //Add workouts here
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,15 +32,39 @@ class WorkoutTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
+    
+    //Only 1 secion to display
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return workouts.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellIdentifier = "MuscleTableViewCell"
+        
+        //Use of custom class Muscle hence need to downcast type of cell to custom cell subclass
+        //as? MuscleTableView cell attempts to downcast to MuscleTableViewCell class returning an optional
+        //Guard let unwraps optional safely
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MuscleTableViewCell else {
+            fatalError("The dequed cell is not an instance of MuscleTableViewCell")
+        }
+        
+        //Fetch appropriate muscle group from array
+        let muscle = workouts[indexPath.row]
+        
+        //Configuring cell
+        cell.WorkoutName.text = muscle.group
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let workoutTableViewController = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "WorkoutTableView")
+        self.navigationController?.pushViewController(workoutTableViewController, animated: false)
     }
 
     /*
