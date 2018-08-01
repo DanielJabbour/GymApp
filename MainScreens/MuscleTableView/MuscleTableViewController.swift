@@ -90,7 +90,7 @@ class MuscleTableViewController: UITableViewController {
         workoutTableViewController.muscleGroup = selected.group
         workoutTableViewController.userID = self.userID
         
-        self.navigationController?.pushViewController(workoutTableViewController, animated: false)
+        self.navigationController?.pushViewController(workoutTableViewController, animated: true)
     }
     
     
@@ -138,11 +138,9 @@ class MuscleTableViewController: UITableViewController {
     }
     
     private func matchUser() {
-        print(self.email)
         ref?.child("Users").observeSingleEvent(of: .value, with: { DataSnapshot in
             let dataSnap = DataSnapshot.value as? [String:Any]
             let userEmail = self.email
-            print(userEmail)
             
             for index in 0...self.userCount {
                 var userData = dataSnap!["User\(index)"] as! [String:Any?]
@@ -170,18 +168,11 @@ class MuscleTableViewController: UITableViewController {
                 return
             }
             
-            let userMuscleGroups = User!["MuscleGroups"] as! [String:Any]
-            self.muscleGroupCount = userMuscleGroups.count
-            print(self.muscleGroupCount)
-            
-            print(User!["MuscleGroups"]!)
             let muscleGroupList = User!["MuscleGroups"] as! [String:Any]
-            print (muscleGroupList)
             
             //TO DO: Implement algorithm to load all muscle groups from muscle group list by searching and instantiating each group
             for (key, _) in muscleGroupList {
                 
-                print(key)
                 let currentMuscleGroup = key
                 
                 guard let newMuscle = Muscle(group: currentMuscleGroup) else {

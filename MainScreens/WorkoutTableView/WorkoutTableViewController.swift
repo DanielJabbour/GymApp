@@ -23,13 +23,7 @@ class WorkoutTableViewController: UITableViewController {
         //Create reference to database
         ref = Database.database().reference()
 
-
-        //Load sample data
-        //loadSampleData()
         loadData()
-        
-        print(self.muscleGroup)
-        print(self.userID)
         
     }
 
@@ -73,18 +67,7 @@ class WorkoutTableViewController: UITableViewController {
     }
     
     // MARK: - Data manipulation methods
-    
-    private func loadSampleData() {
         
-        guard let newWorkout1 = Workout(name: "Bench", sets:3, reps:5, weight:200) else {
-            fatalError("Unable to instantiate workout")
-        }
-        
-        workouts += [newWorkout1]
-//        self.tableView.reloadData()
-        
-    }
-    
     @IBAction func workoutAddButton(_ sender: Any) {
         addItem()
     }
@@ -158,17 +141,16 @@ class WorkoutTableViewController: UITableViewController {
             let muscleDict = muscleGroupsDict[self.muscleGroup] as! [String:Any]
             let workoutsDict = muscleDict["Workouts"] as! [String:Any]
             
-            //TO DO: Implement algorithm to load all muscle groups from muscle group list by searching and instantiating each group
             for (key, _) in workoutsDict {
                 
                 if (key != "Dummy"){
                     var workoutScheme = workoutsDict[key] as! [String: Int]
                     
-                    let sets = workoutScheme["Sets"] as! Int
-                    let reps = workoutScheme["Reps"] as! Int
-                    let weight = workoutScheme["Weight"] as! Int
+                    let sets = workoutScheme["Sets"]
+                    let reps = workoutScheme["Reps"]
+                    let weight = workoutScheme["Weight"]
                     
-                    let newWorkout = Workout(name: key, sets: sets, reps: reps, weight: weight) as! Workout
+                    let newWorkout = Workout(name: key, sets: sets!, reps: reps!, weight: weight!)!
                     self.workouts += [newWorkout]
 
                 }
