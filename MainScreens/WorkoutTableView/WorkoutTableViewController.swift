@@ -21,9 +21,10 @@ class WorkoutTableViewController: UITableViewController {
         super.viewDidLoad()
 
         //Load sample data
-        loadSampleData()
+        //loadSampleData()
         
         print(self.muscleGroup)
+        print(self.userID)
         
     }
 
@@ -116,47 +117,25 @@ class WorkoutTableViewController: UITableViewController {
             
             
             let nameTextField = alert?.textFields![0].text
-            let setsTextField = alert?.textFields![1].text
-            let repsTextField = alert?.textFields![2].text
-            let weightTextField = alert?.textFields![3].text
+            let setsTextField = Int((alert?.textFields![1].text)!)
+            let repsTextField = Int((alert?.textFields![2].text)!)
+            let weightTextField = Int((alert?.textFields![3].text)!)
             
             
-            guard let newWorkout = Workout(name: nameTextField!, sets: Int(setsTextField)!, reps: Int(repsTextField)!, weight: Int(weightTextField)!) else {
+            guard let newWorkout = Workout(name: nameTextField!, sets: setsTextField!, reps: repsTextField!, weight: weightTextField!) else {
                 fatalError("Unable to instantiate workout")
             }
             
-            //Need current workout group
-            
             //Push entry to database under appropriate user
-            //self.ref?.child("Users").child(self.userID).child("MuscleGroups").child("MuscleGroup\(self.muscleGroupCount)").setValue(textField)
-            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(self.muscleGroup).child("Workouts").child("Workout\(0)").child("Sets").setValue("nil")
-            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(self.muscleGroup).child("Workouts").child("Workout\(0)").child("Reps").setValue("nil")
-            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(self.muscleGroup).child("Workouts").child("Workout\(0)").child("Weight").setValue("nil")
-            
-            self.muscleGroupCount += 1
+            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Sets").setValue(setsTextField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Reps").setValue(repsTextField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Weight").setValue(weightTextField)
             
             self.workouts += [newWorkout]
             self.tableView.reloadData()
             
         }))
-        
-//        //Grab and log user entered value
-//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-//            let textField = alert?.textFields![0].text
-//
-//
-//            guard let newMuscle = Muscle(group: textField!) else {
-//                fatalError("Unable to instantiate muscle")
-//            }
-//
-//            //Push entry to database under appropriate user
-//            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child("MuscleGroup\(self.muscleGroupCount)").setValue(textField)
-//            self.muscleGroupCount += 1
-//
-//            self.muscles += [newMuscle]
-//            self.tableView.reloadData()
-//
-//        }))
+
         
         //Present alert
         self.present(alert, animated: true, completion: nil)

@@ -118,16 +118,13 @@ class MuscleTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0].text
             
-            
             guard let newMuscle = Muscle(group: textField!) else {
                 fatalError("Unable to instantiate muscle")
             }
             
             //Push entry to database under appropriate user
             //self.ref?.child("Users").child(self.userID).child("MuscleGroups").child("MuscleGroup\(self.muscleGroupCount)").setValue(textField)
-            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(textField!).child("Workouts").child("Workout\(0)").child("Sets").setValue("nil")
-            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(textField!).child("Workouts").child("Workout\(0)").child("Reps").setValue("nil")
-            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(textField!).child("Workouts").child("Workout\(0)").child("Weight").setValue("nil")
+            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(textField!).child("Workouts").child("Dummy").setValue("Value")
             
             self.muscleGroupCount += 1
             
@@ -182,7 +179,7 @@ class MuscleTableViewController: UITableViewController {
             print (muscleGroupList)
             
             //TO DO: Implement algorithm to load all muscle groups from muscle group list by searching and instantiating each group
-            for (key, value) in muscleGroupList {
+            for (key, _) in muscleGroupList {
                 
                 print(key)
                 let currentMuscleGroup = key
