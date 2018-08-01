@@ -19,9 +19,14 @@ class WorkoutTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Create reference to database
+        ref = Database.database().reference()
+
 
         //Load sample data
         //loadSampleData()
+        loadData()
         
         print(self.muscleGroup)
         print(self.userID)
@@ -89,9 +94,6 @@ class WorkoutTableViewController: UITableViewController {
         //Create alert controller
         let alert = UIAlertController(title: "Add a Workout", message: "Enter a new workout", preferredStyle: .alert)
         
-        //Create reference to database
-        ref = Database.database().reference()
-        
         //Add text input field
         alert.addTextField{ (textField) in
             textField.placeholder = "Workout Name"
@@ -139,6 +141,43 @@ class WorkoutTableViewController: UITableViewController {
         
         //Present alert
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    private func loadData() {
+        ref?.child("Users").observeSingleEvent(of: .value, with: { DataSnapshot in
+            
+            let userData = DataSnapshot.value as? [String:Any]
+            let User = userData![self.userID] as? [String:Any]
+            
+            //Check if user has any pre set muscle groups. If there is no child node MuscleGroups, return
+            guard User!["MuscleGroups"] != nil else {
+                return
+            }
+            
+            let muscleGroupsDict = User!["MuscleGroups"] as! [String:Any]
+            let muscleDict = muscleGroupsDict[self.muscleGroup] as! [String:Any]
+            let workoutsDict = muscleDict["Workouts"] as! [String:Any]
+            
+            //TO DO: Implement algorithm to load all muscle groups from muscle group list by searching and instantiating each group
+            for (key, _) in workoutsDict {
+                
+                if (key != "Dummy"){
+                    var workoutScheme = workoutsDict[key] as! [String: Int]
+                    
+                    let sets = workoutScheme["Sets"] as! Int
+                    let reps = workoutScheme["Reps"] as! Int
+                    let weight = workoutScheme["Weight"] as! Int
+                    
+                    let newWorkout = Workout(name: key, sets: sets, reps: reps, weight: weight) as! Workout
+                    self.workouts += [newWorkout]
+
+                }
+                
+            }
+            self.tableView.reloadData()
+            
+            
+        })
     }
 
 }
