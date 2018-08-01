@@ -74,6 +74,7 @@ class WorkoutTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             // handle delete (by removing the data from your array and updating the tableview)
+            remove(child: workouts[indexPath.row].name)
             workouts.remove(at: indexPath.row)
             self.tableView.reloadData()
         }
@@ -81,7 +82,15 @@ class WorkoutTableViewController: UITableViewController {
     
     
     // MARK: - Data manipulation methods
+    
+    private func remove(child: String) {
+        let ref = self.ref.child("Users").child(self.userID).child("MuscleGroups").child(self.muscleGroup).child("Workouts").child(child)
         
+        ref.removeValue { (error, _) in
+            print(error ?? "No Error")
+        }
+    }
+    
     @IBAction func workoutAddButton(_ sender: Any) {
         addItem()
     }
