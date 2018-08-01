@@ -93,8 +93,28 @@ class MuscleTableViewController: UITableViewController {
         self.navigationController?.pushViewController(workoutTableViewController, animated: true)
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+            remove(child: muscles[indexPath.row].group)
+            muscles.remove(at: indexPath.row)
+            self.tableView.reloadData()
+        }
+    }
     
     //MARK: - Configuration and data manipulation methods
+    
+    private func remove(child: String) {
+        let ref = self.ref.child("Users").child(self.userID).child("MuscleGroups").child(child)
+        
+        ref.removeValue { (error, _) in
+            print(error ?? "No Error")
+        }
+    }
     
     @IBAction func addButtonAction(_ sender: Any) {
         addItem()
