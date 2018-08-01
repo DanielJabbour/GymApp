@@ -23,6 +23,7 @@ class WorkoutTableViewController: UITableViewController {
         //Create reference to database
         ref = Database.database().reference()
 
+        //Load data from database
         loadData()
         
     }
@@ -65,6 +66,19 @@ class WorkoutTableViewController: UITableViewController {
         
         return cell
     }
+
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            // handle delete (by removing the data from your array and updating the tableview)
+            workouts.remove(at: indexPath.row)
+            self.tableView.reloadData()
+        }
+    }
+    
     
     // MARK: - Data manipulation methods
         
