@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2381A09D211395CE000752E7 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2381A09C211395CE000752E7 /* DataViewController.swift */; };
 		2392D200210FA13F00CD61AB /* WorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2392D1FF210FA13F00CD61AB /* WorkoutTableViewController.swift */; };
 		2392D2022110044200CD61AB /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2392D2012110044200CD61AB /* WorkoutTableViewCell.swift */; };
 		2392D20421101D7300CD61AB /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2392D20321101D7300CD61AB /* Workout.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2381A09C211395CE000752E7 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataViewController.swift; path = MainScreens/DataViewController.swift; sourceTree = SOURCE_ROOT; };
 		2392D1FF210FA13F00CD61AB /* WorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorkoutTableViewController.swift; path = MainScreens/WorkoutTableView/WorkoutTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		2392D2012110044200CD61AB /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		2392D20321101D7300CD61AB /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				231F0AFC2110C0D200739537 /* MuscleTableView */,
 				23BA2E4A20DEA3C400619070 /* WorkoutTableView */,
 				2528284E20B09A0B00101FC3 /* WelcomePageViewController.swift */,
+				2381A09C211395CE000752E7 /* DataViewController.swift */,
 				25FEDFD020B12D7F0028B0BF /* SettingsViewController.swift */,
 			);
 			path = MainScreens;
@@ -273,6 +276,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GymApp/Pods-GymApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -280,6 +284,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -301,6 +306,7 @@
 				2528283F20B0982700101FC3 /* ViewController.swift in Sources */,
 				2392D200210FA13F00CD61AB /* WorkoutTableViewController.swift in Sources */,
 				2392D2022110044200CD61AB /* WorkoutTableViewCell.swift in Sources */,
+				2381A09D211395CE000752E7 /* DataViewController.swift in Sources */,
 				23BA2E4920DE02FF00619070 /* MuscleTableViewController.swift in Sources */,
 				2528284F20B09A0B00101FC3 /* WelcomePageViewController.swift in Sources */,
 				2392D20421101D7300CD61AB /* Workout.swift in Sources */,
