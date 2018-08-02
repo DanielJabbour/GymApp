@@ -401,8 +401,8 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v7B-rL-J2G" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="16" y="98" width="343" height="205"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pBS-t4-HtD" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="33" y="77" width="308" height="395"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -411,7 +411,7 @@
                         <viewLayoutGuide key="safeArea" id="HJv-MA-R4Q"/>
                     </view>
                     <connections>
-                        <outlet property="pieChart" destination="v7B-rL-J2G" id="YfN-hi-76O"/>
+                        <outlet property="lineChart" destination="pBS-t4-HtD" id="HJh-12-aSo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0UQ-70-y22" userLabel="First Responder" sceneMemberID="firstResponder"/>
