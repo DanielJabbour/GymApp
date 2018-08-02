@@ -202,6 +202,9 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="b45-Hh-rco"/>
                         <barButtonItem title="Data" image="dataIcon.png" id="e6f-cl-aFC">
                             <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="9Vr-Ef-uC0" kind="showDetail" id="tY9-bh-DmW"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="eHl-1h-6kq"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="JW6-78-efx"/>
@@ -248,22 +251,22 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qb1-YI-GU0">
-                                            <rect key="frame" x="170" y="58" width="34" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sets" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qb1-YI-GU0">
+                                            <rect key="frame" x="0.0" y="58" width="100" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reps" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R10-ZC-vbu">
-                                            <rect key="frame" x="300" y="58" width="39" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R10-ZC-vbu">
+                                            <rect key="frame" x="126" y="58" width="123" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFX-CP-06v">
-                                            <rect key="frame" x="44" y="58" width="54" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFX-CP-06v">
+                                            <rect key="frame" x="257" y="58" width="118" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -329,7 +332,11 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xRX-1n-zId"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="icF-vK-OUR"/>
-                                    <barButtonItem title="Data" image="dataIcon.png" id="n9d-aR-ZWn"/>
+                                    <barButtonItem title="Data" image="dataIcon.png" id="n9d-aR-ZWn">
+                                        <connections>
+                                            <segue destination="9Vr-Ef-uC0" kind="showDetail" id="p1R-A9-nZI"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="d9k-ZB-wg3"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="aJQ-7h-nZF"/>
                                     <barButtonItem title="Settings" image="settingsIcon.png" id="Frk-I3-SEE"/>
@@ -373,13 +380,25 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Home" image="homeIcon.png" id="h0x-Bh-L0j"/>
+                                    <barButtonItem title="Home" image="homeIcon.png" id="h0x-Bh-L0j">
+                                        <connections>
+                                            <segue destination="8iH-X3-j2e" kind="showDetail" id="4K0-0W-QOg"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="JIe-So-n84"/>
-                                    <barButtonItem title="Gym" image="gymIcon.png" id="x83-p2-f8e"/>
+                                    <barButtonItem title="Gym" image="gymIcon.png" id="x83-p2-f8e">
+                                        <connections>
+                                            <segue destination="UEt-IG-bn7" kind="showDetail" id="D49-a2-XdZ"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="mqD-x5-CUn"/>
                                     <barButtonItem title="Data" image="dataIcon.png" id="UP5-GC-bgE"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="YGx-3a-wUr"/>
-                                    <barButtonItem title="Settings" image="settingsIcon.png" id="qMW-GP-i4x"/>
+                                    <barButtonItem title="Settings" image="settingsIcon.png" id="qMW-GP-i4x">
+                                        <connections>
+                                            <segue destination="26E-AM-RhK" kind="showDetail" id="iEi-ja-aUG"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -420,7 +439,11 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bWM-7P-Uax"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="kmG-7O-8Bd"/>
-                                    <barButtonItem title="Data" image="dataIcon.png" id="cd0-ur-3WA"/>
+                                    <barButtonItem title="Data" image="dataIcon.png" id="cd0-ur-3WA">
+                                        <connections>
+                                            <segue destination="9Vr-Ef-uC0" kind="showDetail" id="7pU-px-lT8"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="2i5-OL-UqJ"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Seq-Ef-xq5"/>
                                     <barButtonItem title="Settings" image="settingsIcon.png" id="pdy-UR-VJh">
@@ -490,9 +513,10 @@
         <image name="settingsIcon.png" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3gp-fE-gvB"/>
-        <segue reference="wr1-7s-MHD"/>
-        <segue reference="Uhb-Tv-mQC"/>
+        <segue reference="D49-a2-XdZ"/>
+        <segue reference="4K0-0W-QOg"/>
+        <segue reference="7pU-px-lT8"/>
+        <segue reference="iEi-ja-aUG"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

@@ -60,9 +60,9 @@ class WorkoutTableViewController: UITableViewController {
         
         //Configuring cell
         cell.workoutNameLabel.text = workout.name
-        cell.setsLabel.text = String(workout.sets)
-        cell.repsLabel.text = String(workout.reps)
-        cell.weightLabel.text = String(workout.weight)
+        cell.setsLabel.text = "Sets: " + String(workout.sets)
+        cell.repsLabel.text = "Reps: " + String(workout.reps)
+        cell.weightLabel.text = "Weight: " + String(workout.weight)
         
         return cell
     }
