@@ -11,7 +11,7 @@ import Firebase
 import FirebaseDatabase
 
 class MuscleTableViewController: UITableViewController {
-    
+
     var muscles = [Muscle]()
     var ref: DatabaseReference!
     var userCount = 0;
@@ -199,8 +199,12 @@ class MuscleTableViewController: UITableViewController {
                     fatalError("Unable to instantiate muscle")
                 }
                 
+                
                 self.muscles += [newMuscle]
             }
+            
+            //Get rid of dummy value if exists
+
             
             self.tableView.reloadData()
             

@@ -178,6 +178,10 @@ class WorkoutTableViewController: UITableViewController {
 
                 }
                 
+                else if (workoutsDict.count > 1 && key == "Dummy"){
+                    self.remove(child: "Dummy")
+                }
+                
             }
             self.tableView.reloadData()
             
