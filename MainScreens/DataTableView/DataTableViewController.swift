@@ -8,13 +8,24 @@
 
 import UIKit
 import SwiftChart
+import Firebase
+import FirebaseDatabase
 
 class DataTableViewController: UITableViewController {
     
     var charts = [Chart]()
+    var ref: DatabaseReference!
+    let email = UserDefaults.standard.object(forKey: "UserEmail") as! String
+    let userID = UserDefaults.standard.object(forKey: "UserID") as! String
+    var groupCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = Database.database().reference()
+        getCount()
+        
+        print("Hello" + userID)
         
     }
 
@@ -32,7 +43,8 @@ class DataTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        
+        return self.groupCount
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,6 +52,8 @@ class DataTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "DataCell", for: indexPath) as? DataTableViewCell else {
             fatalError("The dequed cell is not an instance of DataTableViewCell")
         }
+        
+        //TO DO: Read data from database to display on charts
         
         let chart = Chart(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
         let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
@@ -59,7 +73,14 @@ class DataTableViewController: UITableViewController {
  
     // MARK: - Data configuration methods
     
+    private func getCount() {
+        
+        ref?.child("Users").child(userID).child("MuscleGroupsOld").observe(.value) { DataSnapshot in
+            print(DataSnapshot.childrenCount)
+            self.groupCount = Int(DataSnapshot.childrenCount)
+            
+            self.tableView.reloadData()
+        }
+    }
     
-
-
 }

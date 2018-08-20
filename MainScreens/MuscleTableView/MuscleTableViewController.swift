@@ -147,7 +147,6 @@ class MuscleTableViewController: UITableViewController {
             self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(textField!).child("Workouts").child("Dummy").setValue("Value")
             self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(textField!).child("Workouts").child("Dummy").setValue("Value")
 
-            
             self.muscleGroupCount += 1
             
             self.muscles += [newMuscle]
@@ -169,7 +168,6 @@ class MuscleTableViewController: UITableViewController {
                 let currentUserEmail = userData["Email"] as! String
                 
                 if (currentUserEmail == userEmail) {
-                    print("Found User")
                     self.userID = "User\(index)"
                     break;
                 }
@@ -201,13 +199,11 @@ class MuscleTableViewController: UITableViewController {
                     fatalError("Unable to instantiate muscle")
                 }
                 
-                
                 self.muscles += [newMuscle]
             }
             
             //Get rid of dummy value if exists
 
-            
             self.tableView.reloadData()
             
         })

@@ -413,7 +413,11 @@
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bWM-7P-Uax"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="kmG-7O-8Bd"/>
-                                    <barButtonItem title="Data" image="dataIcon.png" id="cd0-ur-3WA"/>
+                                    <barButtonItem title="Data" image="dataIcon.png" id="cd0-ur-3WA">
+                                        <connections>
+                                            <segue destination="YpM-Y7-fhp" kind="showDetail" id="jSf-Me-zqZ"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="2i5-OL-UqJ"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Seq-Ef-xq5"/>
                                     <barButtonItem title="Settings" image="settingsIcon.png" id="pdy-UR-VJh">
@@ -501,8 +505,7 @@
         <image name="settingsIcon.png" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CwQ-rb-VDm"/>
-        <segue reference="Yjd-D9-6sY"/>
+        <segue reference="3gp-fE-gvB"/>
         <segue reference="wr1-7s-MHD"/>
         <segue reference="Uhb-Tv-mQC"/>
     </inferredMetricsTieBreakers>

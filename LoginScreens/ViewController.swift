@@ -17,10 +17,13 @@ class ViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     
     var userEmail = ""
-
+    var userID = ""
+    var ref: DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        ref = Database.database().reference()
 
     }
 
@@ -57,9 +60,29 @@ class ViewController: UIViewController {
                     //Store user email in user defaults as we'll need it later for database reference purposes
                     UserDefaults.standard.set(self.userEmail, forKey: "UserEmail")
                     
-                    //Go to the HomeViewController if the login is sucessful
-                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-                    self.present(vc!, animated: true, completion: nil)
+                    //Find userID
+                    self.ref?.child("Users").observeSingleEvent(of: .value, with: { DataSnapshot in
+                        let dataSnap = DataSnapshot.value as? [String:Any]
+                        let userCount = dataSnap!.count as Int
+                        
+                        for index in 0...userCount {
+                            var userData = dataSnap!["User\(index)"] as! [String:Any?]
+                            let currentUserEmail = userData["Email"] as! String
+                            
+                            if (currentUserEmail == self.userEmail) {
+                                print("Found User")
+                                self.userID = "User\(index)"
+                                
+                                //Set userID to nsdefault
+                                UserDefaults.standard.set(self.userID, forKey: "UserID")
+                                break;
+                            }
+                        }
+                        //Go to the HomeViewController if the login is sucessful
+                        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
+                        self.present(vc!, animated: true, completion: nil)
+                    })
+                    
                     
                 } else {
                     

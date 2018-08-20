@@ -11,7 +11,7 @@ import Firebase
 import FirebaseDatabase
 
 class WelcomePageViewController: UIViewController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
