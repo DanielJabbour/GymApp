@@ -133,16 +133,20 @@ class WorkoutTableViewController: UITableViewController {
                 fatalError("Unable to instantiate workout")
             }
             
+            let randInt = Int(arc4random_uniform(999999999))
+            
             //Push entry to database under appropriate user
             self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Sets").setValue(setsTextField)
             self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Reps").setValue(repsTextField)
             self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Weight").setValue(weightTextField)
             
-            self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Sets").setValue(setsTextField)
-            self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Reps").setValue(repsTextField)
-            self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Weight").setValue(weightTextField)
+            //Add unique identifier for repretitions, firebase rejects duplicate entries
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField! + "\(randInt)").child("Sets").setValue(setsTextField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField! + "\(randInt)").child("Reps").setValue(repsTextField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField! + "\(randInt)").child("Weight").setValue(weightTextField)
             
             self.workouts += [newWorkout]
+            
             self.tableView.reloadData()
             
         }))
