@@ -84,7 +84,7 @@ class WorkoutTableViewController: UITableViewController {
     // MARK: - Data manipulation methods
     
     private func remove(child: String) {
-        let ref = self.ref.child("Users").child(self.userID).child("MuscleGroups").child(self.muscleGroup).child("Workouts").child(child)
+        let ref = self.ref.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(child)
         
         ref.removeValue { (error, _) in
             print(error ?? "No Error")
@@ -123,7 +123,6 @@ class WorkoutTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak alert] (_) in
             //Add on action method here
             
-            
             let nameTextField = alert?.textFields![0].text
             let setsTextField = Int((alert?.textFields![1].text)!)
             let repsTextField = Int((alert?.textFields![2].text)!)
@@ -135,9 +134,13 @@ class WorkoutTableViewController: UITableViewController {
             }
             
             //Push entry to database under appropriate user
-            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Sets").setValue(setsTextField)
-            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Reps").setValue(repsTextField)
-            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Weight").setValue(weightTextField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Sets").setValue(setsTextField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Reps").setValue(repsTextField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Weight").setValue(weightTextField)
+            
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Sets").setValue(setsTextField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Reps").setValue(repsTextField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Weight").setValue(weightTextField)
             
             self.workouts += [newWorkout]
             self.tableView.reloadData()
@@ -156,11 +159,11 @@ class WorkoutTableViewController: UITableViewController {
             let User = userData![self.userID] as? [String:Any]
             
             //Check if user has any pre set muscle groups. If there is no child node MuscleGroups, return
-            guard User!["MuscleGroups"] != nil else {
+            guard User!["MuscleGroupsNew"] != nil else {
                 return
             }
             
-            let muscleGroupsDict = User!["MuscleGroups"] as! [String:Any]
+            let muscleGroupsDict = User!["MuscleGroupsNew"] as! [String:Any]
             let muscleDict = muscleGroupsDict[self.muscleGroup] as! [String:Any]
             let workoutsDict = muscleDict["Workouts"] as! [String:Any]
             
@@ -185,8 +188,9 @@ class WorkoutTableViewController: UITableViewController {
             }
             self.tableView.reloadData()
             
-            
         })
     }
+    
+    //TODO: Method to update data. When you tap the current row, you can edit it to update your latest session. An additional data entry is then entered into the DB, but only the latest is displayed on your screen.
 
 }

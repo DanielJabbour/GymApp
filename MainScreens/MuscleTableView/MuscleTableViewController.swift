@@ -109,7 +109,7 @@ class MuscleTableViewController: UITableViewController {
     //MARK: - Configuration and data manipulation methods
     
     private func remove(child: String) {
-        let ref = self.ref.child("Users").child(self.userID).child("MuscleGroups").child(child)
+        let ref = self.ref.child("Users").child(self.userID).child("MuscleGroupsNew").child(child)
         
         ref.removeValue { (error, _) in
             print(error ?? "No Error")
@@ -144,7 +144,9 @@ class MuscleTableViewController: UITableViewController {
             
             //Push entry to database under appropriate user
             //self.ref?.child("Users").child(self.userID).child("MuscleGroups").child("MuscleGroup\(self.muscleGroupCount)").setValue(textField)
-            self.ref?.child("Users").child(self.userID).child("MuscleGroups").child(textField!).child("Workouts").child("Dummy").setValue("Value")
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(textField!).child("Workouts").child("Dummy").setValue("Value")
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(textField!).child("Workouts").child("Dummy").setValue("Value")
+
             
             self.muscleGroupCount += 1
             
@@ -184,11 +186,11 @@ class MuscleTableViewController: UITableViewController {
             let User = userData![self.userID] as? [String:Any]
             
             //Check if user has any pre set muscle groups. If there is no child node MuscleGroups, return
-            guard User!["MuscleGroups"] != nil else {
+            guard User!["MuscleGroupsNew"] != nil else {
                 return
             }
             
-            let muscleGroupList = User!["MuscleGroups"] as! [String:Any]
+            let muscleGroupList = User!["MuscleGroupsNew"] as! [String:Any]
             
             //TO DO: Implement algorithm to load all muscle groups from muscle group list by searching and instantiating each group
             for (key, _) in muscleGroupList {
