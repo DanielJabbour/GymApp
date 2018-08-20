@@ -150,12 +150,14 @@ class WorkoutTableViewController: UITableViewController {
             self.tableView.reloadData()
             
         }))
-
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         //Present alert
         self.present(alert, animated: true, completion: nil)
     }
     
+    //Load data method
     private func loadData() {
         ref?.child("Users").observeSingleEvent(of: .value, with: { DataSnapshot in
             
@@ -195,6 +197,72 @@ class WorkoutTableViewController: UITableViewController {
         })
     }
     
-    //TODO: Method to update data. When you tap the current row, you can edit it to update your latest session. An additional data entry is then entered into the DB, but only the latest is displayed on your screen.
+    //Method to update data. When you tap the current row, you can edit it to update your latest session. An additional data entry is then entered into the DB, but only the latest is displayed on your screen.
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //Create alert controller
+        let alert = UIAlertController(title: "Add a Workout", message: "Enter a new workout", preferredStyle: .alert)
+        
+        //Add text input field
+        alert.addTextField{ (textField) in
+            textField.placeholder = "Workout Name"
+        }
+        
+        alert.addTextField{ (textField) in
+            textField.placeholder = "Sets"
+            textField.keyboardType = .numberPad
+        }
+        
+        alert.addTextField{ (textField) in
+            textField.placeholder = "Reps"
+            textField.keyboardType = .numberPad
+        }
+        
+        alert.addTextField{ (textField) in
+            textField.placeholder = "Weight"
+            textField.keyboardType = .numberPad
+        }
+        
+        alert.addAction(UIAlertAction(title: "Add", style: .default, handler: { [weak alert] (_) in
+            //Add on action method here
+            
+            let nameTextField = alert?.textFields![0].text
+            let setsTextField = Int((alert?.textFields![1].text)!)
+            let repsTextField = Int((alert?.textFields![2].text)!)
+            let weightTextField = Int((alert?.textFields![3].text)!)
+            
+            
+            guard let newWorkout = Workout(name: nameTextField!, sets: setsTextField!, reps: repsTextField!, weight: weightTextField!) else {
+                fatalError("Unable to instantiate workout")
+            }
+            
+            let randInt = Int(arc4random_uniform(999999999))
+            
+            //Push entry to database under appropriate user
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Sets").setValue(setsTextField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Reps").setValue(repsTextField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Weight").setValue(weightTextField)
+            
+            //Add unique identifier for repretitions, firebase rejects duplicate entries
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField! + "\(randInt)").child("Sets").setValue(setsTextField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField! + "\(randInt)").child("Reps").setValue(repsTextField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField! + "\(randInt)").child("Weight").setValue(weightTextField)
+            
+            self.workouts += [newWorkout]
+            
+            self.workouts.remove(at: indexPath.row)
+            
+            self.tableView.reloadData()
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        //Present alert
+        self.present(alert, animated: true, completion: nil)
+        
+        
+    }
 
 }
