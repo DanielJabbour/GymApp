@@ -83,10 +83,13 @@ class DataTableViewController: UITableViewController {
                 return
             }
             
+            //TO DO: Change Int for weights to double
+            
             //let chart = Chart(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
             var dataPointsX = [Int]()
             var dataPointsY = [String]()
             var pointsDict = [String:Int]()
+            var aggregatePointsDict = [String:Int]()
             
             for (key, value) in muscleGroups {
                 
@@ -106,9 +109,14 @@ class DataTableViewController: UITableViewController {
                     
                     pointsDict[dateVal] = cumulitiveVal
                     
-                    print(pointsDict)
+                    for item in pointsDict {
+                        aggregatePointsDict[item.key] = (aggregatePointsDict[item.key] ?? 0) + item.value
+                    }
+                    
                 }
             }
+            
+            print(aggregatePointsDict)
             
         })
     }
