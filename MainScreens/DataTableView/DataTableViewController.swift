@@ -104,21 +104,16 @@ class DataTableViewController: UITableViewController {
                     let dateVal = value["Date"] as! String
                     
                     let cumulitiveVal = repsVal*setsVal*weightVal
+                    print(dateVal, cumulitiveVal)
                     
-                    //Add data points to array correspondingly
-                    
-                    pointsDict[dateVal] = cumulitiveVal
-                    
-                    for item in pointsDict {
-                        aggregatePointsDict[item.key] = (aggregatePointsDict[item.key] ?? 0) + item.value
-                    }
+                    aggregatePointsDict[dateVal] = (aggregatePointsDict[dateVal] ?? 0) + cumulitiveVal
                     
                 }
             }
             
             print(aggregatePointsDict)
-            
         })
+        
     }
     
     private func getMuscleGroupCount() {
