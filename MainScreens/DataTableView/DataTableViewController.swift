@@ -23,9 +23,12 @@ class DataTableViewController: UITableViewController {
         super.viewDidLoad()
         
         ref = Database.database().reference()
-        getCount()
         
-        print("Hello" + userID)
+        //Method to retrieve count of muscle groups in order to determine the number of required rows
+        getMuscleGroupCount()
+        
+        //Method to make data
+        makeData(muscleGroup: "Chest")
         
     }
 
@@ -53,7 +56,7 @@ class DataTableViewController: UITableViewController {
             fatalError("The dequed cell is not an instance of DataTableViewCell")
         }
         
-        //TO DO: Read data from database to display on charts
+        //TO DO: Read data from database to display on charts. X-axis = session #s OR weeks, Y-axis = cumulative score (sets x reps x weight)
         
         let chart = Chart(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
         let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
@@ -66,21 +69,57 @@ class DataTableViewController: UITableViewController {
         
         charts += [chart]
         charts += [chart2]
-                
+        
         cell.contentView.addSubview(charts[indexPath.row])
         return cell
     }
  
     // MARK: - Data configuration methods
     
-    private func getCount() {
-        
-        ref?.child("Users").child(userID).child("MuscleGroupsOld").observe(.value) { DataSnapshot in
-            print(DataSnapshot.childrenCount)
-            self.groupCount = Int(DataSnapshot.childrenCount)
+    private func makeData(muscleGroup: String) {
+        ref?.child("Users").child(userID).child("MuscleGroupsOld").child(muscleGroup).child("Workouts").observe(.value, with: { DataSnapshot in
             
+            guard let muscleGroups = DataSnapshot.value as? [String:AnyObject] else {
+                return
+            }
+            
+            //let chart = Chart(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
+            var dataPointsX = [Int]()
+            var dataPointsY = [String]()
+            var pointsDict = [String:Int]()
+            
+            for (key, value) in muscleGroups {
+                
+                if (key != "Dummy") {
+                    
+                    //Need to match all points with same dates to get cumulitive date
+                    // For all values on date X, sum(prod(workout))
+                    
+                    let repsVal = value["Reps"] as! Int
+                    let setsVal = value["Sets"] as! Int
+                    let weightVal = value["Weight"] as! Int
+                    let dateVal = value["Date"] as! String
+                    
+                    let cumulitiveVal = repsVal*setsVal*weightVal
+                    
+                    //Add data points to array correspondingly
+                    
+                    pointsDict[dateVal] = cumulitiveVal
+                    
+                    print(pointsDict)
+                }
+            }
+            
+        })
+    }
+    
+    private func getMuscleGroupCount() {
+        ref?.child("Users").child(userID).child("MuscleGroupsOld").observe(.value) { DataSnapshot in
+            self.groupCount = Int(DataSnapshot.childrenCount)
             self.tableView.reloadData()
         }
     }
+    
+    
     
 }

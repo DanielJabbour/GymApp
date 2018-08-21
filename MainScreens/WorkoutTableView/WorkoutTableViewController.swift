@@ -134,17 +134,23 @@ class WorkoutTableViewController: UITableViewController {
             }
             
             let randInt = Int(arc4random_uniform(999999999))
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy"
+            let resultDate = formatter.string(from: date)
             
             //Push entry to database under appropriate user
             self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Sets").setValue(setsTextField)
             self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Reps").setValue(repsTextField)
             self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Weight").setValue(weightTextField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Date").setValue(resultDate)
             
             //Add unique identifier for repretitions, firebase rejects duplicate entries
             self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField! + "\(randInt)").child("Sets").setValue(setsTextField)
             self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField! + "\(randInt)").child("Reps").setValue(repsTextField)
             self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField! + "\(randInt)").child("Weight").setValue(weightTextField)
-            
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField! + "\(randInt)").child("Date").setValue(resultDate)
+
             self.workouts += [newWorkout]
             
             self.tableView.reloadData()
@@ -176,13 +182,13 @@ class WorkoutTableViewController: UITableViewController {
             for (key, _) in workoutsDict {
                 
                 if (key != "Dummy"){
-                    var workoutScheme = workoutsDict[key] as! [String: Int]
+                    var workoutScheme = workoutsDict[key] as! [String: AnyObject]
                     
-                    let sets = workoutScheme["Sets"]
-                    let reps = workoutScheme["Reps"]
-                    let weight = workoutScheme["Weight"]
+                    let sets = workoutScheme["Sets"] as! Int
+                    let reps = workoutScheme["Reps"] as! Int
+                    let weight = workoutScheme["Weight"] as! Int
                     
-                    let newWorkout = Workout(name: key, sets: sets!, reps: reps!, weight: weight!)!
+                    let newWorkout = Workout(name: key, sets: sets, reps: reps, weight: weight)!
                     self.workouts += [newWorkout]
 
                 }
@@ -238,16 +244,23 @@ class WorkoutTableViewController: UITableViewController {
             }
             
             let randInt = Int(arc4random_uniform(999999999))
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd-MM-yyyy"
+            let resultDate = formatter.string(from: date)
             
             //Push entry to database under appropriate user
             self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Sets").setValue(setsTextField)
             self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Reps").setValue(repsTextField)
             self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Weight").setValue(weightTextField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(nameTextField!).child("Date").setValue(resultDate)
+
             
             //Add unique identifier for repretitions, firebase rejects duplicate entries
             self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField! + "\(randInt)").child("Sets").setValue(setsTextField)
             self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField! + "\(randInt)").child("Reps").setValue(repsTextField)
             self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField! + "\(randInt)").child("Weight").setValue(weightTextField)
+            self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(nameTextField! + "\(randInt)").child("Date").setValue(resultDate)
             
             self.workouts += [newWorkout]
             
