@@ -7,16 +7,12 @@
 //
 
 import UIKit
-
-import SwiftChart
 import Charts
-
 import Firebase
 import FirebaseDatabase
 
 class DataTableViewController: UITableViewController {
     
-    var charts = [Chart]()
     var barChart = [BarChartData]()
     
     var ref: DatabaseReference!
@@ -64,18 +60,6 @@ class DataTableViewController: UITableViewController {
         }
         
         //TO DO: Read data from database to display on charts. X-axis = session #s OR weeks, Y-axis = cumulative score (sets x reps x weight)
-        
-//        let chart = Chart(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
-//        let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
-//        chart.add(series)
-//
-//        let chart2 = Chart(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
-//        let series2 = ChartSeries([0, 5, 3, 19, 3, 1, -1, 10, 8])
-//        chart2.add(series2)
-//
-//
-//        charts += [chart]
-//        charts += [chart2]
         
         let data = barChart[indexPath.row]
         

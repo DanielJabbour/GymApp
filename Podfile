@@ -10,7 +10,6 @@ target 'GymApp' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
 
-  pod "SwiftChart"
   pod 'Charts'
 
   post_install do |installer|

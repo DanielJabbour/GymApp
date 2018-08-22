@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwiftChart
 import Charts
 
 class DataTableViewCell: UITableViewCell {
