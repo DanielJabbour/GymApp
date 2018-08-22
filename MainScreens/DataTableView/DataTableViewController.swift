@@ -7,13 +7,18 @@
 //
 
 import UIKit
+
 import SwiftChart
+import Charts
+
 import Firebase
 import FirebaseDatabase
 
 class DataTableViewController: UITableViewController {
     
     var charts = [Chart]()
+    var barChart = [BarChartData]()
+    
     var ref: DatabaseReference!
     let email = UserDefaults.standard.object(forKey: "UserEmail") as! String
     let userID = UserDefaults.standard.object(forKey: "UserID") as! String
@@ -30,6 +35,9 @@ class DataTableViewController: UITableViewController {
         //Method to make data
         makeData(muscleGroup: "Chest")
         
+        //testing
+        makeBarData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,7 +53,6 @@ class DataTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         
         return self.groupCount
     }
@@ -58,19 +65,28 @@ class DataTableViewController: UITableViewController {
         
         //TO DO: Read data from database to display on charts. X-axis = session #s OR weeks, Y-axis = cumulative score (sets x reps x weight)
         
-        let chart = Chart(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
-        let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
-        chart.add(series)
+//        let chart = Chart(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
+//        let series = ChartSeries([0, 6.5, 2, 8, 4.1, 7, -3.1, 10, 8])
+//        chart.add(series)
+//
+//        let chart2 = Chart(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
+//        let series2 = ChartSeries([0, 5, 3, 19, 3, 1, -1, 10, 8])
+//        chart2.add(series2)
+//
+//
+//        charts += [chart]
+//        charts += [chart2]
         
-        let chart2 = Chart(frame: CGRect(x: 0, y: 0, width: 250, height: 150))
-        let series2 = ChartSeries([0, 5, 3, 19, 3, 1, -1, 10, 8])
-        chart2.add(series2)
-
+        let data = barChart[indexPath.row]
         
-        charts += [chart]
-        charts += [chart2]
+        cell.barChart.data = data
+        cell.barChart.chartDescription?.text = "Number of Widgets by Type"
         
-        cell.contentView.addSubview(charts[indexPath.row])
+        //All other additions to this function will go here
+        
+        //This must stay at end of function
+        cell.barChart.notifyDataSetChanged()
+        
         return cell
     }
  
@@ -88,7 +104,6 @@ class DataTableViewController: UITableViewController {
             //let chart = Chart(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
             var dataPointsX = [Int]()
             var dataPointsY = [String]()
-            var pointsDict = [String:Int]()
             var aggregatePointsDict = [String:Int]()
             
             for (key, value) in muscleGroups {
@@ -104,14 +119,17 @@ class DataTableViewController: UITableViewController {
                     let dateVal = value["Date"] as! String
                     
                     let cumulitiveVal = repsVal*setsVal*weightVal
-                    print(dateVal, cumulitiveVal)
                     
                     aggregatePointsDict[dateVal] = (aggregatePointsDict[dateVal] ?? 0) + cumulitiveVal
-                    
                 }
             }
+
+            //Append appropriate data points
+            for item in aggregatePointsDict {
+                dataPointsY.append(item.key)
+                dataPointsX.append(item.value)
+            }
             
-            print(aggregatePointsDict)
         })
         
     }
@@ -123,6 +141,24 @@ class DataTableViewController: UITableViewController {
         }
     }
     
+    private func makeBarData() {
+        let entry1 = BarChartDataEntry(x: 1.0, y: 1.0)
+        let entry2 = BarChartDataEntry(x: 2.0, y: 2.0)
+        let entry3 = BarChartDataEntry(x: 3.0, y: 3.0)
+        let dataSet = BarChartDataSet(values: [entry1, entry2, entry3], label: "Widgets Type")
+        let dataToPass = BarChartData(dataSets: [dataSet])
+        
+        let entry4 = BarChartDataEntry(x: 5.0, y: 1.0)
+        let entry5 = BarChartDataEntry(x: 4.0, y: 2.0)
+        let entry6 = BarChartDataEntry(x: 3.0, y: 3.0)
+        let dataSet2 = BarChartDataSet(values: [entry4, entry5, entry6], label: "Widgets 2")
+        let dataToPass2 = BarChartData(dataSets: [dataSet2])
+        
+        barChart += [dataToPass]
+        barChart += [dataToPass2]
+        
+    }
+
     
     
 }

@@ -369,7 +369,17 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ytu-gp-NX9" id="67a-m4-1Pi">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="265.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALy-oe-26b" customClass="BarChartView" customModule="Charts">
+                                            <rect key="frame" x="16" y="11" width="343" height="244"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </view>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="barChart" destination="ALy-oe-26b" id="jXs-Ht-lMc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
