@@ -91,12 +91,16 @@ class DataTableViewController: UITableViewController {
             var dataPointsX = [String]()
             var aggregatePointsDict = [String:Double]()
             
+            struct data {
+                let date: String
+                let value: Double
+            }
+            
+            var dataArr = [data]()
+            
             for (key, value) in muscleGroups {
                 
                 if (key != "Dummy") {
-                    
-                    //Need to match all points with same dates to get cumulitive date
-                    // For all values on date X, sum(prod(workout))
                     
                     let repsVal = value["Reps"] as! Double
                     let setsVal = value["Sets"] as! Double
@@ -105,21 +109,39 @@ class DataTableViewController: UITableViewController {
                     
                     let cumulitiveVal = repsVal*setsVal*weightVal
                     
+                    //print (cumulitiveVal, dateVal)
+                    
+                    dataArr.append(data(date: dateVal, value: cumulitiveVal))
+                    
                     aggregatePointsDict[dateVal] = (aggregatePointsDict[dateVal] ?? 0) + cumulitiveVal
+                    
                 }
+            }
+            
+            //Add additional key dictating order. Make your DS = Dictionary(key: order, value: Dictionary(key:dates, value: aggPoints)
+            
+            
+            //Order gets messed up in dict
+            //print (aggregatePointsDict)
+            
+            for index in 0...dataArr.count - 1 {
+                print(dataArr[index].date, dataArr[index].value)
+                dataPointsX.append(dataArr[index].date)
+                dataPointsY.append(dataArr[index].value)
             }
 
             //Append appropriate data points
-            for item in aggregatePointsDict {
-                dataPointsX.append(item.key)
-                dataPointsY.append(item.value)
-            }
+//            for item in aggregatePointsDict {
+//                dataPointsX.append(item.key)
+//                dataPointsY.append(item.value)
+//            }
             
-            print(dataPointsY)
-            print(dataPointsX)
+            //print(dataPointsY)
+            //print(dataPointsX)
             
-            self.xVals.append(dataPointsX)
-            self.yVals.append(dataPointsY)
+            self.xVals.append(dataPointsX.reversed())
+            self.yVals.append(dataPointsY.reversed())
+            
             
         })
         
