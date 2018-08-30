@@ -11,7 +11,7 @@ import Charts
 
 class DataTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var barChart: BarChartView!
+    @IBOutlet weak var lineChart: LineChartView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -13,8 +13,10 @@ import FirebaseDatabase
 
 class DataTableViewController: UITableViewController {
     
-    var barChart = [BarChartData]()
+    var xVals = [[String]]()
+    var yVals = [[Double]]()
     
+    var lineChart = [LineChartData]()
     var ref: DatabaseReference!
     let email = UserDefaults.standard.object(forKey: "UserEmail") as! String
     let userID = UserDefaults.standard.object(forKey: "UserID") as! String
@@ -31,9 +33,6 @@ class DataTableViewController: UITableViewController {
         //Method to make data
         makeData(muscleGroup: "Chest")
         
-        //testing
-        makeBarData()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,7 +43,6 @@ class DataTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
@@ -61,18 +59,22 @@ class DataTableViewController: UITableViewController {
         
         //TO DO: Read data from database to display on charts. X-axis = session #s OR weeks, Y-axis = cumulative score (sets x reps x weight)
         
-        let data = barChart[indexPath.row]
+        //let data = lineChart[indexPath.row]
         
-        cell.barChart.data = data
-        cell.barChart.chartDescription?.text = "Number of Widgets by Type"
+        //Read through
+        cell.lineChart.setLineChartData(xValues: xVals[0], yValues: yVals[0], label: "")
+        
+        //cell.lineChart.data = data
+        cell.lineChart.chartDescription?.text = "Chest"
         
         //All other additions to this function will go here
         
         //This must stay at end of function
-        cell.barChart.notifyDataSetChanged()
+        cell.lineChart.notifyDataSetChanged()
         
         return cell
     }
+    
  
     // MARK: - Data configuration methods
     
@@ -85,10 +87,9 @@ class DataTableViewController: UITableViewController {
             
             //TO DO: Change Int for weights to double
             
-            //let chart = Chart(frame: CGRect(x: 0, y: 0, width: 300, height: 200))
-            var dataPointsX = [Int]()
-            var dataPointsY = [String]()
-            var aggregatePointsDict = [String:Int]()
+            var dataPointsY = [Double]()
+            var dataPointsX = [String]()
+            var aggregatePointsDict = [String:Double]()
             
             for (key, value) in muscleGroups {
                 
@@ -97,9 +98,9 @@ class DataTableViewController: UITableViewController {
                     //Need to match all points with same dates to get cumulitive date
                     // For all values on date X, sum(prod(workout))
                     
-                    let repsVal = value["Reps"] as! Int
-                    let setsVal = value["Sets"] as! Int
-                    let weightVal = value["Weight"] as! Int
+                    let repsVal = value["Reps"] as! Double
+                    let setsVal = value["Sets"] as! Double
+                    let weightVal = value["Weight"] as! Double
                     let dateVal = value["Date"] as! String
                     
                     let cumulitiveVal = repsVal*setsVal*weightVal
@@ -110,13 +111,20 @@ class DataTableViewController: UITableViewController {
 
             //Append appropriate data points
             for item in aggregatePointsDict {
-                dataPointsY.append(item.key)
-                dataPointsX.append(item.value)
+                dataPointsX.append(item.key)
+                dataPointsY.append(item.value)
             }
+            
+            print(dataPointsY)
+            print(dataPointsX)
+            
+            self.xVals.append(dataPointsX)
+            self.yVals.append(dataPointsY)
             
         })
         
     }
+    
     
     private func getMuscleGroupCount() {
         ref?.child("Users").child(userID).child("MuscleGroupsOld").observe(.value) { DataSnapshot in
@@ -124,25 +132,6 @@ class DataTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-    
-    private func makeBarData() {
-        let entry1 = BarChartDataEntry(x: 1.0, y: 1.0)
-        let entry2 = BarChartDataEntry(x: 2.0, y: 2.0)
-        let entry3 = BarChartDataEntry(x: 3.0, y: 3.0)
-        let dataSet = BarChartDataSet(values: [entry1, entry2, entry3], label: "Widgets Type")
-        let dataToPass = BarChartData(dataSets: [dataSet])
-        
-        let entry4 = BarChartDataEntry(x: 5.0, y: 1.0)
-        let entry5 = BarChartDataEntry(x: 4.0, y: 2.0)
-        let entry6 = BarChartDataEntry(x: 3.0, y: 3.0)
-        let dataSet2 = BarChartDataSet(values: [entry4, entry5, entry6], label: "Widgets 2")
-        let dataToPass2 = BarChartData(dataSets: [dataSet2])
-        
-        barChart += [dataToPass]
-        barChart += [dataToPass2]
-        
-    }
 
-    
     
 }
