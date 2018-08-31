@@ -15,8 +15,7 @@ class DataTableViewController: UITableViewController {
     
     var xVals = [[String]]()
     var yVals = [[Double]]()
-    
-    var lineChart = [LineChartData]()
+    var muscleGroupsOld = [String:AnyObject]()
     var ref: DatabaseReference!
     let email = UserDefaults.standard.object(forKey: "UserEmail") as! String
     let userID = UserDefaults.standard.object(forKey: "UserID") as! String
@@ -27,11 +26,15 @@ class DataTableViewController: UITableViewController {
         
         ref = Database.database().reference()
         
+        
+        
         //Method to retrieve count of muscle groups in order to determine the number of required rows
         getMuscleGroupCount()
         
-        //Method to make data
-        makeData(muscleGroup: "Chest")
+        getGroupData()
+        processData(muscleGroup: "Chest")
+//        makeData(muscleGroup: "Chest")
+//        makeData(muscleGroup: "Triceps")
         
     }
 
@@ -59,10 +62,8 @@ class DataTableViewController: UITableViewController {
         
         //TO DO: Read data from database to display on charts. X-axis = session #s OR weeks, Y-axis = cumulative score (sets x reps x weight)
         
-        //let data = lineChart[indexPath.row]
-        
-        //Read through
-        cell.lineChart.setLineChartData(xValues: xVals[0], yValues: yVals[0], label: "")
+        //Read through ... Index out of range?
+        cell.lineChart.setLineChartData(xValues: xVals[indexPath.row], yValues: yVals[indexPath.row], label: "")
         
         //cell.lineChart.data = data
         cell.lineChart.chartDescription?.text = "Chest"
@@ -78,73 +79,83 @@ class DataTableViewController: UITableViewController {
  
     // MARK: - Data configuration methods
     
-    private func makeData(muscleGroup: String) {
-        ref?.child("Users").child(userID).child("MuscleGroupsOld").child(muscleGroup).child("Workouts").observe(.value, with: { DataSnapshot in
+    private func getGroupData() {
+        ref?.child("Users").child(userID).child("MuscleGroupsOld").observe(.value, with: { DataSnapshot in
             
             guard let muscleGroups = DataSnapshot.value as? [String:AnyObject] else {
                 return
             }
             
-            //TO DO: Change Int for weights to double
+            print(muscleGroups)
             
-            var dataPointsY = [Double]()
-            var dataPointsX = [String]()
-            var aggregatePointsDict = [String:Double]()
-            
-            struct data {
-                let date: String
-                let value: Double
-            }
-            
-            var dataArr = [data]()
-            
-            for (key, value) in muscleGroups {
-                
-                if (key != "Dummy") {
-                    
-                    let repsVal = value["Reps"] as! Double
-                    let setsVal = value["Sets"] as! Double
-                    let weightVal = value["Weight"] as! Double
-                    let dateVal = value["Date"] as! String
-                    
-                    let cumulitiveVal = repsVal*setsVal*weightVal
-                    
-                    //print (cumulitiveVal, dateVal)
-                    
-                    dataArr.append(data(date: dateVal, value: cumulitiveVal))
-                    
-                    aggregatePointsDict[dateVal] = (aggregatePointsDict[dateVal] ?? 0) + cumulitiveVal
-                    
-                }
-            }
-            
-            //Order gets messed up in dict
-            //print (aggregatePointsDict)
-            
-            for index in 0...dataArr.count - 1 {
-                //print(dataArr[index].date, dataArr[index].value)
-                let currentDate = dataArr[index].date
-                var currentVal = dataArr[index].value
-                
-                if (currentVal != aggregatePointsDict[currentDate]){
-                    currentVal = aggregatePointsDict[currentDate]!
-                }
-                
-                dataPointsX.append(currentDate)
-                dataPointsY.append(currentVal)
-            }
-            
-            //Need to eliminate duplicates
-            let groupedDataX = dataPointsX.removingDuplicates()
-            let groupedDataY = dataPointsY.removingDuplicates()
-            
-            //Reverse array to maintain order from earliest to latest date
-            self.xVals.append(groupedDataX.reversed())
-            self.yVals.append(groupedDataY.reversed())
+            self.muscleGroupsOld = muscleGroups
             
         })
-        
     }
+    
+    private func processData(muscleGroup: String) {
+        //TO DO: Change Int for weights to double when pushed to db
+        
+        var dataPointsY = [Double]()
+        var dataPointsX = [String]()
+        var aggregatePointsDict = [String:Double]()
+        
+        struct data {
+            let date: String
+            let value: Double
+        }
+        
+        let workouts = self.muscleGroupsOld[muscleGroup] as! [String:AnyObject]
+        let muscleGroups = workouts["Workouts"] as! [String:AnyObject]
+        print(muscleGroups)
+        
+        var dataArr = [data]()
+        
+        for (key, value) in muscleGroups {
+            
+            if (key != "Dummy") {
+                
+                let repsVal = value["Reps"] as! Double
+                let setsVal = value["Sets"] as! Double
+                let weightVal = value["Weight"] as! Double
+                let dateVal = value["Date"] as! String
+                
+                let cumulitiveVal = repsVal*setsVal*weightVal
+                
+                print (cumulitiveVal, dateVal)
+                
+                dataArr.append(data(date: dateVal, value: cumulitiveVal))
+                
+                aggregatePointsDict[dateVal] = (aggregatePointsDict[dateVal] ?? 0) + cumulitiveVal
+                
+            }
+        }
+        
+        //Order gets messed up in dict
+        //print (aggregatePointsDict)
+        
+        for index in 0...dataArr.count - 1 {
+            //print(dataArr[index].date, dataArr[index].value)
+            let currentDate = dataArr[index].date
+            var currentVal = dataArr[index].value
+            
+            if (currentVal != aggregatePointsDict[currentDate]){
+                currentVal = aggregatePointsDict[currentDate]!
+            }
+            
+            dataPointsX.append(currentDate)
+            dataPointsY.append(currentVal)
+        }
+        
+        //Need to eliminate duplicates
+        let groupedDataX = dataPointsX.removingDuplicates()
+        let groupedDataY = dataPointsY.removingDuplicates()
+        
+        //Reverse array to maintain order from earliest to latest date
+        self.xVals.append(groupedDataX.reversed())
+        self.yVals.append(groupedDataY.reversed())
+    }
+    
     
     
     private func getMuscleGroupCount() {
@@ -153,6 +164,21 @@ class DataTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
+    
+    private func getMuscleGroups() {
+        ref?.child("Users").child(userID).child("MuscleGroupsOld").observe(.value) { DataSnapshot in
+            
+            guard let muscleGroups = DataSnapshot.value as? [String:AnyObject] else {
+                return
+            }
+            
+            for (key, value) in muscleGroups {
+                print(key, value)
+            }
+            
+        }
+    }
+
 
     
 }
