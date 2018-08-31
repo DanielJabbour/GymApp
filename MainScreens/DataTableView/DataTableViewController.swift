@@ -118,30 +118,29 @@ class DataTableViewController: UITableViewController {
                 }
             }
             
-            //Add additional key dictating order. Make your DS = Dictionary(key: order, value: Dictionary(key:dates, value: aggPoints)
-            
-            
             //Order gets messed up in dict
             //print (aggregatePointsDict)
             
             for index in 0...dataArr.count - 1 {
-                print(dataArr[index].date, dataArr[index].value)
-                dataPointsX.append(dataArr[index].date)
-                dataPointsY.append(dataArr[index].value)
+                //print(dataArr[index].date, dataArr[index].value)
+                let currentDate = dataArr[index].date
+                var currentVal = dataArr[index].value
+                
+                if (currentVal != aggregatePointsDict[currentDate]){
+                    currentVal = aggregatePointsDict[currentDate]!
+                }
+                
+                dataPointsX.append(currentDate)
+                dataPointsY.append(currentVal)
             }
-
-            //Append appropriate data points
-//            for item in aggregatePointsDict {
-//                dataPointsX.append(item.key)
-//                dataPointsY.append(item.value)
-//            }
             
-            //print(dataPointsY)
-            //print(dataPointsX)
+            //Need to eliminate duplicates
+            let groupedDataX = dataPointsX.removingDuplicates()
+            let groupedDataY = dataPointsY.removingDuplicates()
             
-            self.xVals.append(dataPointsX.reversed())
-            self.yVals.append(dataPointsY.reversed())
-            
+            //Reverse array to maintain order from earliest to latest date
+            self.xVals.append(groupedDataX.reversed())
+            self.yVals.append(groupedDataY.reversed())
             
         })
         

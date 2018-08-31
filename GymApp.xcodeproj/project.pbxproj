@@ -10,6 +10,7 @@
 		23289D2C2113C4EF00289231 /* DataTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23289D2B2113C4EF00289231 /* DataTableViewController.swift */; };
 		23289D2E2113C55400289231 /* DataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23289D2D2113C55400289231 /* DataTableViewCell.swift */; };
 		234884C42138357200207705 /* LineChartFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234884C32138357200207705 /* LineChartFormatter.swift */; };
+		234884C62138820500207705 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 234884C52138820500207705 /* ArrayExtension.swift */; };
 		2392D200210FA13F00CD61AB /* WorkoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2392D1FF210FA13F00CD61AB /* WorkoutTableViewController.swift */; };
 		2392D2022110044200CD61AB /* WorkoutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2392D2012110044200CD61AB /* WorkoutTableViewCell.swift */; };
 		2392D20421101D7300CD61AB /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2392D20321101D7300CD61AB /* Workout.swift */; };
@@ -51,6 +52,7 @@
 		23289D2D2113C55400289231 /* DataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTableViewCell.swift; sourceTree = "<group>"; };
 		232EE2E82114E2C2000E2B4A /* GymApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GymApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		234884C32138357200207705 /* LineChartFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChartFormatter.swift; sourceTree = "<group>"; };
+		234884C52138820500207705 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		2392D1FF210FA13F00CD61AB /* WorkoutTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WorkoutTableViewController.swift; path = MainScreens/WorkoutTableView/WorkoutTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		2392D2012110044200CD61AB /* WorkoutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutTableViewCell.swift; sourceTree = "<group>"; };
 		2392D20321101D7300CD61AB /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				23289D2B2113C4EF00289231 /* DataTableViewController.swift */,
 				23289D2D2113C55400289231 /* DataTableViewCell.swift */,
 				234884C32138357200207705 /* LineChartFormatter.swift */,
+				234884C52138820500207705 /* ArrayExtension.swift */,
 			);
 			path = DataTableView;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				234884C62138820500207705 /* ArrayExtension.swift in Sources */,
 				23BA2E4120DDFC5900619070 /* MuscleTableViewCell.swift in Sources */,
 				23289D2C2113C4EF00289231 /* DataTableViewController.swift in Sources */,
 				2528283F20B0982700101FC3 /* ViewController.swift in Sources */,
