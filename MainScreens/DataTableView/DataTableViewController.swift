@@ -16,6 +16,7 @@ class DataTableViewController: UITableViewController {
     var xVals = [[String]]()
     var yVals = [[Double]]()
     var muscleGroupsOld = [String:AnyObject]()
+    var muscleGroupsNew = [String]()
     
     var ref: DatabaseReference!
     let email = UserDefaults.standard.object(forKey: "UserEmail") as! String
@@ -33,6 +34,7 @@ class DataTableViewController: UITableViewController {
         getMuscleGroupCount()
         
         getGroupData()
+        
         
 //        makeData(muscleGroup: "Chest")
 //        makeData(muscleGroup: "Triceps")
@@ -88,8 +90,12 @@ class DataTableViewController: UITableViewController {
             }
             
             self.muscleGroupsOld = muscleGroups
-            self.processData(muscleGroup: "Chest")
-            self.processData(muscleGroup: "Triceps")
+            
+            //Potential solution: Read muscle groups old, strip all integers, make all values unique, then process
+            //Random crash?
+            for (key, _) in muscleGroups {
+                self.processData(muscleGroup: key)
+            }
 
         })
     }
@@ -109,15 +115,12 @@ class DataTableViewController: UITableViewController {
         //nil
         let workouts = self.muscleGroupsOld[muscleGroup] as! [String:AnyObject]
         let muscleGroups = workouts["Workouts"] as! [String:AnyObject]
-        print(muscleGroups)
         
         var dataArr = [data]()
         
         for (key, value) in muscleGroups {
             
             if (key != "Dummy") {
-                
-                print(key)
                 
                 let repsVal = value["Reps"] as! Double
                 let setsVal = value["Sets"] as! Double
@@ -136,7 +139,6 @@ class DataTableViewController: UITableViewController {
         //Order gets messed up in dict
         
         for index in 0...dataArr.count - 1 {
-            //print(dataArr[index].date, dataArr[index].value)
             let currentDate = dataArr[index].date
             var currentVal = dataArr[index].value
             
@@ -173,13 +175,7 @@ class DataTableViewController: UITableViewController {
                 return
             }
             
-            for (key, value) in muscleGroups {
-                print(key, value)
-            }
-            
         }
     }
-
-
     
 }
