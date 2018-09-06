@@ -16,6 +16,7 @@ class DataTableViewController: UITableViewController {
     var xVals = [[String]]()
     var yVals = [[Double]]()
     var muscleGroupsOld = [String:AnyObject]()
+    
     var ref: DatabaseReference!
     let email = UserDefaults.standard.object(forKey: "UserEmail") as! String
     let userID = UserDefaults.standard.object(forKey: "UserID") as! String
@@ -32,7 +33,7 @@ class DataTableViewController: UITableViewController {
         getMuscleGroupCount()
         
         getGroupData()
-        processData(muscleGroup: "Chest")
+        
 //        makeData(muscleGroup: "Chest")
 //        makeData(muscleGroup: "Triceps")
         
@@ -86,10 +87,10 @@ class DataTableViewController: UITableViewController {
                 return
             }
             
-            print(muscleGroups)
-            
             self.muscleGroupsOld = muscleGroups
-            
+            self.processData(muscleGroup: "Chest")
+            self.processData(muscleGroup: "Triceps")
+
         })
     }
     
@@ -105,6 +106,7 @@ class DataTableViewController: UITableViewController {
             let value: Double
         }
         
+        //nil
         let workouts = self.muscleGroupsOld[muscleGroup] as! [String:AnyObject]
         let muscleGroups = workouts["Workouts"] as! [String:AnyObject]
         print(muscleGroups)
@@ -115,14 +117,14 @@ class DataTableViewController: UITableViewController {
             
             if (key != "Dummy") {
                 
+                print(key)
+                
                 let repsVal = value["Reps"] as! Double
                 let setsVal = value["Sets"] as! Double
                 let weightVal = value["Weight"] as! Double
                 let dateVal = value["Date"] as! String
                 
                 let cumulitiveVal = repsVal*setsVal*weightVal
-                
-                print (cumulitiveVal, dateVal)
                 
                 dataArr.append(data(date: dateVal, value: cumulitiveVal))
                 
@@ -132,7 +134,6 @@ class DataTableViewController: UITableViewController {
         }
         
         //Order gets messed up in dict
-        //print (aggregatePointsDict)
         
         for index in 0...dataArr.count - 1 {
             //print(dataArr[index].date, dataArr[index].value)
