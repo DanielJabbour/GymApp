@@ -14,7 +14,6 @@ import FirebaseDatabase
 class DataTableViewController: UITableViewController {
     
     //TO DO: CHANGE X AXIS FROM DATES TO NUMBERS
-    
     var lineDataEntry: [[ChartDataEntry]] = []
     
     var xVals = [[String]]()
@@ -78,7 +77,16 @@ class DataTableViewController: UITableViewController {
             dataPoint.removeAll()
         }
         
-        let chartDataSet = LineChartDataSet(values: lineDataEntry[indexPath.row], label: "test")
+        print(self.muscleGroupsOld)
+        
+        var muscleGroupsArr = [String]()
+        for (key, _) in self.muscleGroupsOld {
+            if key != "Dummy" {
+                muscleGroupsArr.append(key)
+            }
+        }
+        
+        let chartDataSet = LineChartDataSet(values: lineDataEntry[indexPath.row], label: muscleGroupsArr[indexPath.row])
         let chartData = LineChartData()
         chartData.addDataSet(chartDataSet)
         
@@ -131,7 +139,6 @@ class DataTableViewController: UITableViewController {
             
             self.muscleGroupsOld = muscleGroups
             
-            //Potential solution: Read muscle groups old, strip all integers, make all values unique, then process
             //Random crash?
             for (key, _) in muscleGroups {
                 self.processData(muscleGroup: key)
