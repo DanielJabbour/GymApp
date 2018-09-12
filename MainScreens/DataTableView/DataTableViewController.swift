@@ -13,6 +13,10 @@ import FirebaseDatabase
 
 class DataTableViewController: UITableViewController {
     
+    //TO DO: CHANGE X AXIS FROM DATES TO NUMBERS
+    
+    var lineDataEntry: [[ChartDataEntry]] = []
+    
     var xVals = [[String]]()
     var yVals = [[Double]]()
     var muscleGroupsOld = [String:AnyObject]()
@@ -28,17 +32,12 @@ class DataTableViewController: UITableViewController {
         
         ref = Database.database().reference()
         
-        
-        
         //Method to retrieve count of muscle groups in order to determine the number of required rows
         getMuscleGroupCount()
         
+        //Method to retrieve muscle group data
         getGroupData()
-        
-        
-//        makeData(muscleGroup: "Chest")
-//        makeData(muscleGroup: "Triceps")
-        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,11 +64,25 @@ class DataTableViewController: UITableViewController {
         
         //TO DO: Read data from database to display on charts. X-axis = session #s OR weeks, Y-axis = cumulative score (sets x reps x weight)
         
-        //Read through ... Index out of range?
-        cell.lineChart.setLineChartData(xValues: xVals[indexPath.row], yValues: yVals[indexPath.row], label: "")
+        //Uncomment this line and comment out the lines between MARK1 & MARK2 to change x-axis to dates
+//        cell.lineChart.setLineChartData(xValues: xVals[indexPath.row], yValues: yVals[indexPath.row], label: "")
         
-        //cell.lineChart.data = data
-        cell.lineChart.chartDescription?.text = "Chest"
+        //MARK-1
+        var dataPoint = [ChartDataEntry]()
+        
+        for index in 0...yVals.count - 1{
+            for index2 in 0...yVals[index].count - 1{
+                dataPoint.append(ChartDataEntry(x: Double(index2 + 1), y: Double(yVals[index][index2])))
+            }
+            lineDataEntry.append(dataPoint)
+            dataPoint.removeAll()
+        }
+        
+        let chartDataSet = LineChartDataSet(values: lineDataEntry[indexPath.row], label: "")
+        let chartData = LineChartData()
+        chartData.addDataSet(chartDataSet)
+        
+        //MARK-2
         
         //All other additions to this function will go here
         cell.lineChart.xAxis.labelPosition = .bottom
@@ -80,12 +93,15 @@ class DataTableViewController: UITableViewController {
         cell.lineChart.leftAxis.drawGridLinesEnabled = false
         cell.lineChart.leftAxis.drawLabelsEnabled = true
         
+        
+        //Add data to view
+        cell.lineChart.data = chartData
+        
         //This must stay at end of function
         cell.lineChart.notifyDataSetChanged()
         
         return cell
     }
-    
  
     // MARK: - Data configuration methods
     
