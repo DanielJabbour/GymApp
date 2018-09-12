@@ -38,6 +38,19 @@ extension LineChartView {
         let chartDataSet = LineChartDataSet(values: dataEntries, label: label)
         let chartData = LineChartData(dataSet: chartDataSet)
         
+        //Data Set Color Customization
+        chartDataSet.colors = [UIColor.magenta]
+        chartDataSet.setCircleColor(UIColor.magenta)
+        chartDataSet.circleHoleColor = UIColor.magenta
+        chartDataSet.circleHoleRadius = 4.0
+        
+        //Color Gradient Definition
+        let gradientColors = [UIColor.magenta.cgColor, UIColor.clear.cgColor] as CFArray
+        let colorLocations: [CGFloat] = [1.0, 0.0]
+        guard let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations) else { print("Gradient Error"); return}
+        chartDataSet.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
+        chartDataSet.drawFilledEnabled = true
+        
         let chartFormatter = LineChartFormatter(labels: xValues)
         let xAxis = XAxis()
         

@@ -72,6 +72,13 @@ class DataTableViewController: UITableViewController {
         cell.lineChart.chartDescription?.text = "Chest"
         
         //All other additions to this function will go here
+        cell.lineChart.xAxis.labelPosition = .bottom
+        cell.lineChart.xAxis.drawGridLinesEnabled = false
+        cell.lineChart.chartDescription?.enabled = false
+        cell.lineChart.legend.enabled = false
+        cell.lineChart.rightAxis.enabled = false
+        cell.lineChart.leftAxis.drawGridLinesEnabled = false
+        cell.lineChart.leftAxis.drawLabelsEnabled = true
         
         //This must stay at end of function
         cell.lineChart.notifyDataSetChanged()
@@ -167,15 +174,5 @@ class DataTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-    
-    private func getMuscleGroups() {
-        ref?.child("Users").child(userID).child("MuscleGroupsOld").observe(.value) { DataSnapshot in
-            
-            guard let muscleGroups = DataSnapshot.value as? [String:AnyObject] else {
-                return
-            }
-            
-        }
-    }
-    
+
 }
