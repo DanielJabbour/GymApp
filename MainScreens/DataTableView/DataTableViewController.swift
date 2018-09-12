@@ -78,9 +78,25 @@ class DataTableViewController: UITableViewController {
             dataPoint.removeAll()
         }
         
-        let chartDataSet = LineChartDataSet(values: lineDataEntry[indexPath.row], label: "")
+        let chartDataSet = LineChartDataSet(values: lineDataEntry[indexPath.row], label: "test")
         let chartData = LineChartData()
         chartData.addDataSet(chartDataSet)
+        
+        //Data Set Color Customization
+        chartDataSet.colors = [UIColor.magenta]
+        chartDataSet.setCircleColor(UIColor.magenta)
+        chartDataSet.circleHoleColor = UIColor.magenta
+        chartDataSet.circleHoleRadius = 4.0
+        
+        //Color Gradient Definition
+        let gradientColors = [UIColor.magenta.cgColor, UIColor.clear.cgColor] as CFArray
+        let colorLocations: [CGFloat] = [1.0, 0.0]
+        guard let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations) else { print("Gradient Error"); return cell}
+        chartDataSet.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
+        chartDataSet.drawFilledEnabled = true
+        chartDataSet.mode = .cubicBezier
+        chartDataSet.cubicIntensity = 0.2
+        chartDataSet.circleRadius = 3.0
         
         //MARK-2
         
@@ -88,11 +104,12 @@ class DataTableViewController: UITableViewController {
         cell.lineChart.xAxis.labelPosition = .bottom
         cell.lineChart.xAxis.drawGridLinesEnabled = false
         cell.lineChart.chartDescription?.enabled = false
-        cell.lineChart.legend.enabled = false
+        //cell.lineChart.legend.enabled = false -- Uncomment this for disabling the bottom label
         cell.lineChart.rightAxis.enabled = false
         cell.lineChart.leftAxis.drawGridLinesEnabled = false
         cell.lineChart.leftAxis.drawLabelsEnabled = true
         
+        cell.lineChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         
         //Add data to view
         cell.lineChart.data = chartData
