@@ -28,7 +28,7 @@ class DataTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         ref = Database.database().reference()
         
         //Method to retrieve count of muscle groups in order to determine the number of required rows
@@ -76,8 +76,6 @@ class DataTableViewController: UITableViewController {
             lineDataEntry.append(dataPoint)
             dataPoint.removeAll()
         }
-        
-        print(self.muscleGroupsOld)
         
         var muscleGroupsArr = [String]()
         for (key, _) in self.muscleGroupsOld {
