@@ -133,26 +133,27 @@ class MuscleTableViewController: UITableViewController {
             textField.text = ""
         }
         
-        
         //Grab and log user entered value
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0].text
             
-            guard let newMuscle = Muscle(group: textField!) else {
-                fatalError("Unable to instantiate muscle")
+            if let newMuscle = Muscle(group: textField!) {
+                //Push entry to database under appropriate user
+                //self.ref?.child("Users").child(self.userID).child("MuscleGroups").child("MuscleGroup\(self.muscleGroupCount)").setValue(textField)
+                self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(textField!).child("Workouts").child("Dummy").setValue("Value")
+                self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(textField!).child("Workouts").child("Dummy").setValue("Value")
+                
+                self.muscleGroupCount += 1
+                
+                self.muscles += [newMuscle]
+                self.tableView.reloadData()
+            } else {
+                self.tableView.reloadData()
             }
-            
-            //Push entry to database under appropriate user
-            //self.ref?.child("Users").child(self.userID).child("MuscleGroups").child("MuscleGroup\(self.muscleGroupCount)").setValue(textField)
-            self.ref?.child("Users").child(self.userID).child("MuscleGroupsNew").child(textField!).child("Workouts").child("Dummy").setValue("Value")
-            self.ref?.child("Users").child(self.userID).child("MuscleGroupsOld").child(textField!).child("Workouts").child("Dummy").setValue("Value")
-
-            self.muscleGroupCount += 1
-            
-            self.muscles += [newMuscle]
-            self.tableView.reloadData()
 
         }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         //Present alert
         self.present(alert, animated: true, completion: nil)

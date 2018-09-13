@@ -232,7 +232,7 @@
                         <barButtonItem title="Home" image="homeIcon.png" id="G45-B0-Qwk">
                             <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="8iH-X3-j2e" kind="showDetail" animates="NO" id="vtU-ml-Atl"/>
+                                <segue destination="8iH-X3-j2e" kind="showDetail" id="vtU-ml-Atl"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="6fm-FK-xar"/>
@@ -271,7 +271,7 @@
             </objects>
             <point key="canvasLocation" x="2000.8" y="798.35082458770626"/>
         </scene>
-        <!--Workout Table View Controller-->
+        <!--Your Workouts-->
         <scene sceneID="H1Z-rJ-njC">
             <objects>
                 <tableViewController storyboardIdentifier="WorkoutTableView" id="ifg-q2-LnW" customClass="WorkoutTableViewController" customModule="GymApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -348,7 +348,7 @@
                             <outlet property="delegate" destination="ifg-q2-LnW" id="lMn-Zs-vd7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="6f0-ad-hXO">
+                    <navigationItem key="navigationItem" title="Your Workouts" id="6f0-ad-hXO">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZoB-px-j8i">
                             <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -376,7 +376,7 @@
                                 <items>
                                     <barButtonItem title="Home" image="homeIcon.png" id="UBy-CY-Lgd">
                                         <connections>
-                                            <segue destination="8iH-X3-j2e" kind="showDetail" animates="NO" id="wr1-7s-MHD"/>
+                                            <segue destination="8iH-X3-j2e" kind="showDetail" id="wr1-7s-MHD"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="zWW-JG-UwH"/>
@@ -422,7 +422,7 @@
             </objects>
             <point key="canvasLocation" x="2153" y="-51"/>
         </scene>
-        <!--Data Table View Controller-->
+        <!--Data and Analytics-->
         <scene sceneID="Lqy-nL-Thg">
             <objects>
                 <tableViewController id="BqR-5N-PX9" customClass="DataTableViewController" customModule="GymApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -439,12 +439,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="265.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ALy-oe-26b" customClass="LineChartView" customModule="Charts">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="266"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALy-oe-26b" customClass="LineChartView" customModule="Charts">
+                                            <rect key="frame" x="16" y="11" width="343" height="244"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="ALy-oe-26b" secondAttribute="trailing" constant="16" id="1Dd-gc-ZYv"/>
+                                        <constraint firstItem="ALy-oe-26b" firstAttribute="leading" secondItem="67a-m4-1Pi" secondAttribute="leadingMargin" id="SnO-1K-O4s"/>
+                                        <constraint firstItem="ALy-oe-26b" firstAttribute="top" secondItem="67a-m4-1Pi" secondAttribute="top" constant="11" id="Zro-52-qTU"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ALy-oe-26b" secondAttribute="bottom" id="qMl-Jg-Dq2"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="lineChart" destination="ALy-oe-26b" id="fcp-mE-fyS"/>
@@ -483,7 +488,7 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="rzE-22-bnY"/>
+                    <navigationItem key="navigationItem" title="Data and Analytics" id="rzE-22-bnY"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vEH-U8-y4r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -587,6 +592,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5t0-SO-ySb">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="M63-kt-sJf">
@@ -609,6 +617,9 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7ty-UZ-apy">
@@ -634,7 +645,6 @@
         <image name="settingsIcon.png" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7e1-ap-3ac"/>
         <segue reference="ydW-U1-f3G"/>
         <segue reference="LVT-14-JR3"/>
         <segue reference="Tqg-Ew-mEO"/>
