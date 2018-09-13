@@ -89,21 +89,21 @@ class DataTableViewController: UITableViewController {
         chartData.addDataSet(chartDataSet)
         
         //Data Set Color Customization
-        chartDataSet.colors = [UIColor.magenta]
-        chartDataSet.setCircleColor(UIColor.magenta)
-        chartDataSet.circleHoleColor = UIColor.magenta
+        chartDataSet.colors = [UIColor.cyan]
+        chartDataSet.setCircleColor(UIColor.cyan) //0, 178, 202
+        chartDataSet.circleHoleColor = UIColor.cyan
         chartDataSet.circleHoleRadius = 4.0
         
         //Color Gradient Definition
-        let gradientColors = [UIColor.magenta.cgColor, UIColor.clear.cgColor] as CFArray
+        let gradientColors = [UIColor.cyan.cgColor, UIColor.clear.cgColor] as CFArray
         let colorLocations: [CGFloat] = [1.0, 0.0]
         guard let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations) else { print("Gradient Error"); return cell}
-        chartDataSet.fill = Fill.fillWithLinearGradient(gradient, angle: 90.0)
+        chartDataSet.fill = Fill.fillWithLinearGradient(gradient, angle: 0.0)
         chartDataSet.drawFilledEnabled = true
         chartDataSet.mode = .cubicBezier
         chartDataSet.cubicIntensity = 0.2
         chartDataSet.circleRadius = 3.0
-        chartDataSet.valueTextColor = NSUIColor.magenta
+        chartDataSet.valueTextColor = NSUIColor.cyan
         
         //MARK-2
         
@@ -116,11 +116,15 @@ class DataTableViewController: UITableViewController {
         cell.lineChart.leftAxis.drawGridLinesEnabled = false
         cell.lineChart.leftAxis.drawLabelsEnabled = true
         cell.lineChart.backgroundColor = UIColor.black
-        cell.lineChart.xAxis.labelTextColor = UIColor.magenta //Axis colors
-        cell.lineChart.leftAxis.labelTextColor = UIColor.magenta
-        cell.lineChart.legend.textColor = UIColor.magenta //Legend color
+        cell.lineChart.xAxis.labelTextColor = UIColor.cyan //Axis colors
+        cell.lineChart.leftAxis.labelTextColor = UIColor.cyan
+        cell.lineChart.legend.textColor = UIColor.cyan //Legend color
         
         cell.lineChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
+        
+        //Axes setup ... FIX THIS
+        cell.lineChart.setVisibleXRangeMaximum(Double(yVals[indexPath.row].count + 1))
+        cell.lineChart.setVisibleXRangeMinimum(1.0)
         
         //Add data to view
         cell.lineChart.data = chartData

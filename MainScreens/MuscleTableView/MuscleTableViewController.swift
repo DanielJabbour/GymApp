@@ -50,7 +50,6 @@ class MuscleTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     // MARK: - Table view data source
 
     //Only 1 secion to display
@@ -150,7 +149,6 @@ class MuscleTableViewController: UITableViewController {
             } else {
                 self.tableView.reloadData()
             }
-
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -202,16 +200,11 @@ class MuscleTableViewController: UITableViewController {
                 
                 self.muscles += [newMuscle]
             }
-            
-            //Get rid of dummy value if exists
-
             self.tableView.reloadData()
-            
         })
     }
     
     private func getUserCount() {
-        
         //Database reference
         ref = Database.database().reference()
         
@@ -222,6 +215,5 @@ class MuscleTableViewController: UITableViewController {
         }
         
     }
-    
 }
 

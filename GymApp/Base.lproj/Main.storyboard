@@ -451,6 +451,7 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="ALy-oe-26b" secondAttribute="bottom" id="qMl-Jg-Dq2"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="lineChart" destination="ALy-oe-26b" id="fcp-mE-fyS"/>
                                 </connections>
