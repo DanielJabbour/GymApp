@@ -103,6 +103,7 @@ class DataTableViewController: UITableViewController {
         chartDataSet.mode = .cubicBezier
         chartDataSet.cubicIntensity = 0.2
         chartDataSet.circleRadius = 3.0
+        chartDataSet.valueTextColor = NSUIColor.magenta
         
         //MARK-2
         
@@ -114,6 +115,10 @@ class DataTableViewController: UITableViewController {
         cell.lineChart.rightAxis.enabled = false
         cell.lineChart.leftAxis.drawGridLinesEnabled = false
         cell.lineChart.leftAxis.drawLabelsEnabled = true
+        cell.lineChart.backgroundColor = UIColor.black
+        cell.lineChart.xAxis.labelTextColor = UIColor.magenta //Axis colors
+        cell.lineChart.leftAxis.labelTextColor = UIColor.magenta
+        cell.lineChart.legend.textColor = UIColor.magenta //Legend color
         
         cell.lineChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         
