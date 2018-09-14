@@ -123,8 +123,9 @@ class DataTableViewController: UITableViewController {
         cell.lineChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         
         //Axes setup ... FIX THIS
-        cell.lineChart.setVisibleXRangeMaximum(Double(yVals[indexPath.row].count + 1))
-        cell.lineChart.setVisibleXRangeMinimum(1.0)
+        cell.lineChart.xAxis.axisMaximum = Double(yVals[indexPath.row].count + 1)
+        cell.lineChart.xAxis.axisMinimum = 1.0
+        cell.lineChart.xAxis.labelCount = yVals[indexPath.row].count
         
         //Add data to view
         cell.lineChart.data = chartData
@@ -212,8 +213,6 @@ class DataTableViewController: UITableViewController {
         self.xVals.append(groupedDataX.reversed())
         self.yVals.append(groupedDataY.reversed())
     }
-    
-    
     
     private func getMuscleGroupCount() {
         ref?.child("Users").child(userID).child("MuscleGroupsOld").observe(.value) { DataSnapshot in
