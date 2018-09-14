@@ -369,9 +369,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v5Z-hB-Xcx">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v5Z-hB-Xcx">
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <barButtonItem title="Home" image="homeIcon.png" id="UBy-CY-Lgd">
@@ -396,25 +395,45 @@
                                 <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="barTintColor" red="0.0078431372550000003" green="0.031372549020000001" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLo-Op-dgL">
-                                <rect key="frame" x="157" y="138" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqh-NL-kjw">
+                                <rect key="frame" x="152" y="60" width="70" height="26"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lB8-Ce-4a6">
+                                <rect key="frame" x="133" y="251" width="112" height="35"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <state key="normal" title="Clear All Data">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearDataAction:" destination="26E-AM-RhK" eventType="touchUpInside" id="U1b-AG-1Q0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JLo-Op-dgL">
+                                <rect key="frame" x="154" y="316" width="68" height="35"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <state key="normal" title="Sign Out">
-                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="signOutAction:" destination="26E-AM-RhK" eventType="touchUpInside" id="WGP-DG-d2a"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqh-NL-kjw">
-                                <rect key="frame" x="147" y="59" width="70" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="lB8-Ce-4a6" firstAttribute="leading" secondItem="13d-Zd-zCp" secondAttribute="leading" constant="133" id="EGA-8S-eSH"/>
+                            <constraint firstItem="JLo-Op-dgL" firstAttribute="centerX" secondItem="v5Z-hB-Xcx" secondAttribute="centerX" id="WiG-cn-tdz"/>
+                            <constraint firstItem="JLo-Op-dgL" firstAttribute="trailing" secondItem="qqh-NL-kjw" secondAttribute="trailing" id="Xi1-wO-cGP"/>
+                            <constraint firstItem="v5Z-hB-Xcx" firstAttribute="bottom" secondItem="13d-Zd-zCp" secondAttribute="bottom" id="eKB-Ej-FOH"/>
+                            <constraint firstItem="qqh-NL-kjw" firstAttribute="top" secondItem="13d-Zd-zCp" secondAttribute="top" constant="40" id="f14-vP-lEo"/>
+                            <constraint firstItem="JLo-Op-dgL" firstAttribute="centerY" secondItem="Ylo-FT-GN5" secondAttribute="centerY" id="g3d-KK-wWc"/>
+                            <constraint firstItem="lB8-Ce-4a6" firstAttribute="top" secondItem="qqh-NL-kjw" secondAttribute="bottom" constant="165" id="oZP-rA-7tX"/>
+                            <constraint firstItem="13d-Zd-zCp" firstAttribute="trailing" secondItem="qqh-NL-kjw" secondAttribute="trailing" constant="153" id="st7-zK-WzL"/>
+                            <constraint firstItem="v5Z-hB-Xcx" firstAttribute="leading" secondItem="Ylo-FT-GN5" secondAttribute="leading" id="tFS-6a-oQe"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="13d-Zd-zCp"/>
                     </view>
                 </viewController>
@@ -647,9 +666,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jSf-Me-zqZ"/>
-        <segue reference="3gp-fE-gvB"/>
-        <segue reference="Tqg-Ew-mEO"/>
-        <segue reference="Uhb-Tv-mQC"/>
+        <segue reference="Yjd-D9-6sY"/>
+        <segue reference="wr1-7s-MHD"/>
+        <segue reference="3B2-f6-5wd"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

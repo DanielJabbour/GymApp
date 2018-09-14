@@ -27,6 +27,7 @@ class ViewController: UIViewController {
 
     }
     
+    //Careful for the impact this has on scalability. Is this check done locally or on cloud?
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil {
@@ -91,7 +92,6 @@ class ViewController: UIViewController {
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
                         self.present(vc!, animated: true, completion: nil)
                     })
-                    
                     
                 } else {
                     

@@ -11,7 +11,37 @@ import Firebase
 import FirebaseAuth
 
 class SettingsViewController: UIViewController {
+    
+    var ref: DatabaseReference!
+    let userID = UserDefaults.standard.object(forKey: "UserID") as! String
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        ref = Database.database().reference()
 
+        // Do any additional setup after loading the view.
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func clearDataAction(_ sender: Any) {
+        //Method to clear muscle data
+        
+        let ref1MuscleGroupsNew = self.ref.child("Users").child(self.userID).child("MuscleGroupsNew")
+        let ref2MuscleGroupsOld = self.ref.child("Users").child(self.userID).child("MuscleGroupsOld")
+
+        ref1MuscleGroupsNew.removeValue { (error, _) in
+            print(error ?? "No Error")
+        }
+        ref2MuscleGroupsOld.removeValue { (error, _) in
+            print(error ?? "No Error")
+        }
+    }
+    
     @IBAction func signOutAction(_ sender: Any) {
         
         //Method for signing users out
@@ -25,18 +55,8 @@ class SettingsViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
-        
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
     
 
     /*

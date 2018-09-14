@@ -171,9 +171,7 @@ class MuscleTableViewController: UITableViewController {
                     break;
                 }
             }
-            
         })
-        
     }
     
     private func loadData() {

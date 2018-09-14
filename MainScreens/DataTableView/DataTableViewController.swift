@@ -151,7 +151,6 @@ class DataTableViewController: UITableViewController {
             for (key, _) in muscleGroups {
                 self.processData(muscleGroup: key)
             }
-
         })
     }
     
