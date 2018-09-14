@@ -646,10 +646,10 @@
         <image name="settingsIcon.png" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ydW-U1-f3G"/>
-        <segue reference="LVT-14-JR3"/>
+        <segue reference="jSf-Me-zqZ"/>
+        <segue reference="3gp-fE-gvB"/>
         <segue reference="Tqg-Ew-mEO"/>
-        <segue reference="3B2-f6-5wd"/>
+        <segue reference="Uhb-Tv-mQC"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

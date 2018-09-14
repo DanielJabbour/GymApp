@@ -246,7 +246,7 @@ class WorkoutTableViewController: UITableViewController {
             let randInt = Int(arc4random_uniform(999999999))
             let date = Date()
             let formatter = DateFormatter()
-            formatter.dateFormat = "dd-MM-yyyy"
+            formatter.dateFormat = "dd-MM-y yyy"
             let resultDate = formatter.string(from: date)
             
             //Push entry to database under appropriate user
