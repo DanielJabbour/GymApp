@@ -22,8 +22,9 @@ class DataTableViewController: UITableViewController {
     var muscleGroupsNew = [String]()
     
     var ref: DatabaseReference!
-    let email = UserDefaults.standard.object(forKey: "UserEmail") as! String
+    let email = Auth.auth().currentUser?.email
     let userID = UserDefaults.standard.object(forKey: "UserID") as! String
+
     var groupCount = 0
     
     override func viewDidLoad() {
@@ -37,6 +38,7 @@ class DataTableViewController: UITableViewController {
         //Method to retrieve muscle group data
         getGroupData()
 
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,8 +80,11 @@ class DataTableViewController: UITableViewController {
         }
         
         var muscleGroupsArr = [String]()
+        
         for (key, _) in self.muscleGroupsOld {
-            if key != "Dummy" {
+            let currentMuscleGroup = muscleGroupsOld[key] as! [String:AnyObject]
+            let checkForEmptyDict = currentMuscleGroup["Workouts"] as! [String:AnyObject]
+            if key != "Dummy" && checkForEmptyDict.count > 1 {
                 muscleGroupsArr.append(key)
             }
         }
@@ -122,7 +127,7 @@ class DataTableViewController: UITableViewController {
         
         cell.lineChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
         
-        //Axes setup ... FIX THIS
+        //Error is here, but why?
         cell.lineChart.xAxis.axisMaximum = Double(yVals[indexPath.row].count + 1)
         cell.lineChart.xAxis.axisMinimum = 1.0
         cell.lineChart.xAxis.labelCount = yVals[indexPath.row].count
@@ -166,11 +171,12 @@ class DataTableViewController: UITableViewController {
             let value: Double
         }
         
-        //nil
         let workouts = self.muscleGroupsOld[muscleGroup] as! [String:AnyObject]
         let muscleGroups = workouts["Workouts"] as! [String:AnyObject]
         
         var dataArr = [data]()
+        
+        //CHECK - Good here
         
         for (key, value) in muscleGroups {
             
@@ -192,30 +198,49 @@ class DataTableViewController: UITableViewController {
         
         //Order gets messed up in dict
         
-        for index in 0...dataArr.count - 1 {
-            let currentDate = dataArr[index].date
-            var currentVal = dataArr[index].value
-            
-            if (currentVal != aggregatePointsDict[currentDate]){
-                currentVal = aggregatePointsDict[currentDate]!
+        //NEED TO ADD ERROR HANDLING FOR EMPTY WORKOUTS GROUPS IN MUSCLEGROUPSOLD
+        
+        if dataArr.count != 0 {
+            //Error is here
+            for index in 0...dataArr.count - 1 {
+                let currentDate = dataArr[index].date
+                var currentVal = dataArr[index].value
+                
+                if (currentVal != aggregatePointsDict[currentDate]){
+                    currentVal = aggregatePointsDict[currentDate]!
+                }
+                dataPointsX.append(currentDate)
+                dataPointsY.append(currentVal)
             }
             
-            dataPointsX.append(currentDate)
-            dataPointsY.append(currentVal)
+            //Need to eliminate duplicates
+            let groupedDataX = dataPointsX.removingDuplicates()
+            let groupedDataY = dataPointsY.removingDuplicates()
+            
+            //Reverse array to maintain order from earliest to latest date
+            self.xVals.append(groupedDataX.reversed())
+            self.yVals.append(groupedDataY.reversed())
         }
-        
-        //Need to eliminate duplicates
-        let groupedDataX = dataPointsX.removingDuplicates()
-        let groupedDataY = dataPointsY.removingDuplicates()
-        
-        //Reverse array to maintain order from earliest to latest date
-        self.xVals.append(groupedDataX.reversed())
-        self.yVals.append(groupedDataY.reversed())
     }
     
     private func getMuscleGroupCount() {
+        //Error here: this group count needs to exclude muscle groups with no data -- FIXED
         ref?.child("Users").child(userID).child("MuscleGroupsOld").observe(.value) { DataSnapshot in
-            self.groupCount = Int(DataSnapshot.childrenCount)
+            
+            let muscleGroupsOldRead = DataSnapshot.value as! [String:AnyObject]
+            
+            var count = 0
+            
+            for (key, _) in muscleGroupsOldRead {
+                let currentMuscleGroup = muscleGroupsOldRead[key] as! [String:AnyObject]
+                let checkForEmptyDict = currentMuscleGroup["Workouts"] as! [String:AnyObject]
+                if checkForEmptyDict.count > 1 {
+                    count += 1
+                }
+            }
+            
+            self.groupCount = count
+            //self.groupCount = Int(DataSnapshot.childrenCount)
             self.tableView.reloadData()
         }
     }

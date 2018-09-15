@@ -28,7 +28,6 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
 
         ref = Database.database().reference()
-        getUserCount()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,12 +36,10 @@ class SignUpViewController: UIViewController {
     }
     
     private func getUserCount() {
-        
         //Database reference
         ref = Database.database().reference()
         
         ref?.child("Users").observe(.value) { DataSnapshot in
-            print(DataSnapshot.childrenCount)
             self.userNum = Int(DataSnapshot.childrenCount)
         }
         
@@ -80,9 +77,13 @@ class SignUpViewController: UIViewController {
                 if error == nil {
                     print("You have successfully signed up")
                     
+                    self.getUserCount()
+
                     //Post data to Firebase here
                     self.ref?.child("Users").child("User\(self.userNum)").child("Email").setValue(self.emailRegTextField.text!)
                     self.ref?.child("Users").child("User\(self.userNum)").child("Name").setValue(self.nameTextField.text!)
+                    
+                    //Need to retrieve User\(self.userNum) as userID
                     
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
                     self.present(vc!, animated: true, completion: nil)

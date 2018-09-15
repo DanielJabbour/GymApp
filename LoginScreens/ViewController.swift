@@ -31,9 +31,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil {
-            print("OK")
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
-            self.present(vc!, animated: true, completion: nil)
+            self.performSegue(withIdentifier: "Home", sender: nil)
         }
     }
 
@@ -68,7 +66,7 @@ class ViewController: UIViewController {
                     self.userEmail = self.emailTextField.text!
                     
                     //Store user email in user defaults as we'll need it later for database reference purposes
-                    UserDefaults.standard.set(self.userEmail, forKey: "UserEmail")
+                    //UserDefaults.standard.set(self.userEmail, forKey: "UserEmail")
                     
                     //Find userID
                     self.ref?.child("Users").observeSingleEvent(of: .value, with: { DataSnapshot in

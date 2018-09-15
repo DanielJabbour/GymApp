@@ -17,14 +17,15 @@ class MuscleTableViewController: UITableViewController {
     var userCount = 0;
     var muscleGroupCount = 0;
     var userID = ""
-    let email = UserDefaults.standard.object(forKey: "UserEmail") as! String
+    //let email = UserDefaults.standard.object(forKey: "UserEmail") as! String
+    let email = Auth.auth().currentUser?.email
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Programatically configuring navigation components (title, left, right buttons)
         navigationItem.title = "Muscle groups"
-        
+                
         //Create a reference to the database
         ref = Database.database().reference()
         

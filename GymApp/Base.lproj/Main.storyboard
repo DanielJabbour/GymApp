@@ -87,6 +87,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="HNl-RK-CU9" id="GcO-X2-CI1"/>
                         <outlet property="passwordTextField" destination="JWR-xC-FBj" id="E5S-zY-i4v"/>
+                        <segue destination="8iH-X3-j2e" kind="showDetail" identifier="Home" id="wyE-uF-UyJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -667,7 +668,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="jSf-Me-zqZ"/>
         <segue reference="Yjd-D9-6sY"/>
-        <segue reference="wr1-7s-MHD"/>
+        <segue reference="wyE-uF-UyJ"/>
         <segue reference="3B2-f6-5wd"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
