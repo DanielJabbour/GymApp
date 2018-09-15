@@ -71,7 +71,8 @@ class DataTableViewController: UITableViewController {
         //MARK-1
         var dataPoint = [ChartDataEntry]()
         
-        for index in 0...yVals.count - 1{
+        //FINAL ERROR IS HERE
+        for index in 0...yVals.count - 1 {
             for index2 in 0...yVals[index].count - 1{
                 dataPoint.append(ChartDataEntry(x: Double(index2 + 1), y: Double(yVals[index][index2])))
             }
@@ -227,15 +228,17 @@ class DataTableViewController: UITableViewController {
         //Error here: this group count needs to exclude muscle groups with no data -- FIXED
         ref?.child("Users").child(userID).child("MuscleGroupsOld").observe(.value) { DataSnapshot in
             
-            let muscleGroupsOldRead = DataSnapshot.value as! [String:AnyObject]
-            
             var count = 0
-            
-            for (key, _) in muscleGroupsOldRead {
-                let currentMuscleGroup = muscleGroupsOldRead[key] as! [String:AnyObject]
-                let checkForEmptyDict = currentMuscleGroup["Workouts"] as! [String:AnyObject]
-                if checkForEmptyDict.count > 1 {
-                    count += 1
+
+            if Int(DataSnapshot.childrenCount) != 0 {
+                let muscleGroupsOldRead = DataSnapshot.value as! [String:AnyObject]
+                
+                for (key, _) in muscleGroupsOldRead {
+                    let currentMuscleGroup = muscleGroupsOldRead[key] as! [String:AnyObject]
+                    let checkForEmptyDict = currentMuscleGroup["Workouts"] as! [String:AnyObject]
+                    if checkForEmptyDict.count > 1 {
+                        count += 1
+                    }
                 }
             }
             

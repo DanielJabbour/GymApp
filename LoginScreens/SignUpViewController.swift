@@ -83,6 +83,9 @@ class SignUpViewController: UIViewController {
                     self.ref?.child("Users").child("User\(self.userNum)").child("Email").setValue(self.emailRegTextField.text!)
                     self.ref?.child("Users").child("User\(self.userNum)").child("Name").setValue(self.nameTextField.text!)
                     
+                    let userID = "User\(self.userNum)"
+                    UserDefaults.standard.set(userID, forKey: "UserID")
+                    
                     //Need to retrieve User\(self.userNum) as userID
                     
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
