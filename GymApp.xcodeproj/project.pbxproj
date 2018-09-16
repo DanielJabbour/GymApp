@@ -23,8 +23,7 @@
 		2528284420B0982800101FC3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2528284320B0982800101FC3 /* Assets.xcassets */; };
 		2528284720B0982800101FC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2528284520B0982800101FC3 /* LaunchScreen.storyboard */; };
 		2528284F20B09A0B00101FC3 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528284E20B09A0B00101FC3 /* WelcomePageViewController.swift */; };
-		2570C5E1213A48D700A1963D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2570C5E0213A48D700A1963D /* GoogleService-Info.plist */; };
-		25B78ABE2148BB2000A675CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25B78ABD2148BB2000A675CB /* GoogleService-Info.plist */; };
+		25EC42CA214DF733009B6A75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25EC42C9214DF733009B6A75 /* GoogleService-Info.plist */; };
 		25FEDFB220B0E6450028B0BF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEDFB120B0E6450028B0BF /* SignUpViewController.swift */; };
 		25FEDFC320B126A60028B0BF /* settingsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FEDFC220B126A60028B0BF /* settingsIcon.png */; };
 		25FEDFC720B1273C0028B0BF /* homeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FEDFC620B1273C0028B0BF /* homeIcon.png */; };
@@ -68,8 +67,7 @@
 		2528284620B0982800101FC3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2528284820B0982800101FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2528284E20B09A0B00101FC3 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
-		2570C5E0213A48D700A1963D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		25B78ABD2148BB2000A675CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		25EC42C9214DF733009B6A75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		25FEDFB120B0E6450028B0BF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		25FEDFC220B126A60028B0BF /* settingsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsIcon.png; sourceTree = "<group>"; };
 		25FEDFC620B1273C0028B0BF /* homeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeIcon.png; sourceTree = "<group>"; };
@@ -158,8 +156,7 @@
 		2528283B20B0982600101FC3 /* GymApp */ = {
 			isa = PBXGroup;
 			children = (
-				2570C5E0213A48D700A1963D /* GoogleService-Info.plist */,
-				25B78ABD2148BB2000A675CB /* GoogleService-Info.plist */,
+				25EC42C9214DF733009B6A75 /* GoogleService-Info.plist */,
 				2528283C20B0982600101FC3 /* AppDelegate.swift */,
 				2528284020B0982700101FC3 /* Main.storyboard */,
 				2528284320B0982800101FC3 /* Assets.xcassets */,
@@ -275,12 +272,11 @@
 			files = (
 				2528284720B0982800101FC3 /* LaunchScreen.storyboard in Resources */,
 				25FEDFC320B126A60028B0BF /* settingsIcon.png in Resources */,
-				2570C5E1213A48D700A1963D /* GoogleService-Info.plist in Resources */,
+				25EC42CA214DF733009B6A75 /* GoogleService-Info.plist in Resources */,
 				25FEDFCB20B127CD0028B0BF /* dataIcon.png in Resources */,
 				25FEDFC920B1279E0028B0BF /* foodIcon.png in Resources */,
 				2528284420B0982800101FC3 /* Assets.xcassets in Resources */,
 				25FEDFCD20B128BB0028B0BF /* gymIcon.png in Resources */,
-				25B78ABE2148BB2000A675CB /* GoogleService-Info.plist in Resources */,
 				2528284220B0982700101FC3 /* Main.storyboard in Resources */,
 				25FEDFC720B1273C0028B0BF /* homeIcon.png in Resources */,
 			);
@@ -415,6 +411,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = X5US73Z2XN;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -475,6 +472,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = X5US73Z2XN;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -503,16 +501,17 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GymApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = DanielJabbour.GymApp;
+				PRODUCT_BUNDLE_IDENTIFIER = DanielJabbour.GymApp.Gymalitics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "GymApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -525,15 +524,16 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GymApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = DanielJabbour.GymApp;
+				PRODUCT_BUNDLE_IDENTIFIER = DanielJabbour.GymApp.Gymalitics;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "GymApp-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
