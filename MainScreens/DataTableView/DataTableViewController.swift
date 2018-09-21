@@ -179,57 +179,38 @@ class DataTableViewController: UITableViewController {
         var dataPointsX = [String]()
         var aggregatePointsDict = [String:Double]()
         
-        struct data {
-            let date: String
-            let value: Double
-        }
-        
         let workouts = self.muscleGroupsOld[muscleGroup] as! [String:AnyObject]
         let muscleGroups = workouts["Workouts"] as! [String:AnyObject]
-        
-        var dataArr = [data]()
-        
         
         for (key, value) in muscleGroups {
             
             if (key != "Dummy") {
                 
-                let repsVal = value["Reps"] as! Double
+                let repsVal = value["Reps"] as! Double //Random nil error?
                 let setsVal = value["Sets"] as! Double
                 let weightVal = value["Weight"] as! Double
                 let dateVal = value["Date"] as! String
                 
                 let cumulitiveVal = repsVal*setsVal*weightVal
                 
-                dataArr.append(data(date: dateVal, value: cumulitiveVal))
-                
                 aggregatePointsDict[dateVal] = (aggregatePointsDict[dateVal] ?? 0) + cumulitiveVal
             }
         }
         
-        //Order gets messed up in dict
-        if dataArr.count != 0 {
-            for index in 0...dataArr.count - 1 {
-                let currentDate = dataArr[index].date
-                var currentVal = dataArr[index].value
-                
-                if (currentVal != aggregatePointsDict[currentDate]){
-                    currentVal = aggregatePointsDict[currentDate]!
-                }
-                dataPointsX.append(currentDate)
-                dataPointsY.append(currentVal)
-            }
-            
-            //Need to eliminate duplicates
-            let groupedDataX = dataPointsX.removingDuplicates()
-            let groupedDataY = dataPointsY.removingDuplicates()
-            
-            //Reverse array to maintain order from earliest to latest date
-            self.xVals.append(groupedDataX.reversed())
-            self.yVals.append(groupedDataY.reversed())
-//            print("YVAL 2: ")
-//            print(yVals.count)
+        //Sorting
+        let sortedPointsDict = aggregatePointsDict.sorted {
+            guard let d1 = $0.key.shortDateUS, let d2 = $1.key.shortDateUS else { return false }
+            return d1 < d2
         }
+        
+        for (key, value) in sortedPointsDict {
+            dataPointsX.append(key)
+            dataPointsY.append(value)
+        }
+        
+        self.xVals.append(dataPointsX)
+        self.yVals.append(dataPointsY)
+
     }
     
     private func getMuscleGroupCount() {

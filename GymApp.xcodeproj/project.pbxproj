@@ -24,6 +24,7 @@
 		2528284720B0982800101FC3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2528284520B0982800101FC3 /* LaunchScreen.storyboard */; };
 		2528284F20B09A0B00101FC3 /* WelcomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2528284E20B09A0B00101FC3 /* WelcomePageViewController.swift */; };
 		25451B52215459B1004025C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 25451B51215459B1004025C7 /* GoogleService-Info.plist */; };
+		25451B5421549FBA004025C7 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25451B5321549FBA004025C7 /* StringExtension.swift */; };
 		25FEDFB220B0E6450028B0BF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FEDFB120B0E6450028B0BF /* SignUpViewController.swift */; };
 		25FEDFC320B126A60028B0BF /* settingsIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FEDFC220B126A60028B0BF /* settingsIcon.png */; };
 		25FEDFC720B1273C0028B0BF /* homeIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 25FEDFC620B1273C0028B0BF /* homeIcon.png */; };
@@ -68,6 +69,7 @@
 		2528284820B0982800101FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2528284E20B09A0B00101FC3 /* WelcomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePageViewController.swift; sourceTree = "<group>"; };
 		25451B51215459B1004025C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		25451B5321549FBA004025C7 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		25FEDFB120B0E6450028B0BF /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		25FEDFC220B126A60028B0BF /* settingsIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsIcon.png; sourceTree = "<group>"; };
 		25FEDFC620B1273C0028B0BF /* homeIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeIcon.png; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				23289D2D2113C55400289231 /* DataTableViewCell.swift */,
 				234884C32138357200207705 /* LineChartFormatter.swift */,
 				234884C52138820500207705 /* ArrayExtension.swift */,
+				25451B5321549FBA004025C7 /* StringExtension.swift */,
 			);
 			path = DataTableView;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				23BA2E4120DDFC5900619070 /* MuscleTableViewCell.swift in Sources */,
 				23289D2C2113C4EF00289231 /* DataTableViewController.swift in Sources */,
 				2528283F20B0982700101FC3 /* ViewController.swift in Sources */,
+				25451B5421549FBA004025C7 /* StringExtension.swift in Sources */,
 				2392D200210FA13F00CD61AB /* WorkoutTableViewController.swift in Sources */,
 				2392D2022110044200CD61AB /* WorkoutTableViewCell.swift in Sources */,
 				23BA2E4920DE02FF00619070 /* MuscleTableViewController.swift in Sources */,
