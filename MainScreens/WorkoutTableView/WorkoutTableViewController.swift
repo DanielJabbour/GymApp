@@ -15,7 +15,7 @@ class WorkoutTableViewController: UITableViewController {
     var workouts = [Workout]()
     var ref: DatabaseReference!
     var muscleGroup = "FAILED"
-    var userID = ""
+    var userID = UserDefaults.standard.object(forKey: "UserID") as! String
     
     override func viewDidLoad() {
         super.viewDidLoad()

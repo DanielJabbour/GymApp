@@ -68,7 +68,7 @@ class ViewController: UIViewController {
                     //Store user email in user defaults as we'll need it later for database reference purposes
                     //UserDefaults.standard.set(self.userEmail, forKey: "UserEmail")
                     
-                    //Find userID
+                    //Find userID - FIX THIS
                     self.ref?.child("Users").observeSingleEvent(of: .value, with: { DataSnapshot in
                         let dataSnap = DataSnapshot.value as? [String:Any]
                         let userCount = dataSnap!.count as Int

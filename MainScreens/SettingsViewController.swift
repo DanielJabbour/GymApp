@@ -31,8 +31,8 @@ class SettingsViewController: UIViewController {
     @IBAction func clearDataAction(_ sender: Any) {
         //Method to clear muscle data
         
-        let ref1MuscleGroupsNew = self.ref.child("Users").child(self.userID).child("MuscleGroupsNew")
-        let ref2MuscleGroupsOld = self.ref.child("Users").child(self.userID).child("MuscleGroupsOld")
+        let ref1MuscleGroupsNew = self.ref.child("Users").child(String(self.userID)).child("MuscleGroupsNew")
+        let ref2MuscleGroupsOld = self.ref.child("Users").child(String(self.userID)).child("MuscleGroupsOld")
 
         ref1MuscleGroupsNew.removeValue { (error, _) in
             print(error ?? "No Error")

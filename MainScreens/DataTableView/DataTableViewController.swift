@@ -189,7 +189,6 @@ class DataTableViewController: UITableViewController {
         
         var dataArr = [data]()
         
-        //CHECK - Good here
         
         for (key, value) in muscleGroups {
             

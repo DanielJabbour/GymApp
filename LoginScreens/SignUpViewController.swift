@@ -19,30 +19,21 @@ class SignUpViewController: UIViewController {
     @IBOutlet var passwordConfirmTextField: UITextField!
     @IBOutlet var nameTextField: UITextField!
     
-    //Obtain user number in database
-    var userNum = 0;
-    
     var ref:DatabaseReference?
+    //var userNum = 0
+    
+    //let userNum = Int(arc4random_uniform(999999999))
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         ref = Database.database().reference()
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    private func getUserCount() {
-        //Database reference
-        ref = Database.database().reference()
-        
-        ref?.child("Users").observe(.value) { DataSnapshot in
-            self.userNum = Int(DataSnapshot.childrenCount)
-        }
-        
     }
     
     //Signup action button
@@ -71,38 +62,39 @@ class SignUpViewController: UIViewController {
             
         } else {
             //Get default auth object by calling Auth.auth() and call createUser method to create a user account in Firebase
-            Auth.auth().createUser(withEmail: emailRegTextField.text!, password: passwordConfirmTextField.text!) { (user,error) in
-                
+            Auth.auth().createUser(withEmail: self.emailRegTextField.text!, password: self.passwordConfirmTextField.text!) { (user,error) in
+            
                 //After signup operation, check if user successfully signed up and return to home page, or display error
                 if error == nil {
                     print("You have successfully signed up")
                     
-                    self.getUserCount()
+                    self.ref?.child("Users").observeSingleEvent(of: .value, with: { DataSnapshot in
+                        
+                        let userNum = Int(DataSnapshot.childrenCount)
+                        
+                        //Post data to Firebase here
+                        self.ref?.child("Users").child("User\(userNum)").child("Email").setValue(self.emailRegTextField.text!)
+                        self.ref?.child("Users").child("User\(userNum)").child("Name").setValue(self.nameTextField.text!)
+                        
+                        //let userID = "User\(self.userNum)"
+                        UserDefaults.standard.set("User\(userNum)", forKey: "UserID")
+                    })
 
-                    //Post data to Firebase here
-                    self.ref?.child("Users").child("User\(self.userNum)").child("Email").setValue(self.emailRegTextField.text!)
-                    self.ref?.child("Users").child("User\(self.userNum)").child("Name").setValue(self.nameTextField.text!)
-                    
-                    let userID = "User\(self.userNum)"
-                    UserDefaults.standard.set(userID, forKey: "UserID")
-                    
                     //Need to retrieve User\(self.userNum) as userID
-                    
+                        
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "Home")
                     self.present(vc!, animated: true, completion: nil)
-                    
+                        
                 } else {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
-                    
+                        
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     alertController.addAction(defaultAction)
-                    
+                        
                     self.present(alertController, animated: true, completion: nil)
                 }
-                
             }
         }
-        
     }
 
     /*
