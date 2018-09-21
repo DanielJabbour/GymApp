@@ -110,10 +110,15 @@ class MuscleTableViewController: UITableViewController {
     //MARK: - Configuration and data manipulation methods
     
     private func remove(child: String) {
-        let ref = self.ref.child("Users").child(self.userID).child("MuscleGroupsNew").child(child)
+        let ref1 = self.ref.child("Users").child(self.userID).child("MuscleGroupsNew").child(child)
+        let ref2 = self.ref.child("Users").child(self.userID).child("MuscleGroupsOld").child(child)
         
-        ref.removeValue { (error, _) in
-            print(error ?? "No Error")
+        ref1.removeValue { (error, _) in
+            if ((error) != nil) {print(error!)}
+        }
+        
+        ref2.removeValue { (error, _) in
+            if ((error) != nil) {print(error!)}
         }
     }
     

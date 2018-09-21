@@ -84,11 +84,16 @@ class WorkoutTableViewController: UITableViewController {
     // MARK: - Data manipulation methods
     
     private func remove(child: String) {
-        let ref = self.ref.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(child)
+        let ref1 = self.ref.child("Users").child(self.userID).child("MuscleGroupsNew").child(self.muscleGroup).child("Workouts").child(child)
+        //let ref2 = self.ref.child("Users").child(self.userID).child("MuscleGroupsOld").child(self.muscleGroup).child("Workouts").child(child)
         
-        ref.removeValue { (error, _) in
-            print(error ?? "No Error")
+        ref1.removeValue { (error, _) in
+            if ((error) != nil) {print(error!)}
         }
+        
+//        ref2.removeValue { (error, _) in
+//            if ((error) != nil) {print(error!)}
+//        }
     }
     
     @IBAction func workoutAddButton(_ sender: Any) {
