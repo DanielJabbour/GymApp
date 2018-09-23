@@ -138,12 +138,6 @@ class WorkoutTableViewController: UITableViewController {
                 fatalError("Unable to instantiate workout")
             }
             
-//            let randInt = Int(arc4random_uniform(999999999))
-//            let date = Date()
-//            let formatter = DateFormatter()
-//            formatter.dateFormat = "dd-MM-yyyy"
-//            let resultDate = formatter.string(from: date)
-            
             //Correct date format is resultDate
             let randInt = Int(arc4random_uniform(999999999))
             //let date = Date()

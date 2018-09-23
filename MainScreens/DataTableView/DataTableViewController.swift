@@ -13,7 +13,6 @@ import FirebaseDatabase
 
 class DataTableViewController: UITableViewController {
     
-    //TO DO: CHANGE X AXIS FROM DATES TO NUMBERS
     var lineDataEntry: [[ChartDataEntry]] = []
     
     var xVals = [[String]]()
@@ -72,21 +71,17 @@ class DataTableViewController: UITableViewController {
             
             //MARK-1
             var dataPoint = [ChartDataEntry]()
-            
-            /* FINAL ERROR IS HERE... experiencing random crashes?
-             Hypothesis: getGroupData() Method hasn't completed running before this call
-             Sequence should be (and is) getGroupData(), then this method.
-             Sleeping until method finishes seems to erradicate this error
-             */
-            
-            //sleep(1)
-//            print("YVAL 1:")
-//            print(self.yVals.count)
+
+            //Data Error in here.... possibly due to data being read? is this double for loop necessary?
+            print(self.yVals)
             for index in 0...self.yVals.count - 1 {
-                for index2 in 0...self.yVals[index].count - 1{
-                    dataPoint.append(ChartDataEntry(x: Double(index2 + 1), y: Double(self.yVals[index][index2])))
+                if self.yVals[index].count > 0 {
+                    for index2 in 0...self.yVals[index].count - 1 { //Can't form range with upperBound < lowerBound
+                        dataPoint.append(ChartDataEntry(x: Double(index2 + 1), y: Double(self.yVals[index][index2])))
+                    }
+                    self.lineDataEntry.append(dataPoint)
                 }
-                self.lineDataEntry.append(dataPoint)
+                
                 dataPoint.removeAll()
             }
             
@@ -187,7 +182,7 @@ class DataTableViewController: UITableViewController {
             if (key != "Dummy") {
                 
                 let repsVal = value["Reps"] as! Double //Random nil error?
-                let setsVal = value["Sets"] as! Double
+                let setsVal = value["Sets"] as! Double //Error on add of new workout, but why is this running?
                 let weightVal = value["Weight"] as! Double
                 let dateVal = value["Date"] as! String
                 

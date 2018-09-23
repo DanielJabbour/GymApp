@@ -20,9 +20,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet var nameTextField: UITextField!
     
     var ref:DatabaseReference?
-    //var userNum = 0
-    
-    //let userNum = Int(arc4random_uniform(999999999))
     
     override func viewDidLoad() {
         super.viewDidLoad()
