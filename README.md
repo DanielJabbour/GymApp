@@ -1,15 +1,15 @@
 # Gymalytics
 
-<p align="center">
-  <img src="examples/logo.png?raw=true" alt="Gymalitics"/>
-</p>
-
 Gymalytics is an iOS fitness application I've built with swift, designed around providing workout analytics to users with a simple and intuitive UI.
-
-![alt-text-1](examples/Data.png) ![alt-text-2](examples/login.png) ![alt-text-3](examples/log.png)
 
 ## Motivation
 A lot of gym members often face the problem of keeping track of what workouts they've been doing, with what weights, sets, and other parameters. The current solution to this is often noting it down on a small notebook, commiting it to memory, or writing it down on your phone or a spreadsheet. What's more is that with all of this data being collected (poorly), it's hard to make sense of any progression. This app is designed to allow you to enter your workout parameters on the go, as you workout and in between sets. The data is then processed in order to deliver analytics on your fitness progression in each muscle group that you define per session.
+
+<p float="left">
+  <img src="examples/Data.png" width="200" />
+  <img src="examples/login.png" width="200" /> 
+  <img src="examples/log.png" width="200" />
+</p>
 
 ## Technology
 This application was built primarily with Swift (though I experimented with other languages such as Objective-C, React Native, and Flutter before choosing Swift), a powerful object oriented programming language. You can learn more about Swift including a brief tutorial here:
