@@ -21,6 +21,6 @@ https://github.com/danielgindi/Charts
 The backend of this application is powered with the use of Firebase. Authentication is enabled via an email login, and data is stored using the Firebase Database, a NoSQL key-value object tree.
 
 ## Usage
-First, go to firebase and set up firebase for an iOS application. Download and save your googleservices.plist file, this will be your own firebase key.
+First, go to firebase and set up firebase for an iOS application. Download and save your GoogleServices-Info.plist file, this will be your own firebase key.
 
 Then just clone this repository and past your database key in the appropriate directory, and run the application!
