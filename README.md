@@ -5,7 +5,7 @@ Gymalytics is an iOS fitness application I've built with swift, designed around 
 ## Motivation
 A lot of gym members often face the problem of keeping track of what workouts they've been doing, with what weights, sets, and other parameters. The current solution to this is often noting it down on a small notebook, commiting it to memory, or writing it down on your phone or a spreadsheet. What's more is that with all of this data being collected (poorly), it's hard to make sense of any progression. This app is designed to allow you to enter your workout parameters on the go, as you workout and in between sets. The data is then processed in order to deliver analytics on your fitness progression in each muscle group that you define per session.
 
-<p float="center">
+<p align="center">
   <img src="examples/Data.png" width="200" />
   <img src="examples/login.png" width="200" /> 
   <img src="examples/log.png" width="200" />
