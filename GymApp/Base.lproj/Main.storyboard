@@ -36,7 +36,7 @@
                                 <attributedString key="attributedText">
                                     <fragment content="Gymalytics">
                                         <attributes>
-                                            <color key="NSColor" red="0.0" green="0.69803921568627447" blue="0.792156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="NSColor" red="0.61176470588235299" green="0.15294117647058825" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="37" name="Futura-Medium"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                         </attributes>
@@ -48,7 +48,7 @@
                                 <rect key="frame" x="220" y="305" width="55" height="32"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <state key="normal" title="Sign Up">
-                                    <color key="titleColor" red="0.0" green="0.69803921568627447" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.61176470588235299" green="0.15294117647058825" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="nI2-GK-nSd" kind="show" id="CwQ-rb-VDm"/>
@@ -58,14 +58,14 @@
                                 <rect key="frame" x="100" y="305" width="47" height="32"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                 <state key="normal" title="Sign In">
-                                    <color key="titleColor" red="0.0" green="0.69803921568627447" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.61176470588235299" green="0.15294117647058825" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="loginAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="geU-tO-dZt"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="SJG-Xh-Sdl" firstAttribute="centerX" secondItem="HNl-RK-CU9" secondAttribute="centerX" id="5Rt-dr-W7i"/>
                             <constraint firstItem="JWR-xC-FBj" firstAttribute="leading" secondItem="k6m-0x-Elm" secondAttribute="leading" id="ALn-Im-W68"/>
@@ -118,7 +118,7 @@
                                 <rect key="frame" x="159" y="367" width="62" height="35"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <state key="normal" title="Sign Up">
-                                    <color key="titleColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="createAccountAction:" destination="nI2-GK-nSd" eventType="touchUpInside" id="lj5-ML-Hlp"/>
@@ -127,7 +127,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea9-XJ-M2z">
                                 <rect key="frame" x="151" y="82" width="73" height="26"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aKL-lZ-N5j">
@@ -146,14 +146,13 @@
                                 <rect key="frame" x="86" y="410" width="203" height="35"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <state key="normal" title="Already have an account?">
-                                    <color key="titleColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="showDetail" id="Poh-8j-1V8"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="aKL-lZ-N5j" firstAttribute="trailing" secondItem="zjM-2u-PzZ" secondAttribute="trailing" id="51Q-7I-xue"/>
                             <constraint firstItem="iY8-Nj-P0q" firstAttribute="leading" secondItem="pGS-TG-6TC" secondAttribute="leading" constant="57" id="6VL-O6-l0f"/>
@@ -194,8 +193,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UNN-qX-CIN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MuscleTableViewCell" rowHeight="120" id="ucl-kQ-RaC" customClass="MuscleTableViewCell" customModule="GymApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
@@ -207,7 +205,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Muscle Group" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jja-Zn-bPh">
                                             <rect key="frame" x="16" y="28.5" width="343" height="62.5"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
-                                            <color key="textColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -218,12 +216,12 @@
                                         <constraint firstAttribute="bottom" secondItem="jja-Zn-bPh" secondAttribute="bottom" constant="28.5" id="iyV-Wf-5fv"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="WorkoutName" destination="jja-Zn-bPh" id="hb3-1L-usp"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="M7X-dz-rXk" id="D5f-vb-cjF"/>
                             <outlet property="delegate" destination="M7X-dz-rXk" id="fe2-yf-jUg"/>
@@ -231,7 +229,7 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem title="Home" image="homeIcon.png" id="G45-B0-Qwk">
-                            <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="8iH-X3-j2e" kind="showDetail" id="vtU-ml-Atl"/>
                             </connections>
@@ -239,12 +237,12 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="6fm-FK-xar"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="gNW-ut-mYI"/>
                         <barButtonItem title="Gym" image="gymIcon.png" id="bLr-pN-YsG">
-                            <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="UJ1-5A-MOG"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="b45-Hh-rco"/>
                         <barButtonItem title="Data" image="dataIcon.png" id="e6f-cl-aFC">
-                            <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="YpM-Y7-fhp" kind="showDetail" id="ydW-U1-f3G"/>
                             </connections>
@@ -252,7 +250,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="eHl-1h-6kq"/>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="JW6-78-efx"/>
                         <barButtonItem title="Settings" image="settingsIcon.png" id="MNs-fv-9Oa">
-                            <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="26E-AM-RhK" kind="showDetail" animates="NO" id="XAl-pi-vDl"/>
                             </connections>
@@ -260,7 +258,7 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Your Muscle Groups" id="MBR-YQ-TzI">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="xm5-Fa-9o1">
-                            <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addButtonAction:" destination="M7X-dz-rXk" id="RHv-W7-AkY"/>
                             </connections>
@@ -279,7 +277,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="106" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LZw-qf-xNX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkoutTableViewCell" rowHeight="106" id="Naa-yi-NHv" customClass="WorkoutTableViewCell" customModule="GymApp" customModuleProvider="target">
@@ -292,7 +290,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Workout" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0K7-dv-D0A">
                                             <rect key="frame" x="16" y="11" width="343" height="37"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sets" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qb1-YI-GU0">
@@ -302,19 +300,19 @@
                                                 <constraint firstAttribute="width" constant="100" id="gMX-Lt-Von"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R10-ZC-vbu">
                                             <rect key="frame" x="126" y="74" width="123" height="21"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFX-CP-06v">
                                             <rect key="frame" x="257" y="74" width="118" height="21"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -335,7 +333,6 @@
                                         <constraint firstItem="Qb1-YI-GU0" firstAttribute="leading" secondItem="Elp-GH-p5W" secondAttribute="leading" id="wG2-by-ofm"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="repsLabel" destination="R10-ZC-vbu" id="vJj-Py-dwu"/>
                                     <outlet property="setsLabel" destination="Qb1-YI-GU0" id="Xd5-3x-Tnx"/>
@@ -351,7 +348,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Workouts" id="6f0-ad-hXO">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ZoB-px-j8i">
-                            <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="workoutAddButton:" destination="ifg-q2-LnW" id="Lci-k0-ChC"/>
                             </connections>
@@ -375,6 +372,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <barButtonItem title="Home" image="homeIcon.png" id="UBy-CY-Lgd">
+                                        <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="8iH-X3-j2e" kind="showDetail" id="wr1-7s-MHD"/>
                                         </connections>
@@ -382,6 +380,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="zWW-JG-UwH"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="78K-L6-fUW"/>
                                     <barButtonItem title="Gym" image="gymIcon.png" id="gvP-sy-Bp6">
+                                        <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="UEt-IG-bn7" kind="showDetail" animates="NO" id="Yjd-D9-6sY"/>
                                         </connections>
@@ -389,28 +388,30 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="xRX-1n-zId"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="icF-vK-OUR"/>
                                     <barButtonItem title="Data" image="dataIcon.png" id="n9d-aR-ZWn">
+                                        <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="YpM-Y7-fhp" kind="showDetail" id="m2V-7B-bsZ"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="d9k-ZB-wg3"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="aJQ-7h-nZF"/>
-                                    <barButtonItem title="Settings" image="settingsIcon.png" id="Frk-I3-SEE"/>
+                                    <barButtonItem title="Settings" image="settingsIcon.png" id="Frk-I3-SEE">
+                                        <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </barButtonItem>
                                 </items>
                                 <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="barTintColor" red="0.0078431372550000003" green="0.031372549020000001" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqh-NL-kjw">
                                 <rect key="frame" x="152" y="60" width="70" height="26"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lB8-Ce-4a6">
                                 <rect key="frame" x="133" y="251" width="112" height="35"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <state key="normal" title="Clear All Data">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="clearDataAction:" destination="26E-AM-RhK" eventType="touchUpInside" id="U1b-AG-1Q0"/>
@@ -420,14 +421,14 @@
                                 <rect key="frame" x="154" y="316" width="68" height="35"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <state key="normal" title="Sign Out">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="signOutAction:" destination="26E-AM-RhK" eventType="touchUpInside" id="WGP-DG-d2a"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="lB8-Ce-4a6" firstAttribute="leading" secondItem="13d-Zd-zCp" secondAttribute="leading" constant="133" id="EGA-8S-eSH"/>
                             <constraint firstItem="JLo-Op-dgL" firstAttribute="centerX" secondItem="v5Z-hB-Xcx" secondAttribute="centerX" id="WiG-cn-tdz"/>
@@ -453,8 +454,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="266" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="rz3-NB-g1V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DataCell" rowHeight="266" id="Ytu-gp-NX9" customClass="DataTableViewCell" customModule="GymApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="266"/>
@@ -465,7 +465,6 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALy-oe-26b" customClass="LineChartView" customModule="Charts">
                                             <rect key="frame" x="16" y="11" width="343" height="244"/>
-                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                     </subviews>
                                     <constraints>
@@ -475,7 +474,6 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="ALy-oe-26b" secondAttribute="bottom" id="qMl-Jg-Dq2"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="lineChart" destination="ALy-oe-26b" id="fcp-mE-fyS"/>
                                 </connections>
@@ -489,25 +487,26 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem title="Item" image="homeIcon.png" id="Kb7-F5-hn7">
-                            <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="8iH-X3-j2e" kind="showDetail" id="Tqg-Ew-mEO"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="mPP-wg-Hiz"/>
                         <barButtonItem title="Item" image="gymIcon.png" id="7hq-hK-IfV">
-                            <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="UEt-IG-bn7" kind="showDetail" id="LVT-14-JR3"/>
+                                <action selector="gymAction:" destination="BqR-5N-PX9" id="iMf-7r-dxk"/>
+                                <segue destination="UEt-IG-bn7" kind="showDetail" id="LCN-dC-We1"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Uez-V5-rj1"/>
                         <barButtonItem title="Item" image="dataIcon.png" id="tFr-9w-waN">
-                            <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="igi-8B-ANh"/>
                         <barButtonItem title="Item" image="settingsIcon.png" id="Ozl-Wr-uXG">
-                            <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="26E-AM-RhK" kind="showDetail" id="3B2-f6-5wd"/>
                             </connections>
@@ -533,10 +532,13 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <barButtonItem title="Home" image="homeIcon.png" width="42" id="qwa-xu-qJa"/>
+                                    <barButtonItem title="Home" image="homeIcon.png" width="42" id="qwa-xu-qJa">
+                                        <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="X7q-tE-wQk"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="67w-VN-04D"/>
                                     <barButtonItem title="Gym" image="gymIcon.png" id="r6e-5q-gvn">
+                                        <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="UEt-IG-bn7" kind="showDetail" animates="NO" id="3gp-fE-gvB"/>
                                         </connections>
@@ -544,6 +546,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bWM-7P-Uax"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="kmG-7O-8Bd"/>
                                     <barButtonItem title="Data" image="dataIcon.png" id="cd0-ur-3WA">
+                                        <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="YpM-Y7-fhp" kind="showDetail" id="jSf-Me-zqZ"/>
                                         </connections>
@@ -551,22 +554,22 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="2i5-OL-UqJ"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Seq-Ef-xq5"/>
                                     <barButtonItem title="Settings" image="settingsIcon.png" id="pdy-UR-VJh">
+                                        <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <segue destination="26E-AM-RhK" kind="showDetail" animates="NO" id="Uhb-Tv-mQC"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
                                 <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Gymalytics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwe-o5-tE2">
                                 <rect key="frame" x="80" y="320" width="215" height="26"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.61176470588235299" green="0.15294117647058825" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="kVo-kc-PUW" firstAttribute="trailing" secondItem="dwe-o5-tE2" secondAttribute="trailing" constant="80" id="KHY-fy-Zce"/>
                             <constraint firstItem="dwe-o5-tE2" firstAttribute="top" secondItem="kVo-kc-PUW" secondAttribute="top" constant="300" id="bt9-l9-pr5"/>
@@ -582,15 +585,14 @@
         <!--Navigation Controller-->
         <scene sceneID="4Ld-qD-7sY">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="UEt-IG-bn7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MuscleTableView" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="UEt-IG-bn7" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KtY-O1-kjU">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -599,7 +601,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </toolbar>
                     <connections>
                         <segue destination="M7X-dz-rXk" kind="relationship" relationship="rootViewController" id="M9U-21-F9S"/>
@@ -618,7 +619,7 @@
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -641,18 +642,14 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YOB-cS-Zj4">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.0" green="0.69803921570000005" blue="0.79215686269999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" red="0.61176470589999998" green="0.1529411765" blue="0.69019607839999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7ty-UZ-apy">
                         <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </toolbar>
                     <connections>
                         <segue destination="BqR-5N-PX9" kind="relationship" relationship="rootViewController" id="7e1-ap-3ac"/>
@@ -670,10 +667,11 @@
         <image name="settingsIcon.png" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="m2V-7B-bsZ"/>
-        <segue reference="Yjd-D9-6sY"/>
-        <segue reference="wr1-7s-MHD"/>
-        <segue reference="3B2-f6-5wd"/>
+        <segue reference="M9U-21-F9S"/>
+        <segue reference="ydW-U1-f3G"/>
+        <segue reference="LCN-dC-We1"/>
+        <segue reference="vtU-ml-Atl"/>
+        <segue reference="XAl-pi-vDl"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
 </document>

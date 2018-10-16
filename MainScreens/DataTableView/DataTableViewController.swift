@@ -26,6 +26,8 @@ class DataTableViewController: UITableViewController {
 
     var groupCount = 0
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -43,6 +45,15 @@ class DataTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+//    @IBAction func gymAction(_ sender: Any) {
+//        //Passing data to workout controller
+//        let muscleTableViewController = storyboard?.instantiateViewController(withIdentifier: "MuscleTableView") as! UINavigationController
+//
+//        self.navigationController?.pushViewController(muscleTableViewController, animated: true)
+//        self.navigationController?.popViewController(animated: true)
+//        //self.dismiss(animated: true, completion: {})
+//    }
 
     // MARK: - Table view data source
 
@@ -100,13 +111,13 @@ class DataTableViewController: UITableViewController {
             chartData.addDataSet(chartDataSet)
             
             //Data Set Color Customization
-            chartDataSet.colors = [UIColor.cyan]
-            chartDataSet.setCircleColor(UIColor.cyan) //0, 178, 202
-            chartDataSet.circleHoleColor = UIColor.cyan
+            chartDataSet.colors = [UIColor.purple]
+            chartDataSet.setCircleColor(UIColor.purple) //0, 178, 202
+            chartDataSet.circleHoleColor = UIColor.purple
             chartDataSet.circleHoleRadius = 4.0
             
             //Color Gradient Definition
-            let gradientColors = [UIColor.cyan.cgColor, UIColor.clear.cgColor] as CFArray
+            let gradientColors = [UIColor.purple.cgColor, UIColor.clear.cgColor] as CFArray
             let colorLocations: [CGFloat] = [1.0, 0.0]
             guard let gradient = CGGradient.init(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: gradientColors, locations: colorLocations) else { print("Gradient Error"); return}
             chartDataSet.fill = Fill.fillWithLinearGradient(gradient, angle: 0.0)
@@ -114,7 +125,7 @@ class DataTableViewController: UITableViewController {
             chartDataSet.mode = .cubicBezier
             chartDataSet.cubicIntensity = 0.2
             chartDataSet.circleRadius = 3.0
-            chartDataSet.valueTextColor = NSUIColor.cyan
+            chartDataSet.valueTextColor = NSUIColor.purple
             
             //MARK-2
             
@@ -126,10 +137,10 @@ class DataTableViewController: UITableViewController {
             cell.lineChart.rightAxis.enabled = false
             cell.lineChart.leftAxis.drawGridLinesEnabled = false
             cell.lineChart.leftAxis.drawLabelsEnabled = true
-            cell.lineChart.backgroundColor = UIColor.black
-            cell.lineChart.xAxis.labelTextColor = UIColor.cyan //Axis colors
-            cell.lineChart.leftAxis.labelTextColor = UIColor.cyan
-            cell.lineChart.legend.textColor = UIColor.cyan //Legend color
+            cell.lineChart.backgroundColor = UIColor.white
+            cell.lineChart.xAxis.labelTextColor = UIColor.purple //Axis colors
+            cell.lineChart.leftAxis.labelTextColor = UIColor.purple
+            cell.lineChart.legend.textColor = UIColor.purple //Legend color
             
             cell.lineChart.animate(xAxisDuration: 1.0, yAxisDuration: 1.0)
             
@@ -181,8 +192,10 @@ class DataTableViewController: UITableViewController {
             
             if (key != "Dummy") {
                 
+                //Error on add of new workout, but why is this method running in muscletableviewController?
+                //Could be running in background, as error occurs when we go data -> muscleView. How do I close data?
                 let repsVal = value["Reps"] as! Double //Random nil error?
-                let setsVal = value["Sets"] as! Double //Error on add of new workout, but why is this running?
+                let setsVal = value["Sets"] as! Double
                 let weightVal = value["Weight"] as! Double
                 let dateVal = value["Date"] as! String
                 

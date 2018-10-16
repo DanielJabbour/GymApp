@@ -87,12 +87,24 @@ class MuscleTableViewController: UITableViewController {
         //Passing data to workout controller
         let workoutTableViewController = storyboard?.instantiateViewController(withIdentifier: "WorkoutTableView") as! WorkoutTableViewController
         let selected = muscles[indexPath.row]
-        
+
         workoutTableViewController.muscleGroup = selected.group
         workoutTableViewController.userID = String(self.userID)
-        
+
         self.navigationController?.pushViewController(workoutTableViewController, animated: true)
     }
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//            if segue.destination is WorkoutTableViewController {
+//                let vc = segue.destination as? WorkoutTableViewController
+//                let selected = muscles[indexPath.row]
+//
+//                vc?.muscleGroup = selected.group
+//                vc?.userID = String(self.userID)
+//            }
+//        }
+//    }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
